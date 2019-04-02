@@ -19,9 +19,24 @@ class App extends Component {
           >
             Learn React
           </a>
+          <br />
+          <River />
         </header>
       </div>
     );
+  }
+}
+
+class River extends Component {
+  constructor(props) {
+    super(props)
+  }
+  render() {
+    return (
+      <div id="test-button">
+        <button>TEST</button>
+      </div>
+    )
   }
 }
 
