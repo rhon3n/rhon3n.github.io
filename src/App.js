@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import './index.scss';
 import { 
+  Footer,
   Level,
   Tag,
   Box,
@@ -36,6 +37,15 @@ class App extends Component {
         </Section>
         <MainContent />
         <EmailForm />
+        <Footer>
+          <Container>
+            <Level>
+              <Level.Item>
+                <p>Made with <strike>love</strike> React by Joel Rhine aka <em>rhonen</em> <span role="img" aria-label="praying hands emoji">🙏</span></p>
+              </Level.Item>
+            </Level>
+          </Container>
+        </Footer>
       </div>      
     );
   }
@@ -94,7 +104,7 @@ class TileBox extends Component {
 class GoalTile extends Component {
   render() {
     return (
-      <Tile kind="child" size={4} notification>
+      <Tile kind="child" size={4} notification color="link">
         <Heading>MY GOAL</Heading>
         <p>To collaborate with a great team to create quality, mobile-first software experiences that make people feel good.<br /> <br /> Ultimately, I want to make the world better every day.<br /><br /><span role="img" aria-label="rocketship emoji">🚀</span></p>
       </Tile>
@@ -105,7 +115,7 @@ class GoalTile extends Component {
 class ExperienceTile extends Component {
   render() {
     return (
-      <Tile kind="child" notification color="link">
+      <Tile kind="child" notification>
         <Heading>DEV EXPERIENCE</Heading>
         <p><a href="http://www.dunecoffee.com">dunecoffee.com</a> -<strong> css style upkeep + animations + custom theming + wholesale portal</strong><br /><br /> portfolio - react website<br /><br /> hawaiicjc - js interactivity<br /><br /> github - demonstration of creativity, entrepreneurial spirit</p>
       </Tile>
