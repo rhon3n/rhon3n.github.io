@@ -34,7 +34,7 @@ class EmailForm extends Component {
             <div class="control">
               <input class="input" type="email" placeholder="you@arecool.com" />
             </div>
-            <a class="button has-background-info has-text-white">Get in touch</a>
+            <a class="button has-background-info has-text-white">Stay in touch</a>
           </div>
         </Container>
       </Section>
