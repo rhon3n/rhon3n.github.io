@@ -23,11 +23,12 @@ class App extends Component {
                 <h2 className="subtitle">Thanks for stopping by!</h2>
                 <Level>
                   <Level.Item>
-                  <Tag.Group gapless>
-                    <Tag color="primary">COLLABORATOR</Tag>
-                    <Tag>PROBLEM-SOLVER</Tag>
-                    <Tag color="link">ENTREPRENEUR</Tag>
-                  </Tag.Group></Level.Item>
+                    <Tag.Group gapless>
+                      <Tag color="primary">COLLABORATOR</Tag>
+                      <Tag>PROBLEM-SOLVER</Tag>
+                      <Tag color="link">ENTREPRENEUR</Tag>
+                    </Tag.Group>
+                  </Level.Item>
                 </Level>
               </Hero.Body>
             </Container>
@@ -46,12 +47,16 @@ class EmailForm extends Component {
     return (
       <Section class="is-flex-mobile">
         <Container>
-          <div class="field has-addons">
-            <div class="control">
-              <input class="input" type="email" placeholder="you@arecool.io 😎" />
-            </div>
-            <a class="button has-background-info has-text-white">Stay in touch</a>
-          </div>
+          <Level>
+            <Level.Item>
+              <div class="field has-addons">
+                <div class="control">
+                  <input class="input" type="email" placeholder="you@arecool.io 😎" />
+                </div>
+                <a class="button has-background-info has-text-white">Stay in touch</a>
+              </div>
+            </Level.Item>
+          </Level>
         </Container>
       </Section>
     )
@@ -71,20 +76,15 @@ class MainContent extends Component {
 class TileBox extends Component {
   render() {
     return (      
-      <Tile kind="ancestor">
-        <Tile size={4}>
+      <Tile kind="ancestor" vertical>
+        <Tile size={12} kind="parent">
           <Tile>
-            <Tile kind="parent" >
               <GoalTile />
-            </Tile>               
+              <ExperienceTile />           
           </Tile>
         </Tile>
-        <Tile size={8}>
-        <Tile>
-            <Tile kind="parent" color="purple" >
-              <ResumeTile />
-            </Tile>               
-        </Tile>
+        <Tile size={12} kind="parent">
+            <EducationTile />
         </Tile>
       </Tile>
     )
@@ -94,20 +94,31 @@ class TileBox extends Component {
 class GoalTile extends Component {
   render() {
     return (
-      <Tile kind="child" notification>
+      <Tile kind="child" size={4} notification>
         <Heading>MY GOAL</Heading>
-        <p>To collaborate with a great team to create quality, mobile-first software experiences that make people feel good.<br /> <br /> Ultimately, I want to make the world better every day.<br /><br />🚀</p>
+        <p>To collaborate with a great team to create quality, mobile-first software experiences that make people feel good.<br /> <br /> Ultimately, I want to make the world better every day.<br /><br /><span role="img" aria-label="rocketship emoji">🚀</span></p>
       </Tile>
     )
   }
 }
 
-class ResumeTile extends Component {
+class ExperienceTile extends Component {
   render() {
     return (
       <Tile kind="child" notification color="link">
         <Heading>DEV EXPERIENCE</Heading>
-        <p><a href="http://www.dunecoffee.com">dune</a> - css style upkeep + animations + custom theming + wholesale portal<br /><br /> portfolio - react website<br /><br /> hawaiicjc - js interactivity<br /><br /> github - demonstration of creativity, entrepreneurial spirit</p>
+        <p><a href="http://www.dunecoffee.com">dunecoffee.com</a> -<strong> css style upkeep + animations + custom theming + wholesale portal</strong><br /><br /> portfolio - react website<br /><br /> hawaiicjc - js interactivity<br /><br /> github - demonstration of creativity, entrepreneurial spirit</p>
+      </Tile>
+    )
+  }
+}
+
+class EducationTile extends Component {
+  render() {
+    return (
+      <Tile kind="child"  size={12} notification color="primary">
+        <Heading>EDUCATION</Heading>
+        <p>Udacity - Grow with Google Codecademy - Intro to JS freecodecamp Always a lifelong learner, dying to learn more and stay sharp</p>
       </Tile>
     )
   }
