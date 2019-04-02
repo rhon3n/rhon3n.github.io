@@ -14,7 +14,7 @@ class App extends Component {
         <Section>
           <Hero color="primary" gradient>
             <Hero.Body>
-              <h1 className="title">Hello 👋</h1>
+              <h1 className="title">Hi, I'm Joel 👋</h1>
               <h2 className="subtitle">Thanks for stopping by!</h2>
             </Hero.Body>
           </Hero>
