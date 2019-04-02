@@ -19,13 +19,13 @@ class App extends Component {
             </Hero.Body>
           </Hero>
         </Section>
-        <Content />
+        <EmailForm />
       </div>      
     );
   }
 }
 
-class Content extends Component {
+class EmailForm extends Component {
   render() {
     return (
       <Section class="is-flex-mobile">
