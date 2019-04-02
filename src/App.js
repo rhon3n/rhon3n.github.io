@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import './App.css';
 import './index.scss';
 import { 
+  Level,
+  Tag,
   Box,
   Tile,
   Section,
@@ -14,11 +16,21 @@ class App extends Component {
     return (
       <div className="App">
         <Section>
-          <Hero color="primary" gradient>
-            <Hero.Body>
-              <h1 className="title">Hi, I'm Joel 👋</h1>
-              <h2 className="subtitle">Thanks for stopping by!</h2>
-            </Hero.Body>
+          <Hero color="primary" gradient size="medium">
+            <Container fluid>
+              <Hero.Body>
+                <h1 className="title">Hi, I'm Joel <span role="img" aria-label="waving hand emoji">👋</span></h1>
+                <h2 className="subtitle">Thanks for stopping by!</h2>
+                <Level>
+                  <Level.Item>
+                  <Tag.Group gapless>
+                    <Tag color="primary">COLLABORATOR</Tag>
+                    <Tag>PROBLEM-SOLVER</Tag>
+                    <Tag color="link">ENTREPRENEUR</Tag>
+                  </Tag.Group></Level.Item>
+                </Level>
+              </Hero.Body>
+            </Container>
           </Hero>
         </Section>
         <MainContent />
@@ -36,7 +48,7 @@ class EmailForm extends Component {
         <Container>
           <div class="field has-addons">
             <div class="control">
-              <input class="input" type="email" placeholder="you@arecool.com" />
+              <input class="input" type="email" placeholder="you@arecool.io 😎" />
             </div>
             <a class="button has-background-info has-text-white">Stay in touch</a>
           </div>
@@ -50,9 +62,7 @@ class MainContent extends Component {
   render() {
     return (
       <Section>
-        <Box>
           <TileBox />
-        </Box>
       </Section>
     )
   }
@@ -64,10 +74,17 @@ class TileBox extends Component {
       <Tile kind="ancestor">
         <Tile size={4}>
           <Tile>
-            <Tile kind="parent" vertical>
+            <Tile kind="parent" >
               <GoalTile />
             </Tile>               
           </Tile>
+        </Tile>
+        <Tile size={8}>
+        <Tile>
+            <Tile kind="parent" color="purple" >
+              <ResumeTile />
+            </Tile>               
+        </Tile>
         </Tile>
       </Tile>
     )
@@ -79,7 +96,18 @@ class GoalTile extends Component {
     return (
       <Tile kind="child" notification>
         <Heading>MY GOAL</Heading>
-        <Heading subtitle>To collaborate with a great team to create quality software experiences that make people feel good.<br /> <br /> I want to make the world better every day.<br /><br />🚀</Heading>
+        <p>To collaborate with a great team to create quality, mobile-first software experiences that make people feel good.<br /> <br /> Ultimately, I want to make the world better every day.<br /><br />🚀</p>
+      </Tile>
+    )
+  }
+}
+
+class ResumeTile extends Component {
+  render() {
+    return (
+      <Tile kind="child" notification color="link">
+        <Heading>DEV EXPERIENCE</Heading>
+        <p><a href="http://www.dunecoffee.com">dune</a> - css style upkeep + animations + custom theming + wholesale portal<br /><br /> portfolio - react website<br /><br /> hawaiicjc - js interactivity<br /><br /> github - demonstration of creativity, entrepreneurial spirit</p>
       </Tile>
     )
   }
