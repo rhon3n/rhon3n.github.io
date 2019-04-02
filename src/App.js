@@ -28,7 +28,7 @@ class App extends Component {
 class Content extends Component {
   render() {
     return (
-      <Section>
+      <Section class="is-flex-mobile">
         <Container>
           <div class="field has-addons">
             <div class="control">
