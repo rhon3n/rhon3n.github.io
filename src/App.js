@@ -41,7 +41,7 @@ class App extends Component {
           <Container>
             <Level>
               <Level.Item>
-                <p>Made with <strike>love</strike> React by Joel Rhine aka <em>rhonen</em> <span role="img" aria-label="praying hands emoji">🙏</span></p>
+                <p>Made with <strike>love</strike> React by <strong>Joel Rhine</strong> aka <em>rhonen</em> <span role="img" aria-label="praying hands emoji">🙏</span></p>
               </Level.Item>
             </Level>
           </Container>
@@ -55,7 +55,7 @@ class App extends Component {
 class EmailForm extends Component {
   render() {
     return (
-      <Section class="is-flex-mobile">
+      <Section>
         <Container>
           <Level>
             <Level.Item>
@@ -88,13 +88,12 @@ class TileBox extends Component {
     return (      
       <Tile kind="ancestor" vertical>
         <Tile size={12} kind="parent">
-          <Tile>
               <GoalTile />
-              <ExperienceTile />           
-          </Tile>
+              <ExperienceTile />
         </Tile>
         <Tile size={12} kind="parent">
             <EducationTile />
+            <WorkTile/>
         </Tile>
       </Tile>
     )
@@ -123,15 +122,28 @@ class ExperienceTile extends Component {
   }
 }
 
+class WorkTile extends Component {
+  render() {
+    return (
+      <Tile kind="child" notification>
+        <Heading>WORK EXPERIENCE</Heading>
+        <p>Good Coffee<br />Dune Coffee Roasters</p>
+      </Tile>
+    )
+  }
+}
+
 class EducationTile extends Component {
   render() {
     return (
-      <Tile kind="child"  size={12} notification color="primary">
+      <Tile kind="child"  size={8} notification color="primary">
         <Heading>EDUCATION</Heading>
         <p>Udacity - Grow with Google Codecademy - Intro to JS freecodecamp Always a lifelong learner, dying to learn more and stay sharp</p>
       </Tile>
     )
   }
 }
+
+
 
 export default App;
