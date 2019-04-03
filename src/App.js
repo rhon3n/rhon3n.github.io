@@ -36,7 +36,7 @@ class App extends Component {
                   </Level.Item>
                 </Level>
                 <Level>
-                <Level.Item><span><FontAwesomeIcon icon={["fab", "linkedin"]} size="2x" /></span>
+                <Level.Item><span><a href="https://www.linkedin.com/in/joel-t-rhine/"><FontAwesomeIcon icon={["fab", "linkedin"]} size="2x" /></a></span>
                   </Level.Item>
                 </Level>
               </Hero.Body>
