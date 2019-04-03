@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import './App.css';
 import './index.scss';
 import { 
+  Icon,
+  Button,
   Footer,
   Level,
   Tag,
@@ -46,17 +48,25 @@ class App extends Component {
                 <h2 className="subtitle">Thanks for stopping by!</h2>
                 <Level>
                   <Level.Item>
-                    <Tag.Group>
+                    <Tag.Group gapless>
                       <Tag color="primary">COLLABORATOR</Tag>
-                      <Tag>PROBLEM-SOLVER</Tag>
-                      <Tag color="link">ENTREPRENEUR</Tag>
+                      <Tag>LEADER</Tag>
+                      <Tag color="link">INNOVATOR</Tag>
                     </Tag.Group>
                   </Level.Item>
                 </Level>
                 <Level>
                     <Level.Item>
-                      <span><a href="https://www.linkedin.com/in/joel-t-rhine/"><FontAwesomeIcon icon={["fab", "linkedin"]} size="2x" /></a></span>
-                      <span><a href="https://github.com/rhon3n"><FontAwesomeIcon icon={["fab", "github-square"]} size="2x" /></a></span>
+                      <Icon size="large">
+                        <span>
+                          <a href="https://www.linkedin.com/in/joel-t-rhine/"><FontAwesomeIcon icon={["fab", "linkedin"]} size="2x" /></a>
+                        </span>
+                      </Icon>
+                      <Icon size="large">
+                        <span>
+                          <a href="https://github.com/rhon3n"><FontAwesomeIcon icon={["fab", "github-square"]} size="2x" /></a>
+                        </span>
+                      </Icon>
                     </Level.Item>
                 </Level>
               </Hero.Body>
