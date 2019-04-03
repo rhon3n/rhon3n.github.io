@@ -11,6 +11,10 @@ import {
   Heading,
   Container,
   Hero, } from "react-bulma-components/full";
+  import { library } from '@fortawesome/fontawesome-svg-core'
+  import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+  import { fab } from '@fortawesome/free-brands-svg-icons'
+  import { faLinkedin } from '@fortawesome/free-brands-svg-icons'
 
 class App extends Component {
   render() {
@@ -29,6 +33,10 @@ class App extends Component {
                       <Tag>PROBLEM-SOLVER</Tag>
                       <Tag color="link">ENTREPRENEUR</Tag>
                     </Tag.Group>
+                  </Level.Item>
+                </Level>
+                <Level>
+                <Level.Item><span><FontAwesomeIcon icon={["fab", "linkedin"]} size="2x" /></span>
                   </Level.Item>
                 </Level>
               </Hero.Body>
@@ -144,6 +152,6 @@ class EducationTile extends Component {
   }
 }
 
-
+library.add(faLinkedin)
 
 export default App;
