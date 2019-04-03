@@ -13,8 +13,26 @@ import {
   Hero, } from "react-bulma-components/full";
   import { library } from '@fortawesome/fontawesome-svg-core'
   import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+  import { 
+    faPaperPlane,
+    faStar,
+    faWater,
+    faEnvelope,
+   } from '@fortawesome/free-solid-svg-icons'
   import { fab } from '@fortawesome/free-brands-svg-icons'
-  import { faLinkedin } from '@fortawesome/free-brands-svg-icons'
+  import { 
+    faLinkedin,
+    faGithubSquare,
+    faGitSquare,
+    faReact,
+    faJsSquare,
+    faNodeJs,
+    faCss3,
+    faHtml5,
+    faEthereum,
+    faWix,
+    faFreeCodeCamp,
+  } from '@fortawesome/free-brands-svg-icons'
 
 class App extends Component {
   render() {
@@ -28,7 +46,7 @@ class App extends Component {
                 <h2 className="subtitle">Thanks for stopping by!</h2>
                 <Level>
                   <Level.Item>
-                    <Tag.Group gapless>
+                    <Tag.Group>
                       <Tag color="primary">COLLABORATOR</Tag>
                       <Tag>PROBLEM-SOLVER</Tag>
                       <Tag color="link">ENTREPRENEUR</Tag>
@@ -36,8 +54,10 @@ class App extends Component {
                   </Level.Item>
                 </Level>
                 <Level>
-                <Level.Item><span><a href="https://www.linkedin.com/in/joel-t-rhine/"><FontAwesomeIcon icon={["fab", "linkedin"]} size="2x" /></a></span>
-                  </Level.Item>
+                    <Level.Item>
+                      <span><a href="https://www.linkedin.com/in/joel-t-rhine/"><FontAwesomeIcon icon={["fab", "linkedin"]} size="2x" /></a></span>
+                      <span><a href="https://github.com/rhon3n"><FontAwesomeIcon icon={["fab", "github-square"]} size="2x" /></a></span>
+                    </Level.Item>
                 </Level>
               </Hero.Body>
             </Container>
@@ -152,6 +172,18 @@ class EducationTile extends Component {
   }
 }
 
-library.add(faLinkedin)
+library.add(
+  faLinkedin,
+  faGithubSquare,
+  faGitSquare,
+  faReact,
+  faJsSquare,
+  faNodeJs,
+  faCss3,
+  faHtml5,
+  faEthereum,
+  faWix,
+  faEnvelope
+  )
 
 export default App;
