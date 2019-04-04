@@ -25,4 +25,4 @@ $input-border-color: transparent;
 $input-shadow: none;
 
 // Import the rest of Bulma:
-@import "bulma/bulma.sass";
+@import "../node_modules/bulma/bulma";
