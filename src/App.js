@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import './index.scss';
+import './mystyles.scss';
 import { 
   Icon,
   Button,
