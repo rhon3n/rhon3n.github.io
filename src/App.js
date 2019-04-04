@@ -3,6 +3,7 @@ import './App.css';
 import './index.scss';
 import './mystyles.scss';
 import { 
+  Content,
   Modal,
   Card,
   Icon,
@@ -36,6 +37,7 @@ import {
     faWix,
     faFreeCodeCamp,
   } from '@fortawesome/free-brands-svg-icons'
+  import { WelcomeModal } from './components/WelcomeModal';
 
 class App extends Component {
   render() {
@@ -73,7 +75,7 @@ class App extends Component {
               </Hero.Body>
             </Container>
           </Hero>
-          
+        <WelcomeModal />
         </Section>
         <MainContent />
         <EmailForm />
