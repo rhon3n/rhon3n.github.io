@@ -3,12 +3,12 @@ import './App.css';
 import './index.scss';
 import './mystyles.scss';
 import { 
+  Modal,
+  Card,
   Icon,
-  Button,
   Footer,
   Level,
   Tag,
-  Box,
   Tile,
   Section,
   Heading,
@@ -73,6 +73,7 @@ class App extends Component {
               </Hero.Body>
             </Container>
           </Hero>
+          
         </Section>
         <MainContent />
         <EmailForm />
