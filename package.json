@@ -19,7 +19,7 @@
     "react-scripts": "2.1.8"
   },
   "scripts": {
-    "predeploy": "npm-run-all build-css build-js",
+    "predeploy": "npm run build",
     "deploy": "gh-pages -b master -d build",
     "build-css": "node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/",
     "watch-css": "npm run build-css && node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/ --watch --recursive",
