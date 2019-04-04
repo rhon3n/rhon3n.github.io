@@ -1,5 +1,6 @@
 {
-  "name": "trickster",
+  "name": "rhonen-design",
+  "homepage": "https://rhonen.design",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -8,7 +9,6 @@
     "@fortawesome/free-solid-svg-icons": "^5.8.1",
     "@fortawesome/react-fontawesome": "^0.1.4",
     "bulma": "^0.7.4",
-    "gh-pages": "^2.0.1",
     "i": "^0.3.6",
     "node-sass-chokidar": "^1.3.4",
     "npm": "^6.9.0",
@@ -19,6 +19,8 @@
     "react-scripts": "2.1.8"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "build-css": "node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/",
     "watch-css": "npm run build-css && node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/ --watch --recursive",
     "start-js": "react-scripts start",
@@ -36,5 +38,8 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "gh-pages": "^2.0.1"
+  }
 }
