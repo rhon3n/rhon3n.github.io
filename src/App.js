@@ -94,7 +94,7 @@ class App extends Component {
   }
 }
 
-// Creates an form for collecting email.
+// Creates a form for collecting email.
 class EmailForm extends Component {
   render() {
     return (
