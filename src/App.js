@@ -38,6 +38,7 @@ import {
     faFreeCodeCamp,
   } from '@fortawesome/free-brands-svg-icons'
   import { WelcomeModal } from './components/WelcomeModal';
+  import { WorkTile } from './components/WorkTile';
 
 class App extends Component {
   render() {
@@ -159,17 +160,6 @@ class ExperienceTile extends Component {
       <Tile kind="child" notification>
         <Heading>DEV EXPERIENCE</Heading>
         <p><a href="http://www.dunecoffee.com">dunecoffee.com</a> -<strong> css style upkeep + animations + custom theming + wholesale portal</strong><br /><br /> portfolio - react website<br /><br /> hawaiicjc - js interactivity<br /><br /> github - demonstration of creativity, entrepreneurial spirit</p>
-      </Tile>
-    )
-  }
-}
-
-class WorkTile extends Component {
-  render() {
-    return (
-      <Tile kind="child" notification>
-        <Heading>WORK EXPERIENCE</Heading>
-        <p>Good Coffee<br />Dune Coffee Roasters</p>
       </Tile>
     )
   }
