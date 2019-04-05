@@ -31,7 +31,6 @@ class App extends Component {
             <Container fluid>
               <Hero.Body>
                 <h1 className="title">Hi, I'm Joel <span role="img" aria-label="waving hand emoji">👋</span></h1>
-                <h2 className="subtitle">Thanks for stopping by!</h2>
                 <Level>
                   <Level.Item>
                     <Tag.Group gapless>
@@ -62,6 +61,9 @@ class App extends Component {
         <CenteredColumn />
         <Section>
           <TileBox />
+        </Section>
+        <Section>
+        <p className="has-text-weight-bold is-size-4">Thank you for looking! 👀</p>
         </Section>
         <Footer>
           <Container>
