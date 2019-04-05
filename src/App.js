@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import './mystyles.scss';
+import './dopestyles.scss';
 import './index.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { 
