@@ -4,6 +4,7 @@ import './mystyles.scss';
 import './index.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { 
+  Columns,
   Content,
   Modal,
   Card,
@@ -19,6 +20,7 @@ import {
 import { WelcomeModal } from './components/WelcomeModal';
 import { TileBox } from './components/Tiles';
 import './helpers/fontawesome';
+import { CenteredColumn } from './components/CenteredColumn'
 
 class App extends Component {
   render() {
@@ -56,8 +58,8 @@ class App extends Component {
               </Hero.Body>
             </Container>
           </Hero>
-        <WelcomeModal />
         </Section>
+        <CenteredColumn />
         <Section>
           <TileBox />
         </Section>
