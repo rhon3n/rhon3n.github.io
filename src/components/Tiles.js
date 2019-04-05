@@ -39,7 +39,7 @@ export class GoalTile extends Component {
         return (
         <Tile kind="child" size={4} notification color="link">
             <Heading>MY GOAL</Heading>
-            <p>To collaborate with a great team to create quality, mobile-first software experiences that make people feel good.<br /> <br /> Ultimately, I want to make the world better every day.<br /><br /><span role="img" aria-label="rocketship emoji">🚀</span></p>
+            <p className="is-size-5">To collaborate with a great team to create quality, mobile-first software experiences that make people feel good.<br /> <br /> Ultimately, I want to make the world better every day.<br /><br /><span role="img" aria-label="rocketship emoji">🚀</span></p>
         </Tile>
         )
     }
@@ -50,7 +50,22 @@ export class ExperienceTile extends Component {
         return (
         <Tile kind="child" notification>
             <Heading>DEV EXPERIENCE</Heading>
-            <p><a href="http://www.dunecoffee.com">dunecoffee.com</a> -<strong> css style upkeep + animations + custom theming + wholesale portal</strong><br /><br /> portfolio - react website<br /><br /> hawaiicjc - js interactivity<br /><br /> github - demonstration of creativity, entrepreneurial spirit</p>
+            <li className="has-text-left is-size-5">
+                <a className="is-size-5 has-text-weight-bold" href="http://www.dunecoffee.com">DUNECOFFEE.COM</a> - css style upkeep + animations + custom theming + wholesale portal
+            </li>
+            <br />
+            <li className="has-text-left is-size-5">
+                <a className="is-size-5 has-text-weight-bold" href="https://github.com/rhon3n/rhon3n.github.io          ">RHONEN.DESIGN</a> - react website
+                <br />
+            </li>
+            <br />
+            <li className="has-text-left is-size-5">
+                <a className="is-size-5 has-text-weight-bold" href="http://www.hawaiicjc.org">HAWAIICJC.ORG</a> - js interactivity
+            </li>
+            <br />
+            <li className="has-text-left is-size-5">
+                <a className="is-size-5 has-text-weight-bold" href="http://www.github.com/rhon3n">GITHUB.COM</a> - demonstration of creativity, entrepreneurial spirit
+            </li>
         </Tile>
         )
     }
@@ -61,7 +76,11 @@ export class EducationTile extends Component {
         return (
         <Tile kind="child"  size={8} notification color="primary">
             <Heading>EDUCATION</Heading>
-            <p>Udacity - Grow with Google Codecademy - Intro to JS freecodecamp Always a lifelong learner, dying to learn more and stay sharp</p>
+            <li className="has-text-left is-size-5">Udacity - Grow with Google Challenge Course</li>
+            <li className="has-text-left is-size-5">Codecademy - Intro to JS</li> 
+            <li className="has-text-left is-size-5">freecodecamp - Html 5, CSS, React, JS</li>
+            <br />
+            <p className="has-text-center is-size-5 has-text-weight-bold"> Always a lifelong learner, dying to learn more and stay sharp</p>
         </Tile>
         )
     }
@@ -72,7 +91,8 @@ export class WorkTile extends Component {
         return (
         <Tile kind="child" notification>
             <Heading>WORK EXPERIENCE</Heading>
-            <p>Good Coffee<br />Dune Coffee Roasters</p>
+            <li className="has-text-left is-size-5">Good Coffee LLC</li>
+            <li className="has-text-left is-size-5">Dune Coffee Roasters</li>
         </Tile>
         )
     }
