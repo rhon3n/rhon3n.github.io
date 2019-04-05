@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
-import './index.scss';
 import './mystyles.scss';
+import './index.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { 
   Content,
