@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import './index.scss';
 import './mystyles.scss';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { 
   Content,
   Modal,
@@ -15,30 +16,9 @@ import {
   Heading,
   Container,
   Hero, } from "react-bulma-components/full";
-  import { library } from '@fortawesome/fontawesome-svg-core'
-  import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-  import { 
-    faPaperPlane,
-    faStar,
-    faWater,
-    faEnvelope,
-   } from '@fortawesome/free-solid-svg-icons'
-  import { fab } from '@fortawesome/free-brands-svg-icons'
-  import { 
-    faLinkedin,
-    faGithubSquare,
-    faGitSquare,
-    faReact,
-    faJsSquare,
-    faNodeJs,
-    faCss3,
-    faHtml5,
-    faEthereum,
-    faWix,
-    faFreeCodeCamp,
-  } from '@fortawesome/free-brands-svg-icons'
-  import { WelcomeModal } from './components/WelcomeModal';
-  import { TileBox } from './components/Tiles';
+import { WelcomeModal } from './components/WelcomeModal';
+import { TileBox } from './components/Tiles';
+import './helpers/fontawesome';
 
 class App extends Component {
   render() {
@@ -81,7 +61,6 @@ class App extends Component {
         <Section>
           <TileBox />
         </Section>
-        <EmailForm />
         <Footer>
           <Container>
             <Level>
@@ -95,19 +74,5 @@ class App extends Component {
     );
   }
 }
-
-library.add(
-  faLinkedin,
-  faGithubSquare,
-  faGitSquare,
-  faReact,
-  faJsSquare,
-  faNodeJs,
-  faCss3,
-  faHtml5,
-  faEthereum,
-  faWix,
-  faEnvelope
-  )
 
 export default App;
