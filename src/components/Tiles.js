@@ -51,7 +51,7 @@ export class ExperienceTile extends Component {
         <Tile kind="child" notification>
             <Heading>DEV EXPERIENCE</Heading>
             <li className="has-text-left is-size-5">
-                <a className="is-size-5 has-text-weight-bold" href="http://www.dunecoffee.com">DUNECOFFEE.COM</a> - css style upkeep + animations + custom theming + wholesale portal
+                <a className="is-size-5 has-text-weight-bold" href="http://www.dunecoffee.com">DUNECOFFEE.COM</a> - CSS Style Upkeep + CSS Animations + Custom Theming + Custom Wholesale Portal
             </li>
             <br />
             <li className="has-text-left is-size-5">
@@ -60,11 +60,11 @@ export class ExperienceTile extends Component {
             </li>
             <br />
             <li className="has-text-left is-size-5">
-                <a className="is-size-5 has-text-weight-bold" href="http://www.hawaiicjc.org">HAWAIICJC.ORG</a> - js interactivity
+                <a className="is-size-5 has-text-weight-bold" href="http://www.hawaiicjc.org">HAWAIICJC.ORG</a> - JS Interactivity
             </li>
             <br />
             <li className="has-text-left is-size-5">
-                <a className="is-size-5 has-text-weight-bold" href="http://www.github.com/rhon3n">GITHUB.COM</a> - demonstration of creativity, entrepreneurial spirit
+                <a className="is-size-5 has-text-weight-bold" href="http://www.github.com/rhon3n">GITHUB.COM</a> - Demonstration of creativity + Entrepreneurial Spirit + Project Management
             </li>
         </Tile>
         )
