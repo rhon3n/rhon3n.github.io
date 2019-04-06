@@ -55,7 +55,7 @@ export class ExperienceTile extends Component {
             </li>
             <br />
             <li className="has-text-left is-size-5">
-                <a className="is-size-5 has-text-weight-bold" href="https://github.com/rhon3n/rhon3n.github.io          ">RHONEN.DESIGN</a> - react website
+                <a className="is-size-5 has-text-weight-bold" href="https://github.com/rhon3n/rhon3n.github.io          ">RHONEN.DESIGN</a> - This website, built with React. <em>Check out my source on the dev branch!</em>
                 <br />
             </li>
             <br />

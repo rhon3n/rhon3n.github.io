@@ -3,12 +3,11 @@
 */
 
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { 
-    faPaperPlane,
-    faStar,
-    faWater,
-    faEnvelope,
-} from '@fortawesome/free-solid-svg-icons';
+import { fas } from '@fortawesome/free-solid-svg-icons';
+import {
+    faHandshake,
+    faPrayingHands
+} from '@fortawesome/free-solid-svg-icons'
 
 // For MVP, we are just importing the entire brand library from FA
 import { fab } from '@fortawesome/free-brands-svg-icons'
@@ -27,5 +26,8 @@ import {
 } from '@fortawesome/free-brands-svg-icons';
 
 library.add(
-    fab
+    fab,
+    fas,
+    faHandshake,
+    faPrayingHands,
 )
