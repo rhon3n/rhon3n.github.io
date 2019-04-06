@@ -75,6 +75,30 @@ class App extends Component {
         <Section>
           <TileBox />
         </Section>
+        <Section className="has-background-info">
+          <Container >
+            <Heading className="has-text-white">GET IN CONTACT</Heading>
+            <Level>
+              <Level.Item>
+                <Icon size="large">
+                  <span>
+                    <a href="https://www.linkedin.com/in/joel-t-rhine/"><FontAwesomeIcon icon={["fab", "linkedin"]} size="2x" /></a>
+                  </span>
+                </Icon>
+                <Icon size="large">
+                  <span>
+                    <a href="https://github.com/rhon3n"><FontAwesomeIcon icon={["fab", "github-square"]} size="2x" /></a>
+                  </span>
+                </Icon>
+                <Icon size="large">
+                  <span>
+                    <a href="tel:+18056366997"><FontAwesomeIcon icon={["fas", "phone"]} size="2x" /></a>
+                  </span>
+                </Icon>
+              </Level.Item>
+            </Level>
+          </Container>
+        </Section>
         <Section>
         <p className="has-text-weight-bold is-size-4">Thank you for looking! 👀</p>
         </Section>

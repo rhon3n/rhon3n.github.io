@@ -6,7 +6,9 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import {
     faHandshake,
-    faPrayingHands
+    faPrayingHands,
+    faEnvelope,
+    faPhone,
 } from '@fortawesome/free-solid-svg-icons'
 
 // For MVP, we are just importing the entire brand library from FA
