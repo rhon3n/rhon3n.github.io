@@ -38,7 +38,7 @@ class App extends Component {
             <Container fluid>
               <Hero.Body>
                 <h1 className="title">Hi! I'm Joel <span role="img" aria-label="waving hand emoji">👋</span></h1>
-                <h1 className="subtitle is-italic">and I believe software should address human needs with healthy results.</h1>
+                <h1 className="subtitle is-italic">I believe software should address human needs with healthy results.</h1>
                 <Level>
                   <Level.Item>
                     <Tag.Group gapless>
