@@ -20,12 +20,20 @@ export class CenteredColumn extends Component {
             <Section>
             <Columns>
                 <Columns.Column size={8} offset={2} >
-                    <Heading>Welcome Friend!</Heading>
-                    <p className="has-text-justified is-size-5">After 15 years in the coffee industry, I’ve mastered nearly every position that your average coffee roasting company has to offer. If there is one thing I've learned in that time, it's that working together to solve problems is something that I am great at and truly enjoy.</p><br />
+                    <span className="title has-background-grey-dark is-size-2 has-text-white">Welcome Friend!</span><br /><br />
+                    <p className="has-text-justified is-size-5">I am a recent transplant from Santa Barbara, CA to Portland, OR looking to make a career pivot from the coffee industry to web/software development.</p><br /> 
 
-                    <p className="has-text-justified is-size-5">With my natural curiosity and savvy for all things tech, it dawned on me that I should leverage the power of the internet to assist in a career pivot. I began devouring course after course of content to learn to code and am here, today ready to open the door to a new domain. I look forward to every moment of it.</p><br />
+                    <p className="has-text-justified is-size-5">I'm a lifelong learner with an entrepreneurial spirit who rises to a challenge and loves to collaborate with my team.</p><br />
 
-                    <p className="is-size-4 has-text-weight-bold">Let’s make the world better, every day. </p>
+                    <p className="has-text-justified is-size-5">I find common ground with nearly every person I've ever met and am passionate about making the world a better place for those who come after me.</p><br /> 
+
+                    <p className="has-text-justified is-size-5">I love to dream, theorize and strategize, and I love to do even more.</p><br />
+
+                    <p className="has-text-justified is-size-5">Bring up any topic and I'm sure I'll have something to say about it. 😜</p><br />
+
+                    <p className="has-text-justified is-size-5">I'd love to hear what you have to say—drop a line! 📲</p><br />
+
+                    <span className="title has-background-grey-dark is-size-4 has-text-white">Let’s make the world better, every day. </span>
                 </Columns.Column>
             </Columns>
             </Section>
