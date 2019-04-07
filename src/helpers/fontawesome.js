@@ -9,6 +9,8 @@ import {
     faPrayingHands,
     faEnvelope,
     faPhone,
+    faHandPointRight,
+    faComments,
 } from '@fortawesome/free-solid-svg-icons'
 
 // For MVP, we are just importing the entire brand library from FA
@@ -32,4 +34,6 @@ library.add(
     fas,
     faHandshake,
     faPrayingHands,
+    faHandPointRight,
+    faComments,
 )
