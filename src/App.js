@@ -37,8 +37,8 @@ class App extends Component {
           <Hero color="primary" gradient size="medium">
             <Container fluid>
               <Hero.Body>
-                <a className="title has-background-grey-dark is-size-2"> Hi! I'm Joel </a><span className="is-size-2" role="img" aria-label="waving hand emoji">👋</span>
-                <h1 className="subtitle is-italic">I believe software should address human needs to achieve healthy results.</h1>
+                <a className="title has-background-grey-dark is-size-2"> Hi! I'm Joel </a><span className="is-size-2" role="img" aria-label="waving hand emoji">👋</span><br />
+                <h2 className="subtitle is-italic">I believe software should address human needs to achieve healthy results.</h2>
                 <Level>
                   <Level.Item>
                     <Tag.Group gapless>

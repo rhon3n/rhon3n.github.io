@@ -38,8 +38,8 @@ export class GoalTile extends Component {
     render() {
         return (
         <Tile kind="child" size={4} notification color="link">
-            <Heading>MY GOAL</Heading>
-            <p className="is-size-5">To collaborate with a great team to create quality, mobile-first software experiences that make people feel good.<br /> <br /> Ultimately, I want to make the world better every day.<br /><br /><span role="img" aria-label="rocketship emoji">🚀</span></p>
+            <span className="title has-background-grey-dark is-size-3 has-text-white">MY GOAL</span><br /><br />
+            <p className="is-size-5">To collaborate with a great team to create quality, mobile-first software experiences that make people feel good.<br /> <br /> Ultimately, I want to make the world better every day.<br /><br /><span className="is-size-3" role="img" aria-label="world emoji">🌍</span></p>
         </Tile>
         )
     }
@@ -49,7 +49,7 @@ export class ExperienceTile extends Component {
     render() {
         return (
         <Tile kind="child" notification>
-            <Heading>DEV EXPERIENCE</Heading>
+            <span className="title has-background-grey-dark is-size-3 has-text-white">DEV EXPERIENCE</span><br /><br />
             <li className="has-text-left is-size-5">
                 <a className="is-size-5 has-text-weight-bold" href="http://www.dunecoffee.com">DUNECOFFEE.COM</a> - CSS Style Upkeep + CSS Animations + Custom Theming + Custom Wholesale Portal
             </li>
@@ -75,7 +75,7 @@ export class EducationTile extends Component {
     render() {
         return (
         <Tile kind="child"  size={8} notification color="primary">
-            <Heading>EDUCATION</Heading>
+            <span className="title has-background-grey-dark is-size-3 has-text-white">EDUCATION</span><br /><br />
             <li className="has-text-left is-size-5">Udacity - Grow with Google Challenge Course</li>
             <li className="has-text-left is-size-5">Codecademy - Intro to JS</li> 
             <li className="has-text-left is-size-5">freecodecamp - Html 5, CSS, React, JS</li>
@@ -90,7 +90,7 @@ export class WorkTile extends Component {
     render() {
         return (
         <Tile kind="child" notification>
-            <Heading>WORK EXPERIENCE</Heading>
+            <span className="title has-background-grey-dark is-size-3 has-text-white">WORK EXPERIENCE</span><br /><br />
             <li className="has-text-left is-size-5">Good Coffee LLC</li>
             <li className="has-text-left is-size-5">Dune Coffee Roasters</li>
         </Tile>
