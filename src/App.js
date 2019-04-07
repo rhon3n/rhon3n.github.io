@@ -37,8 +37,8 @@ class App extends Component {
           <Hero color="primary" gradient size="medium">
             <Container fluid>
               <Hero.Body>
-                <h1 className="title">Hi! I'm Joel <span role="img" aria-label="waving hand emoji">👋</span></h1>
-                <h1 className="subtitle is-italic">I believe software should address human needs achieving healthy results.</h1>
+                <a className="title has-background-grey-dark is-size-2"> Hi! I'm Joel </a><span className="is-size-2" role="img" aria-label="waving hand emoji">👋</span>
+                <h1 className="subtitle is-italic">I believe software should address human needs to achieve healthy results.</h1>
                 <Level>
                   <Level.Item>
                     <Tag.Group gapless>
@@ -74,30 +74,6 @@ class App extends Component {
         <CenteredColumn />
         <Section>
           <TileBox />
-        </Section>
-        <Section className="has-background-info">
-          <Container >
-            <Heading className="has-text-white">GET IN CONTACT</Heading>
-            <Level>
-              <Level.Item>
-                <Icon size="large">
-                  <span>
-                    <a href="https://www.linkedin.com/in/joel-t-rhine/"><FontAwesomeIcon icon={["fab", "linkedin"]} size="2x" /></a>
-                  </span>
-                </Icon>
-                <Icon size="large">
-                  <span>
-                    <a href="https://github.com/rhon3n"><FontAwesomeIcon icon={["fab", "github-square"]} size="2x" /></a>
-                  </span>
-                </Icon>
-                <Icon size="large">
-                  <span>
-                    <a href="tel:+18056366997"><FontAwesomeIcon icon={["fas", "phone"]} size="2x" /></a>
-                  </span>
-                </Icon>
-              </Level.Item>
-            </Level>
-          </Container>
         </Section>
         <Section>
         <p className="has-text-weight-bold is-size-4">Thank you for looking! 👀</p>
