@@ -76,7 +76,7 @@ class App extends Component {
           <TileBox />
         </Section>
         <Section>
-        <p className="has-text-weight-bold is-size-4">Thank you for looking! 👀</p>
+        <span className="title has-background-grey-dark is-size-2 has-text-white">Interested in working together?</span><br/><br /><p className="is-size-4 is-italic"> Start a chat so we can open up the conversation!</p>
         </Section>
         <Footer>
           <Container>
