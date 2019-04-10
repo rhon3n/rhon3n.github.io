@@ -35,7 +35,7 @@ class App extends Component {
           <Hero color="primary" gradient size="medium">
             <Container fluid>
               <Hero.Body>
-                <a className="title has-background-grey-dark is-size-2"> Hi! I'm Joel </a><span className="is-size-2" role="img" aria-label="waving hand emoji">👋</span><br />
+                <span className="title has-background-grey-dark is-1 highlight-title"> Hi! I'm Joel</span><span className="is-size-2" role="img" aria-label="waving hand emoji">👋</span><br />
                 <h2 className="subtitle is-italic">I believe software should address human needs to achieve healthy results.</h2>
                 <Level>
                   <Level.Item>
@@ -74,8 +74,8 @@ class App extends Component {
           <TileBox />
         </Section>
         <Section>
-        <span className="title has-background-grey-dark is-size-2 has-text-white">Interested in working together?</span><br/><br /><p className="is-size-4 is-italic"> Start a chat or give me a call so we can open up the conversation!</p>
-        <p className="is-size-4 is-italic"> 805-636-6997</p><br />
+        <span className="title has-background-grey-dark is-2 has-text-white highlight-title">Interested in working together?</span><br/><br /><p className="is-size-4 is-italic"> Start a chat or give me a call so we can open up the conversation!</p>
+        <span className="title has-background-grey-dark is-3 has-text-white highlight-title"> 805-636-6997</span><br /><br />
         <span>
         <Icon size="extra-large">
               <FontAwesomeIcon icon={["fas", "comments"]} size="2x" className="is-primary has-text-centered has-text-grey-dark is-size-2" />
