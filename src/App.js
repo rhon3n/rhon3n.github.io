@@ -74,7 +74,8 @@ class App extends Component {
           <TileBox />
         </Section>
         <Section>
-        <span className="title has-background-grey-dark is-size-2 has-text-white">Interested in working together?</span><br/><br /><p className="is-size-4 is-italic"> Start a chat so we can open up the conversation!</p><br />
+        <span className="title has-background-grey-dark is-size-2 has-text-white">Interested in working together?</span><br/><br /><p className="is-size-4 is-italic"> Start a chat or give me a call so we can open up the conversation!</p>
+        <p className="is-size-4 is-italic"> 805-636-6997</p><br />
         <span>
         <Icon size="extra-large">
               <FontAwesomeIcon icon={["fas", "comments"]} size="2x" className="is-primary has-text-centered has-text-grey-dark is-size-2" />
