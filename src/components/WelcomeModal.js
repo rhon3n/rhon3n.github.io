@@ -17,8 +17,8 @@ import {
     Container,
     Hero, } from "react-bulma-components/full";
 
-//TODO: Build a welcome modal that gives a short summary of what I'm all about.
-export class WelcomeModal extends Component {
+//TODO: Refactor footer in App.js here...
+export class RhonenFooter extends Component {
     render() {
         return (
             <div></div>

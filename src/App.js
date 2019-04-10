@@ -19,10 +19,8 @@ import {
   Heading,
   Container,
   Hero, } from "react-bulma-components/full";
-import { WelcomeModal } from './components/WelcomeModal';
-import { TileBox } from './components/Tiles';
+import { CenteredColumn, EmailForm, TileBox } from './components/componentIndex';
 import './helpers/fontawesome';
-import { CenteredColumn } from './components/CenteredColumn'
 
 class App extends Component {
   render() {
