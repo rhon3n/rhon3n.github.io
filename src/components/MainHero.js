@@ -15,7 +15,7 @@ import {
             <Container fluid>
               <Hero.Body>
                 <span className="title has-background-grey-dark is-1 highlight-title"> Hi! I'm Joel</span><br /><br />
-                <h2 className="subtitle is-4 is-italic">I believe software should address human needs to achieve healthy results.</h2>
+                <h2 className="subtitle is-4 is-italic">I believe software should address human needs with healthy results.</h2>
                 <Level>
                   <Level.Item>
                     <Tag.Group gapless>
