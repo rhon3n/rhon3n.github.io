@@ -14,7 +14,7 @@ import {
           <Hero color="primary" gradient size="medium">
             <Container fluid>
               <Hero.Body>
-                <span className="title has-background-grey-dark is-1 highlight-title"> Hi! I'm Joel</span><br />
+                <span className="title has-background-grey-dark is-1 highlight-title"> Hi! I'm Joel</span><br /><br />
                 <h2 className="subtitle is-4 is-italic">I believe software should address human needs to achieve healthy results.</h2>
                 <Level>
                   <Level.Item>
