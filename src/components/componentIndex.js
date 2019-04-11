@@ -6,3 +6,6 @@ export * from './CenteredColumn';
 export * from './EmailForm';
 export * from './Tiles';
 export * from './RhonenFooter';
+export * from './ContactInfo';
+export * from './MainHero';
+export * from './Nav';
