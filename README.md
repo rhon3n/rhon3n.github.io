@@ -1,5 +1,17 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## App Structure
+
+In the `/src` folder you will find 2 sub-folders, `/components` and `/helpers`.
+
+### `/components`
+
+In order to keep the project as clean as possible, I've decided to make each component its own module file with the same name. Components will always be named in PascalCase, all other files will be named in camelCase. `/components` also contains a special file called `componentIndex.js`. This file simply exports all modules in the `/components` folder. If a new file is added to the `/components` folder, that file must be manually added to `componentIndex.js`.
+
+### `/helpers`
+
+This folder contains modules that are helpful for keeping `App.js` clean. Currently, `fontawesome.js` is the only helper module. `fontawesome.js` imports all necessary fontawesome files and creates a custom library for our app to reference.
+
 ## Available Scripts
 
 In the project directory, you can run:
@@ -27,6 +39,10 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
+### `npm run deploy`
+
+Does everything that `npm run build` does, but also pushes the current build to the rhon3n.github.io master branch and in turn, publishes the App.
+
 ### `npm run eject`
 
 **Note: this is a one-way operation. Once you `eject`, you can’t go back!**
@@ -36,6 +52,8 @@ If you aren’t satisfied with the build tool and configuration choices, you can
 Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+
+
 
 ## Learn More
 
