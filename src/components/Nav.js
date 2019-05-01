@@ -11,6 +11,10 @@ import {
           <Icon size="large">
               <FontAwesomeIcon icon={["fas", "handshake"]} size="2x" className="is-primary has-text-centered has-text-grey-dark" />
           </Icon>
+          <div className="button has-addons is-right">
+            <span className="button">dark</span>
+            <span className="button">light</span>
+          </div>
         </Navbar>
       )
     }
