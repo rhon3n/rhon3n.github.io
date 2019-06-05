@@ -1,16 +1,53 @@
+# React TodoList
+A simple React Front End application that gets a list of dummy todos from [JSONplaceholder](http://jsonplaceholder.typicode.com/).
+
+## Table of Contents
+
+1. [Usage](#usage)
+1. [Features](#features)
+1. [Roadmap](#roadmap)
+1. [Given More Time](#given-more-time)
+1. [Portfolio](#portfolio)
+1. [Development](#development) 
+    1. [Create React App](#create-react-app)
+
+## Usage
+
+> We all need to make a portfolio web app. This app allows you to see the professional skillset of Joel "Rhonen" Rhine.
+
+## Features
+
+The features of this app are very simple:
+
+1. You can view Rhonen's portfolio.
+1. You can contact Rhonen via live messaging.
+1. You can follow links to Rhonen's various projects.
+1. You can download Rhonen's resume.
+
+## Roadmap
+
+- Unit Testing.
+- Integration Testing.
+- As a user, I would like to be able to see Rhonen's recent projects.
+- As a user, I would like to be able to switch to dark mode.
+
+## Given More Time
+
+Given more time I would add Unit, Integration and End to End testing to the app.
+
+## Portfolio
+
+Follow this link to find my [portfolio](http://rhonen.design).
+
+## Development
+
+As far as deployment goes, I have deployed to GitHub via GitHubPages. 
+
+Styling is handled using with Bulma.
+
+### Create-React-App
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## App Structure
-
-In the `/src` folder you will find 2 sub-folders, `/components` and `/helpers`.
-
-### `/components`
-
-In order to keep the project as clean as possible, I've decided to make each component its own module file with the same name. Components will always be named in PascalCase, all other files will be named in camelCase. `/components` also contains a special file called `componentIndex.js`. This file simply exports all modules in the `/components` folder. If a new file is added to the `/components` folder, that file must be manually added to `componentIndex.js`.
-
-### `/helpers`
-
-This folder contains modules that are helpful for keeping `App.js` clean. Currently, `fontawesome.js` is the only helper module. `fontawesome.js` imports all necessary fontawesome files and creates a custom library for our app to reference.
 
 ## Available Scripts
 
@@ -39,10 +76,6 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run deploy`
-
-Does everything that `npm run build` does, but also pushes the current build to the rhon3n.github.io master branch and in turn, publishes the App.
-
 ### `npm run eject`
 
 **Note: this is a one-way operation. Once you `eject`, you can’t go back!**
@@ -52,8 +85,6 @@ If you aren’t satisfied with the build tool and configuration choices, you can
 Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-
 
 ## Learn More
 
