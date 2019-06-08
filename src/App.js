@@ -2,12 +2,8 @@ import React, { Component } from 'react';
 import './App.css';
 import './dopestyles.scss';
 import './index.scss';
-import { Section } from "react-bulma-components/full";
-import { CenteredColumn, TileBox, RhonenFooter, ContactInfo, MainHero, Nav } from './components/componentIndex';
-import { Footer } from './components/layout/Footer';
-import { Main } from './components/layout/Main';
-import { Hero } from './components/layout/Hero';
-import { Nav } from './components/layout/Nav';
+import { Section } from 'react-bulma-components/full';
+import { TileBox, ContactInfo, HeroSection, Nav, Main, FooterSection } from './components/componentIndex';
 import './helpers/fontawesome';
 
 class App extends Component {
@@ -16,17 +12,17 @@ class App extends Component {
       <div className="App">
         <Section>
           <Nav />
-          <MainHero />
+          <HeroSection />
         </Section>
-        <CenteredColumn />
         <Section>
           <TileBox />
         </Section>
+        <Main />
         <Section>
           <ContactInfo />
         </Section>
-        <RhonenFooter />
-      </div>      
+        <FooterSection />
+      </div>
     );
   }
 }

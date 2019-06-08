@@ -2,10 +2,9 @@
 // eslint-disable-next-line prettier/prettier
 */
 
-export * from './CenteredColumn';
-export * from './EmailForm';
 export * from './Tiles';
-export * from './RhonenFooter';
 export * from './ContactInfo';
-export * from './MainHero';
-export * from './Nav';
+export * from './layout/FooterSection';
+export * from './layout/Main';
+export * from './layout/Nav.js';
+export * from './layout/HeroSection';
