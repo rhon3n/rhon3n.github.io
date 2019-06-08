@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
 import { Tile } from 'react-bulma-components/full';
+import { SkillsTile } from './tiles/SkillsTile';
 
 export class TileBox extends Component {
   render() {
     return (
       <Tile kind="ancestor" vertical>
+        <Tile size={12} kind="parent">
+          <SkillsTile />
+        </Tile>
         <Tile size={12} kind="parent">
           <GoalTile />
           <ExperienceTile />
