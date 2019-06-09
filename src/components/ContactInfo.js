@@ -22,7 +22,9 @@ export class ContactInfo extends Component {
         <span className="title has-background-grey-dark is-3 has-text-white highlight-title">{this.state.phone}</span>
         <br />
         <br />
-        <span className="title has-background-grey-dark is-3 has-text-white highlight-title">{this.state.email}</span>
+        <span className="title has-background-grey-dark is-3 has-text-white highlight-title">
+          <a className="has-text-white" href="mailto:joel@rhonen.design">{this.state.email}</a>
+        </span>
         <br />
         <br />
         <span>
