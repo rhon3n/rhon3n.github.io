@@ -1,26 +1,26 @@
 import React, { Component } from 'react';
-import { Tile } from 'react-bulma-components/full';
+import { Box, Tile } from 'react-bulma-components/full';
 
 export class SkillsTile extends Component {
   render() {
     return (
-      <Tile kind="child" notification>
+      <Box className="has-background-light">
         <span className="title has-background-grey-dark is-size-3 has-text-white highlight-title">SKILLS</span>
-        <br />
-        <br />
-        <div className="has-text-left is-size-5">
-          <li>Node</li>
-          <li>JavaScript</li>
-          <li>React</li>
-          <li>Heroku</li>
-          <li>HTML/CSS</li>
-          <li>Git</li>
-          <li>Vue</li>
-          <li>Responsive Web Dev</li>
-        </div>
-      </Tile>
+        <Tile kind="parent" className="is-center">
+          <Tile kind="child" className="has-text-left is-size-5 has-text-weight-bold">
+            <li>Node</li>
+            <li>JavaScript</li>
+            <li>React</li>
+            <li>Heroku</li>
+          </Tile>
+          <Tile kind="child" className="has-text-left is-size-5 has-text-weight-bold">
+            <li>HTML/CSS</li>
+            <li>Git</li>
+            <li>Vue</li>
+            <li>Responsive Web Dev</li>
+          </Tile>
+        </Tile>
+      </Box>
     );
   }
 }
-
-export default SkillsTile;
