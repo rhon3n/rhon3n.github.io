@@ -4,7 +4,7 @@ import { Tile } from 'react-bulma-components/full';
 export class GoalTile extends Component {
   render() {
     return (
-      <Tile kind="child" size={4} notification color="link">
+      <Tile kind="child" size={4} notification>
         <span className="title has-background-grey-dark is-size-3 has-text-white highlight-title">MY GOAL</span>
         <br />
         <br />

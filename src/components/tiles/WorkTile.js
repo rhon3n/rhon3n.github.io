@@ -4,7 +4,7 @@ import { Tile } from 'react-bulma-components/full';
 export class WorkTile extends Component {
   render() {
     return (
-      <Tile kind="child" notification>
+      <Tile kind="child" notification color="primary">
         <span className="title has-background-grey-dark is-size-3 has-text-white highlight-title">WORK EXPERIENCE</span>
         <br />
         <br />

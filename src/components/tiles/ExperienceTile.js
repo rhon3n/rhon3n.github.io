@@ -4,7 +4,7 @@ import { Tile } from 'react-bulma-components/full';
 export class ExperienceTile extends Component {
   render() {
     return (
-      <Tile kind="child" notification>
+      <Tile kind="child" notification color="link">
         <span className="title has-background-grey-dark is-size-3 has-text-white highlight-title">DEV EXPERIENCE</span>
         <br />
         <br />

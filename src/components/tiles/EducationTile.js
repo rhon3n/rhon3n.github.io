@@ -4,7 +4,7 @@ import { Tile } from 'react-bulma-components/full';
 export class EducationTile extends Component {
   render() {
     return (
-      <Tile kind="child" size={8} notification color="primary">
+      <Tile kind="child" size={8} notification>
         <span className="title has-background-grey-dark is-size-3 has-text-white highlight-title">EDUCATION</span>
         <br />
         <br />
