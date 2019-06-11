@@ -6,9 +6,7 @@ export class TileBox extends Component {
   render() {
     return (
       <Tile kind="ancestor" vertical>
-        <Tile size={12} kind="parent">
-          <SkillsTile />
-        </Tile>
+        <SkillsTile />
         <Tile size={12} kind="parent">
           <GoalTile />
           <ExperienceTile />
