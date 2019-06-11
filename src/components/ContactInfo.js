@@ -9,6 +9,8 @@ export class ContactInfo extends Component {
   };
 
   render() {
+    const { email, phone } = this.state;
+
     return (
       <div>
         <span className="title has-background-grey-dark is-2 has-text-white highlight-title">
@@ -16,14 +18,16 @@ export class ContactInfo extends Component {
         </span>
         <br />
         <br />
-        <p className="is-size-4 is-italic"> Start a chat or give me a call so we can open up the conversation!</p>
+        <p className="is-size-4 is-italic"> Send a message or give me a call so we can open up the conversation!</p>
         <br />
 
-        <span className="title has-background-grey-dark is-3 has-text-white highlight-title">{this.state.phone}</span>
+        <span className="title has-background-grey-dark is-3 has-text-white highlight-title">{phone}</span>
         <br />
         <br />
         <span className="title has-background-grey-dark is-3 has-text-white highlight-title">
-          <a className="has-text-white" href="mailto:joel@rhonen.design">{this.state.email}</a>
+          <a className="has-text-white" href="mailto:joel@rhonen.design">
+            {email}
+          </a>
         </span>
         <br />
         <br />
