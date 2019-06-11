@@ -13,7 +13,10 @@ export class HeroSection extends Component {
               <br />
               <br />
               <h2 className="subtitle is-4 is-italic">
-                I believe software should address human needs with healthy results.
+                Can-do, will-do Full Stack Developer specializing in Javascript Technologies with a passion for using
+                software to truly make the world a better place.
+                <br />
+                <br /> I'm always eager to learn.
               </h2>
               <Level>
                 <Level.Item>
