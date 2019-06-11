@@ -2,9 +2,15 @@
 // eslint-disable-next-line prettier/prettier
 */
 
-export * from './Tiles';
+export * from './TileBox';
 export * from './ContactInfo';
 export * from './layout/FooterSection';
 export * from './layout/Main';
 export * from './layout/Nav.js';
 export * from './layout/HeroSection';
+export * from './tiles/EducationTile';
+export * from './tiles/ExperienceTile';
+export * from './tiles/GoalTile';
+export * from './tiles/ProjectsTile';
+export * from './tiles/SkillsTile';
+export * from './tiles/WorkTile';
