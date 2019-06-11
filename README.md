@@ -1,5 +1,5 @@
-# React TodoList
-A simple React Front End application that gets a list of dummy todos from [JSONplaceholder](http://jsonplaceholder.typicode.com/).
+# Rhonen.design
+A simple portfolio that gives information about the developer journey of Joel "Rhonen" Rhine
 
 ## Table of Contents
 
@@ -30,6 +30,7 @@ The features of this app are very simple:
 - Integration Testing.
 - As a user, I would like to be able to see Rhonen's recent projects.
 - As a user, I would like to be able to switch to dark mode.
+- As a user, I would like to be able to download Rhonen's resume.
 
 ## Given More Time
 
