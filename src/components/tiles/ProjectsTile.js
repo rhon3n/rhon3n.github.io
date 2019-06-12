@@ -9,7 +9,7 @@ export class ProjectsTile extends Component {
     subtitle: 'React Todo App',
     todoUrl: 'https://github.com/rhon3n/react-todo-list',
     body:
-      'A simple, React application that gets a list of dummy todos from JSONplaceholder. This app allows you to add or remove todos from the list. Since this app is used to demonstrate my ability to control state among components in React without using Redux, it does not have a working backend—any changes made will not persist after a page reload.',
+      'A simple react application that gets a list of dummy todos from JSONplaceholder. This app allows you to add or remove todos from the list. Since this app is used to demonstrate my ability to control state among components in React without using Redux, it does not have a working backend—any changes made will not persist after a page reload.',
   };
 
   render() {
