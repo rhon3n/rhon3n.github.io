@@ -1,27 +1,34 @@
 import React, { Component } from 'react';
-import { Tile } from 'react-bulma-components/full';
+import { Tile, Box } from 'react-bulma-components/full';
 import { TileTitle } from './tileitems/TileTitle';
 import { TileBody } from './tileitems/TileBody';
 
 export class ProjectsTile extends Component {
   state = {
     title: 'RECENT PROJECTS',
-    subtitle: 'React Todo App',
+    todoTitle: 'React Todo App',
     todoURL: 'https://github.com/rhon3n/react-todo-list',
-    body:
+    todoBody:
       'A simple react application that gets a list of dummy todos from JSONplaceholder. This app allows you to add or remove todos from the list. Since this app is used to demonstrate my ability to control state among components in React without using Redux, it does not have a working backend—any changes made will not persist after a page reload.',
+    cliTitle: 'Command Line Resume',
+    cliURL: 'https://www.npmjs.com/package/rhonen-dev',
+    cliBody:
+      'Built a command line resume using Node. Run npm i -g rhonen-dev to install, then rhonen-dev to start the program.',
   };
 
   render() {
-    const { title, body, subtitle, todoURL } = this.state;
+    const { title, todoBody, todoTitle, todoURL, cliBody, cliTitle, cliURL } = this.state;
     return (
-      <Tile kind="parent" size={12}>
-        <Tile kind="child" notification>
-          {' '}
-          <TileTitle title={title} />
-          <TileBody url={todoURL} title={subtitle} body={body} />
+      <Box className="has-background-light">
+        <TileTitle title={title} />
+        <Tile kind="parent" size={12}>
+          <Tile kind="child" notification>
+            <TileBody url={todoURL} title={todoTitle} body={todoBody} />
+          </Tile>
+          <Tile kind="child" notification> <TileBody url={cliURL} title={cliTitle} body={cliBody} /></Tile>
+         
         </Tile>
-      </Tile>
+      </Box>
     );
   }
 }
