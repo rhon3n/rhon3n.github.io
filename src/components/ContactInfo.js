@@ -31,7 +31,7 @@ export class ContactInfo extends Component {
         </span>
         <br />
         <br />
-        <span className="title has-background-grey-dark is-3 has-text-white highlight-title">
+        <span className="title has-background-primary is-3 has-text-white highlight-title">
           <a className="has-text-white" href="/files/resume.pdf">
             Resumé
           </a>
