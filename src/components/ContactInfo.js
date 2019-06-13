@@ -39,7 +39,7 @@ export class ContactInfo extends Component {
         <br />
         <br />
         <span>
-          <Icon size="extra-large">
+          <Icon size="large">
             <FontAwesomeIcon
               icon={['fas', 'comments']}
               size="2x"
