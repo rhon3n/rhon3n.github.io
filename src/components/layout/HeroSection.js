@@ -59,7 +59,7 @@ export class HeroSection extends Component {
                   </Icon>
                   <Icon size="large">
                     <span>
-                      <a href="/files/resume.pdf">
+                      <a href="/files/resume.pdf" className="has-text-link">
                         <FontAwesomeIcon icon={['fas', 'file-download']} size="2x" />
                       </a>
                     </span>
