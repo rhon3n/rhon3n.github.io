@@ -50,6 +50,20 @@ export class HeroSection extends Component {
                       </a>
                     </span>
                   </Icon>
+                  <Icon size="large">
+                    <span>
+                      <a href="https://www.npmjs.com/~rhon3n">
+                        <FontAwesomeIcon icon={['fab', 'npm']} size="2x" />
+                      </a>
+                    </span>
+                  </Icon>
+                  <Icon size="large">
+                    <span>
+                      <a href="/files/resume.pdf">
+                        <FontAwesomeIcon icon={['fas', 'file-download']} size="2x" />
+                      </a>
+                    </span>
+                  </Icon>
                 </Level.Item>
               </Level>
             </Hero.Body>

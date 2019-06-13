@@ -8,13 +8,13 @@ export class FooterSection extends Component {
       <Footer>
         <Container>
           <Level>
-            <Level.Item>
+            <Level.Item className="has-text-grey">
               <p>
                 Made with <strike>love</strike>{' '}
                 <span>
                   <FontAwesomeIcon icon={['fab', 'react']} size="2x" transform="down-3" />
                 </span>{' '}
-                by <strong>Joel Rhine</strong> aka <em>rhonen</em>{' '}
+                by <strong className="has-text-grey">Joel Rhine</strong> aka <em>rhonen</em>{' '}
                 <span role="img" aria-label="praying hands emoji">
                   🙏
                 </span>
