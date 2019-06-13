@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 // This component returns a string that is passed in as a property.
 // Add the string as a value on the parent component's state object.
