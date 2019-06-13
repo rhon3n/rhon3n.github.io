@@ -19,9 +19,7 @@ export class ProjectsTile extends Component {
 
   render() {
     const { title, todoBody, todoTitle, todoURL, cliBody, cliTitle, cliURL } = this.state;
-    const todoIcon = (
-      <FontAwesomeIcon icon={['fab', 'react']} size="3x" transform="down-3" className="has-text-grey" />
-    );
+    const todoIcon = <FontAwesomeIcon icon={['fab', 'react']} size="3x" transform="down-3" className="has-text-grey" />;
     const npmIcon = <FontAwesomeIcon icon={['fab', 'npm']} size="3x" transform="down-3" className="has-text-grey" />;
 
     return (
