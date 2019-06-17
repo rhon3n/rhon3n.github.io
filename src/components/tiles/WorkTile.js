@@ -8,8 +8,9 @@ export class WorkTile extends Component {
         <span className="title has-background-grey-dark is-size-3 has-text-white highlight-title">WORK EXPERIENCE</span>
         <br />
         <br />
-        <li className="has-text-left is-size-5">Good Coffee LLC</li>
-        <li className="has-text-left is-size-5">Dune Coffee Roasters</li>
+        <li className="has-text-left is-size-5">SBIT Group LLC - Network Technician</li>
+        <li className="has-text-left is-size-5">Dune Coffee Roasters - Lead Technician</li>
+        <li className="has-text-left is-size-5">Good Coffee LLC - Technician</li>
       </Tile>
     );
   }
