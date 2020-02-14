@@ -11,12 +11,12 @@ export class SkillsTile extends Component {
             <li>Node</li>
             <li>JavaScript</li>
             <li>React</li>
-            <li>Heroku</li>
+            <li>eCommerce</li>
           </Tile>
           <Tile kind="child" className="has-text-left is-size-5 has-text-weight-bold">
             <li>HTML/CSS</li>
             <li>Git</li>
-            <li>Vue</li>
+            <li>Shopify</li>
             <li>Responsive Web Dev</li>
           </Tile>
         </Tile>
