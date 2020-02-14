@@ -6,7 +6,6 @@ A simple portfolio that gives information about the developer journey of Joel "R
 1. [Usage](#usage)
 1. [Features](#features)
 1. [Roadmap](#roadmap)
-1. [Given More Time](#given-more-time)
 1. [Portfolio](#portfolio)
 1. [Development](#development) 
     1. [Create React App](#create-react-app)
@@ -31,10 +30,6 @@ The features of this app are very simple:
 - As a user, I would like to be able to see Rhonen's recent projects.
 - As a user, I would like to be able to switch to dark mode.
 - As a user, I would like to be able to download Rhonen's resume.
-
-## Given More Time
-
-Given more time I would add Unit, Integration and End to End testing to the app.
 
 ## Portfolio
 
