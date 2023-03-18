@@ -9,8 +9,7 @@ export class GoalTile extends Component {
         <br />
         <br />
         <p className="is-size-5">
-          To collaborate with a great team to create quality, mobile-first software experiences that make people feel
-          good.
+          To collaborate with a great team to create quality products that are truly beneficial.
           <br /> <br /> Ultimately, I want to make the world better every day.
           <br />
           <br />

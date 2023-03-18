@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Tile } from 'react-bulma-components/full';
-import { SkillsTile, ExperienceTile, GoalTile, WorkTile, EducationTile, ProjectsTile } from './componentIndex';
+import { SkillsTile, ExperienceTile, GoalTile, WorkTile, EducationTile } from './componentIndex';
 
 // This is a layout composition component for any components that are bulma tiles.
 export class TileBox extends Component {
@@ -8,7 +8,8 @@ export class TileBox extends Component {
     return (
       <Tile kind="ancestor" vertical>
         <SkillsTile />
-        <ProjectsTile />
+        {/* removing this tile for now until i update my projects*/}
+        {/* <ProjectsTile /> */}
         <Tile size={12} kind="parent">
           <ExperienceTile />
           <GoalTile />

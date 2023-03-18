@@ -13,8 +13,8 @@ export class HeroSection extends Component {
               <br />
               <br />
               <h2 className="subtitle is-4 is-italic">
-                Can-do, will-do Software Developer specializing in Javascript Technologies with a passion for using
-                software to truly make the world a better place.
+                Can-do, will-do Software Developer specializing in Javascript/NodeJS development with a passion for using
+                software to truly make people's lives better.
                 <br />
                 <br /> I'm always eager to learn.
               </h2>
@@ -40,20 +40,6 @@ export class HeroSection extends Component {
                     <span>
                       <a href="https://github.com/rhon3n">
                         <FontAwesomeIcon icon={['fab', 'github-square']} size="2x" />
-                      </a>
-                    </span>
-                  </Icon>
-                  <Icon size="large">
-                    <span>
-                      <a href="https://www.freecodecamp.org/rhon3n">
-                        <FontAwesomeIcon icon={['fab', 'free-code-camp']} size="2x" />
-                      </a>
-                    </span>
-                  </Icon>
-                  <Icon size="large">
-                    <span>
-                      <a href="https://www.npmjs.com/~rhon3n">
-                        <FontAwesomeIcon icon={['fab', 'npm']} size="2x" />
                       </a>
                     </span>
                   </Icon>

@@ -13,8 +13,7 @@ export class Main extends Component {
             <br />
             <br />
             <p className="is-size-5 has-text-left">
-              I am a driven Software Developer looking to make a career pivot from the coffee industry to web/software
-              development.
+              I am a driven Software Developer looking to leverage years of industry experience to build products I'm proud of with people that I respect.
             </p>
             <br />
 
