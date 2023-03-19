@@ -11,7 +11,7 @@ export class WorkTile extends Component {
         <li className="has-text-left is-size-5">PayPal Honey (formerly Honey) - Technical Solutions Engineer</li>
         <li className="has-text-left is-size-5">SBIT Group LLC - Network Technician</li>
         <li className="has-text-left is-size-5">Dune Coffee Roasters - Lead Technician</li>
-        <p className="has-text-left is-size-5">+&#8195;&#8195; Many, many other things in various fields...</p>
+        <p className="has-text-left is-size-5" style={{whiteSpace: "pre"}}>    +   Many other things in various fields...</p>
       </Tile>
     );
   }
