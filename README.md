@@ -20,8 +20,7 @@ The features of this app are very simple:
 
 1. You can view Rhonen's portfolio.
 1. You can contact Rhonen via live messaging.
-1. You can follow links to Rhonen's various projects.
-1. You can download Rhonen's resume.
+1. You can follow links to Rhonen's relevant experience.
 
 ## Roadmap
 
