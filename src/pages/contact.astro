@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site } from '../data/site';
+---
+
+<BaseLayout
+  title="Contact | Joel Rhine"
+  description="Contact Joel Rhine about products, systems, software, and coffee."
+>
+  <header class="page-intro">
+    <p class="eyebrow">Contact</p><h1>Let’s talk about the work.</h1><p>
+      I am open to thoughtful conversations about products, systems, coffee, and
+      the messy work between an idea and something useful.
+    </p><div class="actions">
+      <a class="button button-primary" href={`mailto:${site.email}`}
+        >Email Joel</a
+      ><a class="button" href="https://www.linkedin.com/in/joel-t-rhine/"
+        >Connect on LinkedIn ↗</a
+      >
+    </div>
+  </header>
+  <section class="section">
+    <p class="eyebrow">Direct</p><h2>{site.email}</h2><p>
+      No form, tracking, or chat widget. Your message goes through your email
+      client.
+    </p>
+  </section>
+</BaseLayout>
