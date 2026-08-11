@@ -49,6 +49,12 @@ for (const [pageName, page] of [
 ]) {
   if (!page.includes('href="/work/california-storm/"'))
     throw new Error(`California Storm card missing from ${pageName}`);
+  if (
+    !page.includes(
+      'href="https://github.com/rhon3n/california-storm-portfolio-case-study"',
+    )
+  )
+    throw new Error(`California Storm source link missing from ${pageName}`);
 }
 if (
   !californiaStorm.includes(
