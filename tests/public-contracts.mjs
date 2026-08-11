@@ -4,6 +4,7 @@ import { join } from 'node:path';
 const required = [
   'index.html',
   'work/index.html',
+  'work/california-storm/index.html',
   'work/measure-coffee/index.html',
   'work/shader-studio/index.html',
   'experience/index.html',
@@ -36,6 +37,29 @@ if (!home.includes('I build products people can actually operate.'))
   throw new Error('Homepage hero copy missing');
 if (!home.includes('href="/work/"'))
   throw new Error('Homepage work route missing');
+
+const workIndex = await readFile('dist/work/index.html', 'utf8');
+const californiaStorm = await readFile(
+  'dist/work/california-storm/index.html',
+  'utf8',
+);
+for (const [pageName, page] of [
+  ['homepage', home],
+  ['work index', workIndex],
+]) {
+  if (!page.includes('href="/work/california-storm/"'))
+    throw new Error(`California Storm card missing from ${pageName}`);
+}
+if (
+  !californiaStorm.includes(
+    '<title>California Storm WordPress Experience Rebuild',
+  )
+)
+  throw new Error('California Storm page title missing');
+if (!californiaStorm.includes('inventory of 104 published pages'))
+  throw new Error('California Storm inventory detail missing');
+if (!californiaStorm.includes('four purpose-built WordPress plugins'))
+  throw new Error('California Storm implementation detail missing');
 const internalLinks = new Set(
   pages.flatMap((page) =>
     [...page.matchAll(/href="(\/[^"]*)"/g)].map(
