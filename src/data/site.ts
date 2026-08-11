@@ -1,0 +1,12 @@
+export const site = {
+  name: 'Joel Rhine',
+  wordmark: 'rhonen',
+  origin: 'https://rhonen.design',
+  email: 'joel@rhonen.design',
+  description:
+    'Joel Rhine builds practical software shaped by experience in coffee, operations, integrations, and product engineering.',
+  social: [
+    { label: 'GitHub', url: 'https://github.com/rhon3n' },
+    { label: 'LinkedIn', url: 'https://www.linkedin.com/in/joel-t-rhine/' },
+  ],
+} as const;

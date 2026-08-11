@@ -1,0 +1,28 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+type Props = { entries: CollectionEntry<'experience'>[] };
+const { entries } = Astro.props;
+const formatYear = (date: Date) =>
+  new Intl.DateTimeFormat('en', { year: 'numeric' }).format(date);
+---
+
+<ol class="timeline">
+  {
+    entries.map((entry) => (
+      <li>
+        <div class="timeline-dates">
+          <span>{formatYear(entry.data.startDate)}</span>
+          <span>
+            {entry.data.endDate ? formatYear(entry.data.endDate) : 'Now'}
+          </span>
+        </div>
+        <div>
+          <p class="eyebrow">{entry.data.organization}</p>
+          <h3>{entry.data.title}</h3>
+          <p>{entry.data.summary}</p>
+        </div>
+      </li>
+    ))
+  }
+</ol>

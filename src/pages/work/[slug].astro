@@ -1,0 +1,49 @@
+---
+import { getCollection, render, type CollectionEntry } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export async function getStaticPaths() {
+  const projects = (await getCollection('projects')).filter(
+    (entry) => !entry.data.draft,
+  );
+  return projects.map((project) => ({
+    params: { slug: project.id },
+    props: { project },
+  }));
+}
+
+interface Props {
+  project: CollectionEntry<'projects'>;
+}
+const { project } = Astro.props;
+const { Content } = await render(project);
+---
+
+<BaseLayout
+  title={`${project.data.title} | Joel Rhine`}
+  description={project.data.summary}
+  type="article"
+>
+  <header class="case-header">
+    <p class="eyebrow">{project.data.role}</p>
+    <h1>{project.data.title}</h1>
+    <p class="hero-copy">{project.data.summary}</p>
+    <div class="case-meta">
+      <span>{project.data.publishedAt.getFullYear()}</span>
+      <span>{project.data.tags.join(' · ')}</span>
+    </div>
+    <div class="actions">
+      {
+        project.data.links.map((link) => (
+          <a class="button" href={link.url}>
+            {link.label} ↗
+          </a>
+        ))
+      }
+    </div>
+  </header>
+  <article class="prose"><Content /></article>
+  <nav class="section" aria-label="Work navigation">
+    <a class="button" href="/work/">← All work</a>
+  </nav>
+</BaseLayout>

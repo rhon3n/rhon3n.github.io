@@ -1,0 +1,16 @@
+---
+import { site } from '../../data/site';
+---
+
+<footer class="site-footer">
+  <p>© {new Date().getFullYear()} Joel Rhine. Built under the rhonen name.</p>
+  <ul aria-label="Social profiles">
+    {
+      site.social.map((profile) => (
+        <li>
+          <a href={profile.url}>{profile.label} ↗</a>
+        </li>
+      ))
+    }
+  </ul>
+</footer>
