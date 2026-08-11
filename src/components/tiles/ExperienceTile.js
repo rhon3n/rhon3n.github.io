@@ -8,31 +8,32 @@ export class ExperienceTile extends Component {
         <span className="title has-background-grey-dark is-size-3 has-text-white highlight-title">DEV EXPERIENCE</span>
         <br />
         <br /> <li className="has-text-left is-size-5">
-          <a className="is-size-5 has-text-weight-bold" href="https://www.joinhoney.com">
-            PayPal Honey (formerly Honey)
+          <a className="is-size-5 has-text-weight-bold" href="https://measure.coffee">
+            measure.coffee
           </a>{' '}
-          - Triage, configure and maintain complex integrations for some of the largest retailers in the world.
+          - Founder and founding engineer of a context-aware coffee product that brings equipment, brew details, recipes,
+          and agent guidance into one workflow.
+        </li>
+        <br />
+        <li className="has-text-left is-size-5">
+          <a className="is-size-5 has-text-weight-bold" href="https://www.zeroclick.ai">
+            ZeroClick.ai
+          </a>{' '}
+          - Software Engineer on the Automations Team, building retailer integrations, experiments, and internal workflows.
+        </li>
+        <br />
+        <li className="has-text-left is-size-5">
+          <a className="is-size-5 has-text-weight-bold" href="https://www.joinhoney.com">
+            PayPal Honey
+          </a>{' '}
+          - Store Integration Specialist, then Technical Solutions Engineer, working on browser-extension and merchant-integration platforms.
         </li>
         <br />
         <li className="has-text-left is-size-5">
           <a className="is-size-5 has-text-weight-bold" href="http://www.github.com/rhon3n">
-            Github
+            GitHub
           </a>{' '}
-          - Check out my Github for some of my contributions and small projects.
-        </li>
-        <br />
-        <li className="has-text-left is-size-5">
-          <a className="is-size-5 has-text-weight-bold" href="http://www.dunecoffee.com">
-            dunecoffee.com
-          </a>{' '}
-          - CSS Style Upkeep + CSS Animations + Custom Theming + Custom Wholesale Portal
-        </li>
-        <br />
-        <li className="has-text-left is-size-5">
-          <a className="is-size-5 has-text-weight-bold" href="https://github.com/rhon3n/rhon3n.github.io/tree/dev">
-            rhonen.design
-          </a>{' '}
-          - This website, built with React. <em>Check out my source on the dev branch!</em>
+          - Explore selected contributions and smaller projects.
           <br />
         </li>
       </Tile>

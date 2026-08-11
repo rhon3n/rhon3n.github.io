@@ -5,7 +5,7 @@ import React, { Component } from 'react';
 
 export class TileBody extends Component {
   render() {
-    const { body, title, url, icon } = this.props;
+    const { body, title, url, icon, sourceUrl } = this.props;
     return (
       <React.Fragment>
         <a className="title has-background-primary is-size-4 has-text-white highlight-title" href={url}>
@@ -16,6 +16,11 @@ export class TileBody extends Component {
         <br />
         <br />
         <p className="is-size-5">{body}</p>
+        {sourceUrl && (
+          <p className="is-size-5">
+            <a href={sourceUrl}>View source on GitHub</a>
+          </p>
+        )}
       </React.Fragment>
     );
   }

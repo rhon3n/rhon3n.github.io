@@ -13,19 +13,20 @@ export class Main extends Component {
             <br />
             <br />
             <p className="is-size-5 has-text-left">
-              I am a driven Software Developer looking to leverage years of industry experience to build products I'm proud of with people that I respect.
+              I build useful software from a background in coffee, operations, and hands-on problem solving. That path has
+              taught me to listen closely, make complex work clearer, and keep the people using a product in view.
             </p>
             <br />
 
             <p className="has-text-left is-size-5">
-              I'm a lifelong learner with an entrepreneurial spirit who rises to a challenge and loves to collaborate
-              with my team.
+              Before moving into software, I worked across coffee service, wholesale, logistics, and field leadership. I
+              brought that operational perspective into engineering work on integrations, automation, and product systems.
             </p>
             <br />
 
             <p className="has-text-left is-size-5">
-              I find common ground with nearly every person I've ever met and am passionate about making the world a
-              better place for those who come after me.
+              Today, I pair that experience with an entrepreneurial approach to building products. I care about thoughtful
+              collaboration, durable systems, and work that solves a real problem for someone.
             </p>
             <br />
 
@@ -39,7 +40,7 @@ export class Main extends Component {
               <em>
                 <strong>you</strong>
               </em>{' '}
-              have to say—<strong>drop a line!</strong>
+              have to say. <strong>Drop a line!</strong>
             </p>
             <br />
 
