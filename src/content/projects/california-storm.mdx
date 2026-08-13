@@ -1,6 +1,6 @@
 ---
 title: California Storm WordPress Experience Rebuild
-summary: A full redesign and rebuild of a WordPress experience, documented from the initial brief through migration, interface decisions, responsive behavior, and handoff.
+summary: A redesign and rebuild that retained the club's WordPress content while making schedules, tryouts, rosters, and stories easier to use on any screen.
 publishedAt: 2026-01-01
 role: Product design · WordPress engineering
 organization: California Storm
@@ -8,17 +8,53 @@ featured: true
 draft: false
 sortOrder: 3
 tags: [WordPress, Product design, Responsive design]
-links: []
+links:
+  - label: Open case study
+    url: https://rhonen.design/cal-storm-case-study/
+  - label: View source
+    url: https://github.com/rhon3n/cal-storm-case-study
 ---
 
-## The work
+## Overview
 
-This case study covers an end-to-end WordPress experience rebuild: translating the brief into a usable information architecture, making responsive interface decisions, preparing migration paths, and leaving a maintainable handoff.
+California Storm's site held years of useful program information, but it was spread across page builders, shortcodes, plugins, and legacy navigation. The rebuild kept WordPress as the editorial source of truth and gave the club a clearer public experience around the information families use most: schedules, teams, tryouts, applications, and program history.
 
-## The constraint
+The work covered product design, front-end development, content migration, WordPress plugin architecture, and operational handoff.
 
-A redesign only works when the publishing workflow and migration are as considered as the interface. The implementation treated structure, presentation, and operational ownership as one system.
+## The challenge
 
-## Status
+A visual update alone would not solve the underlying problem. The site needed to become easier to navigate without losing the data and publishing habits the club already relied on.
 
-Final client-facing outcomes and launch details are intentionally withheld until they are approved for public use.
+That meant preserving established sources such as TablePress, Google Calendar, forms, commerce records, and WordPress content while reducing duplicate destinations and fragile manual updates. It also meant making the experience work for parents and players who often need information from a phone at practice, at a tournament, or on the way to tryouts.
+
+## The approach
+
+The project began with an inventory of 104 published pages. Each destination was classified as canonical, redirect, archive, retain, or review. Existing data sources stayed authoritative, while the interfaces around them were rebuilt for search, filtering, readability, and responsive use.
+
+The front end paired the club's established blue identity with a new system built around Barlow typography, sharp court geometry, strong photography, and focused accent color. Mobile layouts were designed as their own experience, with readable schedules, compact navigation, touch-sized controls, and reduced-motion support.
+
+Underneath the interface, the implementation separated editorial configuration, automation, page rendering, and the flagship landing experience into four purpose-built WordPress plugins. Those boundaries let the club update content without reopening the design and make changes without tying every concern to a single theme.
+
+## What changed
+
+The redesigned experience gives families clearer paths to teams, dates, applications, and contact information. A regional tryouts hub replaces scattered application pages with seven regional paths and contextual dates. Tournament schedules retain their existing TablePress source while becoming searchable, filterable, and easier to scan on smaller screens. Legacy and alumni content keeps its original records while gaining a more consistent editorial presentation.
+
+The publishing experience is more deliberate, too. Structured fields, media controls, focal-position settings, previews, revision history, dry runs, and rollback artifacts reduce the need for one-off code changes when content arrives.
+
+## Handoff
+
+The final handoff includes a WordPress guide for day-to-day editing, data ownership, publishing, rollbacks, and launch procedures. It also defines the systems future developers or agents need to inspect before making a change: the current source of truth, the relevant template, the expected verification path, and the rollback option.
+
+The handoff leaves the organization with a system it can operate and evolve.
+
+## Visual captions
+
+- **Homepage comparison:** The legacy homepage on desktop and mobile beside the redesigned homepage. The update replaces dense promotional tiles with a navigable brand story while keeping the important paths within reach.
+- **Tryouts comparison:** A regional tryouts hub replaces undifferentiated application buttons with seven regional paths, contextual dates, and progressive disclosure.
+- **Schedule comparison:** The existing editorial source becomes a searchable, filterable schedule with mobile event panels instead of a hard-to-scan table.
+- **Hall of Fame comparison:** Legacy imagery and destinations remain intact while the layout, hierarchy, contrast, and responsive behavior are rebuilt.
+- **Mobile form:** A mobile-first inquiry form makes the next action clear without asking a prospective family to complete a full registration flow.
+
+## Publication notes
+
+The source project verifies the 104-page inventory, four WordPress plugins, 17 branded templates, eight teams, and 76 retained player records. This page intentionally does not claim a public launch date, conversion result, traffic change, or client endorsement. Add those only after California Storm approves them for publication.

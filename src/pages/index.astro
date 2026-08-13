@@ -25,8 +25,8 @@ const experience = (await getCollection('experience'))
     </div>
     <div class="hero-note">
       <p>
-        I am the Founder & Founding Engineer at measure.coffee. Before software,
-        I spent 14 years in coffee, operations, and field work.
+        I am the Founding Engineer at measure.coffee. Before software, I spent
+        14 years in coffee, operations, and field work.
       </p>
       <p>
         Start with the real work. Make the system clear. Leave people with
@@ -48,6 +48,45 @@ const experience = (await getCollection('experience'))
         roles focused on integrations, automation, and product systems.
       </p>
     </header>
+    <figure class="journey-visual">
+      <picture class="journey-visual-media">
+        <source
+          media="(max-width: 48rem)"
+          srcset="/images/operations-to-software-mobile.avif"
+          type="image/avif"
+        />
+        <source
+          media="(max-width: 48rem)"
+          srcset="/images/operations-to-software-mobile.webp"
+          type="image/webp"
+        />
+        <source
+          media="(max-width: 48rem)"
+          srcset="/images/operations-to-software-mobile.jpg"
+          type="image/jpeg"
+        />
+        <source
+          srcset="/images/operations-to-software-desktop.avif"
+          type="image/avif"
+        />
+        <source
+          srcset="/images/operations-to-software-desktop.webp"
+          type="image/webp"
+        />
+        <img
+          src="/images/operations-to-software-desktop.jpg"
+          width="1920"
+          height="1080"
+          alt=""
+          loading="lazy"
+          decoding="async"
+        />
+      </picture>
+      <figcaption>
+        Field service, operations, and software are parts of the same working
+        system.
+      </figcaption>
+    </figure>
     <ol class="arc-grid">
       <li><span>01</span>Coffee & service</li><li>
         <span>02</span>Operations & field leadership

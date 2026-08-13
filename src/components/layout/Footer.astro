@@ -8,7 +8,9 @@ import { site } from '../../data/site';
     {
       site.social.map((profile) => (
         <li>
-          <a href={profile.url}>{profile.label} ↗</a>
+          <a href={profile.url} target="_blank" rel="noopener noreferrer">
+            {profile.label} ↗
+          </a>
         </li>
       ))
     }

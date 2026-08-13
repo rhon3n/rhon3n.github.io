@@ -10,7 +10,7 @@ const { title, summary, role, tags, links } = project.data;
   <a
     class="card-link"
     href={`/work/${project.id}/`}
-    aria-label={`Read ${title} case study`}
+    aria-label={`Read ${title} project details`}
   >
     <span class="card-index" aria-hidden="true"
       >{String(project.data.sortOrder ?? 0).padStart(2, '0')}</span
@@ -23,11 +23,16 @@ const { title, summary, role, tags, links } = project.data;
         {tags.map((tag) => <li>{tag}</li>)}
       </ul>
     </div>
-    <span class="arrow" aria-hidden="true">↗</span>
+    <span class="arrow" aria-hidden="true">→</span>
   </a>
   {
     links[0] && (
-      <a class="external-link" href={links[0].url}>
+      <a
+        class="external-link"
+        href={links[0].url}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         {links[0].label} ↗
       </a>
     )

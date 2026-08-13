@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import {
   experienceSchema,
+  getPublicationYear,
   projectSchema,
   sortByDate,
 } from '../../src/lib/content';
@@ -24,7 +25,7 @@ describe('content schemas', () => {
     expect(
       experienceSchema.parse({
         organization: 'measure.coffee',
-        title: 'Founder & Founding Engineer',
+        title: 'Founding Engineer',
         startDate: new Date('2026-03-01'),
         summary: 'Building a coffee-improvement product.',
         type: 'product',
@@ -63,5 +64,9 @@ describe('content schemas', () => {
       'newer',
       'older',
     ]);
+  });
+
+  it('renders date-only publication years in UTC', () => {
+    expect(getPublicationYear(new Date('2026-01-01T00:00:00.000Z'))).toBe(2026);
   });
 });

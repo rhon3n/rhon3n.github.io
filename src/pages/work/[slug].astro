@@ -1,6 +1,7 @@
 ---
 import { getCollection, render, type CollectionEntry } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getPublicationYear } from '../../lib/content';
 
 export async function getStaticPaths() {
   const projects = (await getCollection('projects')).filter(
@@ -29,13 +30,18 @@ const { Content } = await render(project);
     <h1>{project.data.title}</h1>
     <p class="hero-copy">{project.data.summary}</p>
     <div class="case-meta">
-      <span>{project.data.publishedAt.getFullYear()}</span>
+      <span>{getPublicationYear(project.data.publishedAt)}</span>
       <span>{project.data.tags.join(' · ')}</span>
     </div>
     <div class="actions">
       {
         project.data.links.map((link) => (
-          <a class="button" href={link.url}>
+          <a
+            class="button"
+            href={link.url}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             {link.label} ↗
           </a>
         ))
