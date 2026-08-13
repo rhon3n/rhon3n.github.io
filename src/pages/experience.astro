@@ -18,5 +18,7 @@ const entries = (await getCollection('experience'))
       focused on integrations, automation, product systems, and useful handoffs.
     </p>
   </header>
-  <section class="section"><ExperienceTimeline entries={entries} /></section>
+  <section class="section">
+    <ExperienceTimeline entries={entries} headingLevel={2} />
+  </section>
 </BaseLayout>

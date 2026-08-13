@@ -40,6 +40,10 @@ type DatedEntry = {
   data: { publishedAt: Date; sortOrder?: number };
 };
 
+export function getPublicationYear(date: Date): number {
+  return date.getUTCFullYear();
+}
+
 export function sortByDate<T extends DatedEntry>(entries: T[]): T[] {
   return [...entries].sort(
     (a, b) =>

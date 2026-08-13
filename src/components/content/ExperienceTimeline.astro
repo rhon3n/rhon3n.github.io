@@ -1,8 +1,12 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 
-type Props = { entries: CollectionEntry<'experience'>[] };
-const { entries } = Astro.props;
+type Props = {
+  entries: CollectionEntry<'experience'>[];
+  headingLevel?: 2 | 3;
+};
+const { entries, headingLevel = 3 } = Astro.props;
+const Heading = `h${headingLevel}` as const;
 const formatYear = (date: Date) =>
   new Intl.DateTimeFormat('en', { year: 'numeric' }).format(date);
 ---
@@ -19,7 +23,7 @@ const formatYear = (date: Date) =>
         </div>
         <div>
           <p class="eyebrow">{entry.data.organization}</p>
-          <h3>{entry.data.title}</h3>
+          <Heading>{entry.data.title}</Heading>
           <p>{entry.data.summary}</p>
         </div>
       </li>

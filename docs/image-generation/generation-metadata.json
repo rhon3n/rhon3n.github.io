@@ -1,0 +1,68 @@
+[
+  {
+    "candidate": "candidate-01.png",
+    "model": "gpt-image-2-high",
+    "provider": "openai-codex",
+    "size": "1536x1024",
+    "quality": "high",
+    "prompt": "Wide 3:2 editorial still-life photograph for a senior software engineer portfolio, showing the transition from field operations to product engineering: a partially open commercial espresso machine service panel on a dark workbench, worn multimeter and practical hand tools in the foreground, one unbranded coffee shipping tag with no readable writing, and a slim laptop at upper right emitting an abstract terminal interface glow reflected across brushed stainless steel. Composition flows from tactile field tools at lower left to restrained digital light at upper right, generous dark negative space, center-left focal safe zone, no person, no face. Low-key documentary photography, honest wear, tactile metal and rubber, deep near-black and olive shadows, soft off-white highlights, one precise acid-lime diagnostic reflection, faint warm amber practical light, subtle film grain, believable scale, quiet editorial confidence, not glossy advertising. No visible brands, logos, typography, legible screen content, cafe lifestyle, latte art, generic programmer desk, gaming setup, RGB neon, cyberpunk, floating holograms, smoke, duplicated tools, impossible wiring, illustration, or 3D render.",
+    "generation_date": "2026-08-13",
+    "seed": null,
+    "seed_note": "GPT Image 2 API does not expose a seed parameter or return a seed."
+  },
+  {
+    "candidate": "candidate-02.png",
+    "model": "gpt-image-2-high",
+    "provider": "openai-codex",
+    "size": "1536x1024",
+    "quality": "high",
+    "prompt": "Wide editorial still-life photograph for a senior software engineer portfolio. A partially open commercial espresso machine service panel on a dark workbench, worn multimeter and practical hand tools foreground, unbranded coffee shipping tag with no readable writing, slim laptop upper right with abstract terminal-interface glow reflected across brushed stainless steel. Visual flow from tactile field tools lower left to restrained digital light upper right, generous dark negative space, center-left focal safe zone. Low-key documentary photography, honest wear, believable scale, deep near-black and olive shadows, soft off-white highlights, one precise acid-lime diagnostic reflection, faint warm amber practical light, subtle film grain, quiet editorial confidence. No person, face, brands, logos, typography, readable screen content, cafe lifestyle, latte art, generic programmer desk, gaming setup, RGB neon, cyberpunk, floating holograms, smoke, duplicated tools, impossible wiring, illustration, or 3D render. Camera at workbench height, 35mm documentary lens, service cavity and meter dominant, laptop clearly secondary.",
+    "generation_date": "2026-08-13",
+    "seed": null,
+    "seed_note": "GPT Image 2 API does not expose a seed parameter or return a seed."
+  },
+  {
+    "candidate": "candidate-03.png",
+    "model": "gpt-image-2-high",
+    "provider": "openai-codex",
+    "size": "1536x1024",
+    "quality": "high",
+    "prompt": "Wide editorial still-life photograph for a senior software engineer portfolio. A partially open commercial espresso machine service panel on a dark workbench, worn multimeter and practical hand tools foreground, unbranded coffee shipping tag with no readable writing, slim laptop upper right with abstract terminal-interface glow reflected across brushed stainless steel. Visual flow from tactile field tools lower left to restrained digital light upper right, generous dark negative space, center-left focal safe zone. Low-key documentary photography, honest wear, believable scale, deep near-black and olive shadows, soft off-white highlights, one precise acid-lime diagnostic reflection, faint warm amber practical light, subtle film grain, quiet editorial confidence. No person, face, brands, logos, typography, readable screen content, cafe lifestyle, latte art, generic programmer desk, gaming setup, RGB neon, cyberpunk, floating holograms, smoke, duplicated tools, impossible wiring, illustration, or 3D render. Overhead three-quarter composition, physical tools grouped naturally, restrained asymmetry, no staged symmetry.",
+    "generation_date": "2026-08-13",
+    "seed": null,
+    "seed_note": "GPT Image 2 API does not expose a seed parameter or return a seed."
+  },
+  {
+    "candidate": "candidate-04.png",
+    "model": "gpt-image-2-high",
+    "provider": "openai-codex",
+    "size": "1536x1024",
+    "quality": "high",
+    "prompt": "Wide editorial still-life photograph for a senior software engineer portfolio. A partially open commercial espresso machine service panel on a dark workbench, worn multimeter and practical hand tools foreground, unbranded coffee shipping tag with no readable writing, slim laptop upper right with abstract terminal-interface glow reflected across brushed stainless steel. Visual flow from tactile field tools lower left to restrained digital light upper right, generous dark negative space, center-left focal safe zone. Low-key documentary photography, honest wear, believable scale, deep near-black and olive shadows, soft off-white highlights, one precise acid-lime diagnostic reflection, faint warm amber practical light, subtle film grain, quiet editorial confidence. No person, face, brands, logos, typography, readable screen content, cafe lifestyle, latte art, generic programmer desk, gaming setup, RGB neon, cyberpunk, floating holograms, smoke, duplicated tools, impossible wiring, illustration, or 3D render. Tighter tactile composition emphasizing used meter probes and open service panel, digital cue remains unmistakable upper right.",
+    "generation_date": "2026-08-13",
+    "seed": null,
+    "seed_note": "GPT Image 2 API does not expose a seed parameter or return a seed."
+  },
+  {
+    "candidate": "candidate-05.png",
+    "model": "gpt-image-2-high",
+    "provider": "openai-codex",
+    "size": "1536x1024",
+    "quality": "high",
+    "prompt": "Wide editorial still-life photograph for a senior software engineer portfolio. A partially open commercial espresso machine service panel on a dark workbench, worn multimeter and practical hand tools foreground, unbranded coffee shipping tag with no readable writing, slim laptop upper right with abstract terminal-interface glow reflected across brushed stainless steel. Visual flow from tactile field tools lower left to restrained digital light upper right, generous dark negative space, center-left focal safe zone. Low-key documentary photography, honest wear, believable scale, deep near-black and olive shadows, soft off-white highlights, one precise acid-lime diagnostic reflection, faint warm amber practical light, subtle film grain, quiet editorial confidence. No person, face, brands, logos, typography, readable screen content, cafe lifestyle, latte art, generic programmer desk, gaming setup, RGB neon, cyberpunk, floating holograms, smoke, duplicated tools, impossible wiring, illustration, or 3D render. Broader environmental still life with negative space, repaired equipment reads first, software glow reads second.",
+    "generation_date": "2026-08-13",
+    "seed": null,
+    "seed_note": "GPT Image 2 API does not expose a seed parameter or return a seed."
+  },
+  {
+    "candidate": "candidate-06.png",
+    "model": "gpt-image-2-high",
+    "provider": "openai-codex",
+    "size": "1536x1024",
+    "quality": "high",
+    "prompt": "Wide editorial still-life photograph for a senior software engineer portfolio. A partially open commercial espresso machine service panel on a dark workbench, worn multimeter and practical hand tools foreground, unbranded coffee shipping tag with no readable writing, slim laptop upper right with abstract terminal-interface glow reflected across brushed stainless steel. Visual flow from tactile field tools lower left to restrained digital light upper right, generous dark negative space, center-left focal safe zone. Low-key documentary photography, honest wear, believable scale, deep near-black and olive shadows, soft off-white highlights, one precise acid-lime diagnostic reflection, faint warm amber practical light, subtle film grain, quiet editorial confidence. No person, face, brands, logos, typography, readable screen content, cafe lifestyle, latte art, generic programmer desk, gaming setup, RGB neon, cyberpunk, floating holograms, smoke, duplicated tools, impossible wiring, illustration, or 3D render. Quiet magazine editorial frame, brushed metal reflections controlled, mechanically plausible panel and wiring.",
+    "generation_date": "2026-08-13",
+    "seed": null,
+    "seed_note": "GPT Image 2 API does not expose a seed parameter or return a seed."
+  }
+]
