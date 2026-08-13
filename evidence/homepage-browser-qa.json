@@ -1,0 +1,34 @@
+{
+  "desktop": {
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "horizontalOverflow": false,
+    "caseStudyLinkCount": 1,
+    "caseStudyLinkVisible": true,
+    "caseStudyHref": "/cal-storm-case-study/",
+    "resumeLinkCount": 1,
+    "resumeHref": "/files/resume-2026-08.pdf",
+    "missingStylesheetRequested": false,
+    "failedResponses": [],
+    "consoleErrors": [],
+    "screenshot": "evidence/homepage-desktop.png"
+  },
+  "mobile": {
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "horizontalOverflow": true,
+    "caseStudyLinkCount": 1,
+    "caseStudyLinkVisible": true,
+    "caseStudyHref": "/cal-storm-case-study/",
+    "resumeLinkCount": 1,
+    "resumeHref": "/files/resume-2026-08.pdf",
+    "missingStylesheetRequested": false,
+    "failedResponses": [],
+    "consoleErrors": [],
+    "screenshot": "evidence/homepage-mobile.png"
+  }
+}
