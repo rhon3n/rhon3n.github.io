@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import ExperienceTimeline from '../components/content/ExperienceTimeline.astro';
 import ProjectCard from '../components/content/ProjectCard.astro';
+import { site } from '../data/site';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { sortByDate } from '../lib/content';
 
@@ -14,28 +15,45 @@ const experience = (await getCollection('experience'))
 ---
 
 <BaseLayout>
-  <section class="hero">
-    <div>
+  <section class="hero" data-od-id="home-hero">
+    <div class="hero-main">
       <p class="eyebrow">Joel Rhine · Software engineer & product builder</p>
       <h1>I build products people can actually operate.</h1>
+      <p class="hero-copy">
+        Practical software shaped by coffee, field operations, integrations, and
+        product engineering.
+      </p>
       <div class="actions">
         <a class="button button-primary" href="/work/">See selected work</a>
-        <a class="button" href="/about/">Read my story</a>
+        <a class="text-action" href="/about/">Read my story →</a>
       </div>
     </div>
-    <div class="hero-note">
-      <p>
-        I am the Founding Engineer at measure.coffee. Before software, I spent
-        14 years in coffee, operations, and field work.
-      </p>
-      <p>
-        Start with the real work. Make the system clear. Leave people with
-        something they can use.
-      </p>
+    <div class="hero-rail">
+      <div class="hero-note">
+        <p>
+          I am the Founding Engineer at measure.coffee. Before software, I spent
+          14 years in coffee, operations, and field work.
+        </p>
+        <p>
+          Start with the real work. Make the system clear. Leave people with
+          something they can use.
+        </p>
+      </div>
+      <div class="hero-rail-meta" aria-label="Operating context">
+        <div>
+          <span class="eyebrow">Operating history</span><strong>14 years</strong
+          >
+        </div>
+        <div>
+          <span class="eyebrow">Current role</span><strong
+            >Founding engineer</strong
+          >
+        </div>
+      </div>
     </div>
   </section>
 
-  <section class="section">
+  <section class="section" data-od-id="home-operating-history">
     <header class="section-header">
       <div>
         <p class="eyebrow">How I got here</p><h2>
@@ -96,7 +114,7 @@ const experience = (await getCollection('experience'))
     </ol>
   </section>
 
-  <section class="section">
+  <section class="section" data-od-id="home-featured-work">
     <header class="section-header">
       <div>
         <p class="eyebrow">Featured work</p><h2>
@@ -109,12 +127,12 @@ const experience = (await getCollection('experience'))
         the people doing the work?
       </p>
     </header>
-    <div class="project-grid">
+    <div class="project-list">
       {projects.map((project) => <ProjectCard {project} />)}
     </div>
   </section>
 
-  <section class="section">
+  <section class="section" data-od-id="home-experience">
     <header class="section-header">
       <div>
         <p class="eyebrow">Experience</p><h2>
@@ -128,11 +146,11 @@ const experience = (await getCollection('experience'))
     </header>
     <ExperienceTimeline entries={experience.slice(0, 4)} />
     <div class="actions">
-      <a class="button" href="/experience/">View full experience</a>
+      <a class="text-action" href="/experience/">View full experience →</a>
     </div>
   </section>
 
-  <section class="section">
+  <section class="section contact-band" data-od-id="home-contact">
     <header class="section-header">
       <div>
         <p class="eyebrow">Contact</p><h2>
@@ -144,9 +162,9 @@ const experience = (await getCollection('experience'))
           I am open to thoughtful conversations about products, systems, coffee,
           and the messy work between an idea and something useful.
         </p><div class="actions">
-          <a class="button button-primary" href="mailto:joel@rhonen.design"
+          <a class="button button-primary" href={`mailto:${site.email}`}
             >Email Joel</a
-          ><a class="button" href="/files/resume.pdf">Download resume</a>
+          ><a class="text-action" href="/files/resume.pdf">Download resume ↓</a>
         </div>
       </div>
     </header>

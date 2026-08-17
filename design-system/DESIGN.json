@@ -1,0 +1,124 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-08-16T12:00:00-05:00",
+  "title": "Design System: Rhonen Portfolio",
+  "extensions": {
+    "colorMeta": {
+      "midnight-violet": {
+        "role": "neutral",
+        "displayName": "Midnight Violet",
+        "canonical": "oklch(14.97% 0.0705 288.74)",
+        "tonalRamp": ["oklch(15% 0.07 289)", "oklch(25% 0.07 289)", "oklch(36% 0.065 289)", "oklch(48% 0.055 289)", "oklch(61% 0.045 289)", "oklch(74% 0.035 289)", "oklch(86% 0.022 289)", "oklch(95% 0.01 289)"]
+      },
+      "bright-indigo": {
+        "role": "primary",
+        "displayName": "Bright Indigo",
+        "canonical": "oklch(47.59% 0.2748 267.09)",
+        "tonalRamp": ["oklch(18% 0.12 267)", "oklch(28% 0.18 267)", "oklch(38% 0.23 267)", "oklch(48% 0.275 267)", "oklch(60% 0.22 267)", "oklch(72% 0.16 267)", "oklch(84% 0.09 267)", "oklch(95% 0.035 267)"]
+      },
+      "canary-yellow": {
+        "role": "secondary",
+        "displayName": "Canary Yellow",
+        "canonical": "oklch(94.38% 0.1495 109.77)",
+        "tonalRamp": ["oklch(18% 0.04 110)", "oklch(30% 0.07 110)", "oklch(43% 0.09 110)", "oklch(56% 0.11 110)", "oklch(68% 0.13 110)", "oklch(79% 0.14 110)", "oklch(89% 0.15 110)", "oklch(95% 0.12 110)"]
+      },
+      "ivory": {
+        "role": "neutral",
+        "displayName": "Ivory",
+        "canonical": "oklch(98.82% 0.0249 109.29)",
+        "tonalRamp": ["oklch(15% 0.01 109)", "oklch(28% 0.012 109)", "oklch(42% 0.014 109)", "oklch(56% 0.016 109)", "oklch(69% 0.018 109)", "oklch(81% 0.02 109)", "oklch(91% 0.022 109)", "oklch(99% 0.025 109)"]
+      },
+      "vibrant-coral": {
+        "role": "tertiary",
+        "displayName": "Vibrant Coral",
+        "canonical": "oklch(69.63% 0.1618 25.24)",
+        "tonalRamp": ["oklch(18% 0.07 25)", "oklch(28% 0.1 25)", "oklch(39% 0.13 25)", "oklch(51% 0.15 25)", "oklch(62% 0.16 25)", "oklch(72% 0.15 25)", "oklch(84% 0.1 25)", "oklch(95% 0.035 25)"]
+      },
+      "ivory-surface": {
+        "role": "neutral",
+        "displayName": "Ivory Surface",
+        "canonical": "oklch(96.6% 0.031 109.29)",
+        "tonalRamp": ["oklch(15% 0.012 109)", "oklch(28% 0.015 109)", "oklch(42% 0.018 109)", "oklch(56% 0.021 109)", "oklch(69% 0.024 109)", "oklch(81% 0.027 109)", "oklch(90% 0.029 109)", "oklch(97% 0.031 109)"]
+      }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "One dominant argument per page." },
+      "headline": { "displayName": "Headline", "purpose": "Section arguments and case-study titles." },
+      "title": { "displayName": "Title", "purpose": "Project names, roles, and component headings." },
+      "body": { "displayName": "Body", "purpose": "Narrative capped at 65 characters per line." },
+      "label": { "displayName": "Label", "purpose": "Navigation, coordinates, tags, and metadata." }
+    },
+    "shadows": [
+      { "name": "tactile-offset", "value": "4px 4px 0 #0c0326", "purpose": "Interaction feedback for bounded controls only." }
+    ],
+    "motion": [
+      { "name": "fast", "value": "140ms cubic-bezier(0.22, 1, 0.36, 1)", "purpose": "Press and hover response." },
+      { "name": "standard", "value": "220ms cubic-bezier(0.22, 1, 0.36, 1)", "purpose": "Panel and navigation transitions." },
+      { "name": "ticker-linear", "value": "48px/s transform-only with ease none", "purpose": "Continuous contribution ticker; paused off-screen and disabled for reduced motion." }
+    ],
+    "breakpoints": [
+      { "name": "compact", "value": "720px" },
+      { "name": "wide", "value": "1120px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The single solid action in a viewport.",
+      "html": "<button class=\"ds-btn-primary\">SEE SELECTED WORK</button>",
+      "css": ".ds-btn-primary{min-height:48px;padding:14px 20px;border:1px solid #2132f3;border-radius:0;background:#2132f3;color:#fcfdea;font:600 12px/1.4 Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase;transition:transform 140ms cubic-bezier(.22,1,.36,1),background 140ms cubic-bezier(.22,1,.36,1)}.ds-btn-primary:hover{background:#0c0326;border-color:#0c0326;transform:translateY(-2px)}.ds-btn-primary:focus-visible{outline:3px solid #f3f576;outline-offset:3px}.ds-btn-primary:active{transform:translateY(1px)}"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "A bordered alternative that never competes with the primary.",
+      "html": "<button class=\"ds-btn-secondary\">READ MY STORY</button>",
+      "css": ".ds-btn-secondary{min-height:48px;padding:14px 20px;border:1px solid #0c0326;border-radius:0;background:#fcfdea;color:#0c0326;font:600 12px/1.4 Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase;transition:transform 140ms cubic-bezier(.22,1,.36,1),background 140ms cubic-bezier(.22,1,.36,1),color 140ms cubic-bezier(.22,1,.36,1)}.ds-btn-secondary:hover{background:#0c0326;color:#fcfdea;transform:translateY(-2px)}.ds-btn-secondary:focus-visible{outline:3px solid #2132f3;outline-offset:3px}.ds-btn-secondary:active{transform:translateY(1px)}"
+    },
+    {
+      "name": "Text Field",
+      "kind": "input",
+      "refersTo": "field",
+      "description": "A square, ruled field with explicit label and focus.",
+      "html": "<label class=\"ds-field-label\" for=\"ds-email\">EMAIL</label><input class=\"ds-field\" id=\"ds-email\" type=\"email\" placeholder=\"you@example.com\">",
+      "css": ".ds-field-label{display:block;margin-bottom:8px;color:#0c0326;font:600 12px/1.4 Arial,sans-serif;letter-spacing:.08em}.ds-field{box-sizing:border-box;width:100%;min-height:48px;padding:12px 14px;border:1px solid #0c0326;border-radius:0;background:#f6f7df;color:#0c0326;font:400 17px/1.55 Arial,sans-serif}.ds-field::placeholder{color:#5d586c}.ds-field:focus-visible{outline:3px solid #2132f3;outline-offset:3px}"
+    },
+    {
+      "name": "Navigation Index",
+      "kind": "nav",
+      "description": "A horizontal ruled index with a direct active state.",
+      "html": "<nav class=\"ds-nav\" aria-label=\"Example\"><a class=\"ds-nav-active\" href=\"#\">WORK</a><a href=\"#\">EXPERIENCE</a><a href=\"#\">ABOUT</a></nav>",
+      "css": ".ds-nav{display:flex;gap:24px;border-bottom:1px solid #0c0326}.ds-nav a{min-height:44px;display:inline-flex;align-items:center;color:#0c0326;font:600 12px/1.4 Arial,sans-serif;letter-spacing:.08em;text-decoration:none}.ds-nav a:hover{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:8px}.ds-nav a:focus-visible{outline:3px solid #2132f3;outline-offset:3px}.ds-nav .ds-nav-active{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:8px}"
+    },
+    {
+      "name": "Indexed Project Row",
+      "kind": "custom",
+      "description": "A three-tier work record framed by full-height index and arrow columns, with a category-mapped color cell and project media.",
+      "html": "<a class=\"ds-project ds-project-canary\" href=\"#\"><small class=\"ds-project-index\">01</small><span class=\"ds-project-content\"><strong>SHADER STUDIO</strong><span class=\"ds-project-detail\"><span><small>DESCRIPTION</small>A browser studio for local-first visual treatments.</span><span class=\"ds-project-category\"><small>CATEGORY</small>Creative tools</span></span><span class=\"ds-project-media\"><img src=\"assets/project-shader-studio.png\" alt=\"Abstract shader patterns on a studio monitor.\"><small>MEDIA HIGHLIGHT</small></span></span><b class=\"ds-project-arrow\">→</b></a>",
+      "css": ".ds-project{--ds-media-max:208px;--ds-signal-bg:#f6f7df;--ds-signal-fg:#0c0326;display:grid;grid-template-columns:56px minmax(0,1fr) 48px;border-top:1px solid #0c0326;border-bottom:1px solid #0c0326;color:#0c0326;text-decoration:none;font:400 17px/1.55 Arial,sans-serif}.ds-project-canary{--ds-signal-bg:#f3f576;--ds-signal-fg:#0c0326}.ds-project-indigo{--ds-signal-bg:#2132f3;--ds-signal-fg:#fcfdea}.ds-project-coral{--ds-signal-bg:#f16f68;--ds-signal-fg:#0c0326}.ds-project-index,.ds-project-arrow{display:flex;padding:16px}.ds-project-index{align-items:flex-start;border-right:1px solid #0c0326}.ds-project-arrow{align-items:center;justify-content:center;border-left:1px solid #0c0326}.ds-project-content{min-width:0}.ds-project-content>strong{display:flex;align-items:center;min-height:104px;padding:16px;font-size:32px;line-height:1;letter-spacing:-.02em}.ds-project-detail{display:grid;grid-template-columns:minmax(0,3fr) minmax(160px,1fr);border-top:1px solid #0c0326}.ds-project-detail>span{padding:16px}.ds-project-detail>span:first-child{border-right:1px solid #0c0326}.ds-project-category{background:var(--ds-signal-bg);color:var(--ds-signal-fg)}.ds-project-detail small{display:block;margin-bottom:8px;font-size:11px;font-weight:600;letter-spacing:.08em}.ds-project-media{display:grid;grid-template-rows:minmax(0,1fr) auto;height:clamp(144px,18vw,var(--ds-media-max));overflow:hidden;border-top:1px solid #0c0326}.ds-project-media img{display:block;width:100%;height:100%;min-height:0;object-fit:cover}.ds-project-media>small{padding:8px 16px;border-top:1px solid #0c0326;font-size:11px;font-weight:600;letter-spacing:.08em}.ds-project:hover{background:#0c0326;color:#fcfdea}.ds-project:hover *{border-color:#fcfdea}.ds-project:focus-visible{outline:3px solid #2132f3;outline-offset:3px}@media(max-width:560px){.ds-project{grid-template-columns:48px minmax(0,1fr) 48px}.ds-project-detail{grid-template-columns:1fr}.ds-project-detail>span:first-child{border-right:0;border-bottom:1px solid #0c0326}.ds-project-media{height:clamp(144px,42vw,var(--ds-media-max))}}"
+    },
+    {
+      "name": "GitHub Contribution Ticker",
+      "kind": "custom",
+      "description": "A dated, sourced public-activity snapshot in a seamless ruled ticker with a static reduced-motion fallback.",
+      "html": "<div class=\"ds-ticker\" tabindex=\"0\" aria-label=\"GitHub contribution snapshot\"><div class=\"ds-ticker-track\"><div class=\"ds-ticker-set\"><article><strong>709</strong><span>CONTRIBUTIONS / LAST YEAR</span></article><article><strong>72%</strong><span>COMMITS / ACTIVITY MIX</span></article><article><strong>26%</strong><span>PULL REQUESTS / ACTIVITY MIX</span></article></div></div></div>",
+      "css": ".ds-ticker{max-width:100%;overflow-x:auto;background:#0c0326;color:#fcfdea}.ds-ticker-track,.ds-ticker-set{display:flex;width:max-content}.ds-ticker-set{flex:none}.ds-ticker article{display:grid;grid-template-rows:1fr auto;width:320px;min-height:168px;padding:24px 32px;border-right:1px solid #fcfdea}.ds-ticker strong{align-self:end;font:400 72px/.88 'Arial Black',Impact,sans-serif;letter-spacing:-.03em}.ds-ticker span{margin-top:24px;font:600 12px/1.4 Arial,sans-serif;letter-spacing:.08em}.ds-ticker:focus-visible{outline:3px solid #2132f3;outline-offset:3px}@media(prefers-reduced-motion:reduce){.ds-ticker-track{transform:none!important}}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Operator's Field Manual",
+    "overview": "This system treats Joel's portfolio as a precise working document rather than a polished sales shell. An ivory canvas evokes technical paper; heavy grotesk headlines, coordinate labels, exposed rules, and a visible 12-column grid turn structure into the signature. The expression is tech-brutalist, but never chaotic.",
+    "keyCharacteristics": ["Ivory-first canvas with Midnight Violet structure.", "Strict Swiss grid with occasional one-column offsets.", "Blunt display typography paired with calm, readable body copy.", "Square controls, exposed borders, and hard state shifts.", "Functional color signals rather than ambient decoration."],
+    "rules": [
+      { "name": "The Twelve-Column Rule", "body": "Desktop compositions align to twelve columns; every intentional break must still resolve to the grid at its edges.", "section": "overview" },
+      { "name": "The Two-Signal Rule", "body": "Bright Indigo may appear as one primary interaction and one supporting signal per viewport. Canary and Coral are semantic colors, not extra accents.", "section": "colors" },
+      { "name": "The Caps Rule", "body": "Every uppercase label uses 0.08em tracking. Body copy is never uppercase.", "section": "typography" },
+      { "name": "The Flat-at-Rest Rule", "body": "If an element needs a shadow to be understandable before interaction, its border, hierarchy, or placement is wrong.", "section": "elevation" }
+    ],
+    "dos": ["Do use Ivory as the dominant background and Midnight Violet for primary type and structural rules.", "Do align page regions to a 12-column desktop grid and a four-column mobile grid.", "Do keep one primary-styled action per viewport and render other paths as borders or text links."],
+    "donts": ["Don't use chaotic brutalism that mistakes disruption for hierarchy.", "Don't use generic SaaS polish built from rounded cards, soft gradients, and interchangeable marketing patterns.", "Don't use terminal cosplay or decorative technical language that is not supported by the content."]
+  }
+}

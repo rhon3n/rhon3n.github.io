@@ -2,17 +2,34 @@
 import { site } from '../../data/site';
 ---
 
-<footer class="site-footer">
-  <p>© {new Date().getFullYear()} Joel Rhine. Built under the rhonen name.</p>
-  <ul aria-label="Social profiles">
-    {
-      site.social.map((profile) => (
-        <li>
-          <a href={profile.url} target="_blank" rel="noopener noreferrer">
-            {profile.label} ↗
-          </a>
-        </li>
-      ))
-    }
-  </ul>
+<footer class="site-footer" data-od-id="site-footer">
+  <div class="footer-statement">
+    <p class="eyebrow">Continue the conversation</p>
+    <h2>Start with the work.</h2>
+  </div>
+  <div class="footer-links">
+    <a href={`mailto:${site.email}`}>
+      <span>Email Joel</span><span aria-hidden="true">↗</span>
+    </a>
+    <ul aria-label="Social profiles">
+      {
+        site.social.map((profile) => (
+          <li>
+            <a href={profile.url} target="_blank" rel="noopener noreferrer">
+              <>
+                <span>{profile.label}</span>
+                <span aria-hidden="true">↗</span>
+              </>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+    <a href="#main-content">
+      <span>Return to top</span><span aria-hidden="true">↑</span>
+    </a>
+  </div>
+  <p class="footer-legal">
+    © {new Date().getFullYear()} Joel Rhine · Built under the rhonen name.
+  </p>
 </footer>

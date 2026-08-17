@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Joel Rhine is a software engineer and product builder working across coffee, operations, integrations, and useful software." />
+    <title>Joel Rhine · Software Engineer & Product Builder</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&amp;family=Source+Sans+3:wght@400;600&amp;display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../../colors_and_type.css" />
+    <style>
+      :root {
+        --bg: oklch(98.82% 0.0249 109.29);
+        --surface: oklch(96.6% 0.031 109.29);
+        --fg: oklch(14.97% 0.0705 288.74);
+        --muted: oklch(43% 0.045 288.74);
+        --border: oklch(14.97% 0.0705 288.74 / 0.24);
+        --accent: oklch(47.59% 0.2748 267.09);
+        --signal: oklch(94.38% 0.1495 109.77);
+        --danger: oklch(69.63% 0.1618 25.24);
+        --font-display: "Archivo Black", "Arial Black", Impact, sans-serif;
+        --font-body: "Source Sans 3", "Helvetica Neue", Arial, sans-serif;
+        --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+        --rule: 1px solid var(--fg);
+        --ease: cubic-bezier(0.22, 1, 0.36, 1);
+      }
+
+      *,*::before,*::after{box-sizing:border-box}
+      html{background:var(--bg);color:var(--fg);font-family:var(--font-body);scroll-behavior:smooth}
+      body{min-width:20rem;margin:0;background:var(--bg);color:var(--fg);font-size:1.0625rem;line-height:1.55;text-rendering:optimizeLegibility}
+      a,button{color:inherit}
+      button{font:inherit}
+      :focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+      ::selection{background:var(--signal);color:var(--fg)}
+      h1,h2,h3,p,figure{margin-top:0}
+      h1,h2,h3{text-wrap:balance}
+      p{text-wrap:pretty}
+      img{max-width:100%}
+      .skip-link{position:fixed;top:16px;left:16px;z-index:20;min-height:44px;padding:10px 16px;background:var(--fg);color:var(--bg);transform:translateY(-180%);transition:transform 140ms var(--ease)}
+      .skip-link:focus{transform:translateY(0)}
+      .shell{width:min(calc(100% - clamp(2rem,6vw,6rem)),92rem);margin-inline:auto;border-inline:var(--rule)}
+      .label{margin:0;font-size:.75rem;font-weight:600;line-height:1.4;letter-spacing:.08em;text-transform:uppercase}
+      .micro{font-family:var(--font-mono);font-size:.72rem;line-height:1.5}
+      .site-header{display:grid;grid-template-columns:3fr 9fr;min-height:72px;border-bottom:var(--rule)}
+      .wordmark{display:flex;align-items:center;padding:16px 24px;border-right:var(--rule);font-family:var(--font-display);font-size:1.25rem;letter-spacing:-.02em;text-decoration:none}
+      .wordmark span{margin-right:4px;color:var(--accent)}
+      .nav{display:grid;grid-template-columns:repeat(4,1fr)}
+      .nav a{display:flex;min-height:72px;align-items:center;padding:16px 24px;border-right:var(--rule);font-size:.75rem;font-weight:600;letter-spacing:.08em;text-decoration:none;text-transform:uppercase}
+      .nav a:last-child{border-right:0}
+      .nav a:hover,.nav a:focus-visible{background:var(--fg);color:var(--bg)}
+      .hero{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));min-height:min(80vh,780px);border-bottom:var(--rule)}
+      .hero-main{grid-column:1/span 8;display:flex;min-width:0;flex-direction:column;justify-content:space-between;padding:clamp(48px,7vw,112px) clamp(24px,4vw,64px) 40px;border-right:var(--rule)}
+      .hero h1{max-width:9ch;margin:16px 0 48px;font-family:var(--font-display);font-size:clamp(3.4rem,7.7vw,7.4rem);font-weight:400;line-height:.9;letter-spacing:-.03em;text-transform:uppercase}
+      .hero-deck{max-width:58ch;margin:0;font-size:clamp(1.15rem,1.7vw,1.45rem);line-height:1.45}
+      .hero-actions{display:flex;flex-wrap:wrap;align-items:center;gap:24px;margin-top:40px}
+      .primary{display:inline-flex;min-height:48px;align-items:center;justify-content:center;padding:14px 20px;border:1px solid var(--accent);background:var(--accent);color:var(--bg);font-size:.75rem;font-weight:600;letter-spacing:.08em;text-decoration:none;text-transform:uppercase;transition:transform 140ms var(--ease),background 140ms var(--ease),color 140ms var(--ease)}
+      .primary:hover{border-color:var(--fg);background:var(--fg);color:var(--bg);transform:translateY(-2px)}
+      .primary:focus-visible{outline-color:var(--signal)}
+      .text-link{display:inline-flex;min-height:44px;align-items:center;font-size:.75rem;font-weight:600;letter-spacing:.08em;text-underline-offset:6px;text-transform:uppercase}
+      .text-link:hover{text-decoration-thickness:3px}
+      .hero-rail{grid-column:9/-1;display:grid;grid-template-rows:1fr auto;background:var(--surface)}
+      .rail-copy{display:flex;flex-direction:column;justify-content:flex-end;padding:32px}
+      .rail-copy p:first-child{max-width:31ch;margin-bottom:32px;font-size:1.2rem;line-height:1.45}
+      .rail-meta{display:grid;grid-template-columns:1fr 1fr;border-top:var(--rule)}
+      .rail-meta div{min-height:132px;padding:16px}
+      .rail-meta div:first-child{border-right:var(--rule);background:var(--signal)}
+      .rail-meta div:last-child{background:var(--danger)}
+      .section-head{display:grid;grid-template-columns:3fr 9fr;min-height:176px;border-bottom:var(--rule)}
+      .coordinate,.section-title{padding:32px}
+      .coordinate{border-right:var(--rule)}
+      .section-title h2{max-width:13ch;margin-bottom:16px;font-family:var(--font-display);font-size:clamp(2.4rem,5vw,4.8rem);font-weight:400;line-height:.96;letter-spacing:-.02em;text-transform:uppercase}
+      .section-title p{max-width:65ch;margin-bottom:0}
+      .project{--category-bg:var(--surface);--category-fg:var(--fg);display:grid;grid-template-columns:minmax(72px,1fr) minmax(0,10fr) minmax(64px,1fr);border-bottom:var(--rule);transition:background 140ms var(--ease),color 140ms var(--ease)}
+      .project.creative{--category-bg:var(--signal);--category-fg:var(--fg)}
+      .project.engineering{--category-bg:var(--accent);--category-fg:var(--bg)}
+      .project.design{--category-bg:var(--danger);--category-fg:var(--fg)}
+      .project-index{padding:24px;border-right:var(--rule)}
+      .project-content{min-width:0}
+      .project-title{display:flex;min-height:132px;align-items:center;padding:24px}
+      .project-title h3{margin:0;font-family:var(--font-display);font-size:clamp(2.25rem,5vw,5.25rem);font-weight:400;line-height:.94;letter-spacing:-.025em;text-transform:uppercase}
+      .project-details{display:grid;grid-template-columns:minmax(0,9fr) minmax(12rem,3fr);border-top:var(--rule)}
+      .description,.category{padding:24px}
+      .description{border-right:var(--rule)}
+      .description p{max-width:65ch;margin:12px 0 0}
+      .category{background:var(--category-bg);color:var(--category-fg)}
+      .category strong{display:block;margin-top:12px;font-size:1.05rem}
+      .project-media{display:grid;grid-template-rows:minmax(0,1fr) auto;height:clamp(10rem,18vw,264px);margin:0;overflow:hidden;border-top:var(--rule)}
+      .project-media img{display:block;width:100%;height:100%;min-height:0;object-fit:cover}
+      .project-media figcaption{display:flex;justify-content:space-between;gap:16px;padding:12px 24px;border-top:var(--rule)}
+      .project-notes{padding:24px;border-top:var(--rule);background:var(--surface)}
+      .project-notes p{max-width:65ch;margin:0}
+      .project-toggle{display:flex;align-items:center;justify-content:center;padding:16px;border:0;border-left:var(--rule);border-radius:0;background:transparent;color:inherit;cursor:pointer;font-size:1.75rem}
+      .project-toggle span{transition:transform 140ms var(--ease)}
+      .project-toggle[aria-expanded="true"] span{transform:rotate(180deg)}
+      .project:hover{background:var(--fg);color:var(--bg)}
+      .project:hover .project-index,.project:hover .project-toggle,.project:hover .project-details,.project:hover .description,.project:hover .project-media,.project:hover .project-media figcaption,.project:hover .project-notes{border-color:var(--bg)}
+      .project:hover .category,.project:hover .project-notes{background:var(--fg);color:var(--bg)}
+      .project-toggle:focus-visible{position:relative;z-index:1;outline-color:var(--signal);outline-offset:-5px}
+      .media-shader img{object-position:center 48%}.media-measure img{object-position:center 52%}.media-storm img{object-position:center 58%}
+      .ticker-source{display:grid;grid-template-columns:8fr 4fr;border-bottom:var(--rule)}
+      .ticker-source>*{display:flex;min-height:72px;align-items:center;padding:16px 32px}
+      .ticker-source a{justify-content:space-between;border-left:var(--rule);font-size:.75rem;font-weight:600;letter-spacing:.08em;text-decoration:none;text-transform:uppercase}
+      .ticker-source a:hover{background:var(--fg);color:var(--bg)}
+      .ticker{max-width:100%;overflow-x:auto;background:var(--fg);color:var(--bg);scrollbar-color:var(--signal) var(--fg)}
+      .ticker-track{display:flex;width:max-content}
+      .stat{display:grid;grid-template-rows:1fr auto;width:clamp(17rem,27vw,25rem);min-height:168px;padding:24px 32px;border-right:1px solid var(--bg)}
+      .stat strong{align-self:end;font-family:var(--font-display);font-size:clamp(3.5rem,6vw,6rem);font-weight:400;line-height:.88;letter-spacing:-.03em}
+      .stat span{display:flex;justify-content:space-between;gap:16px;margin-top:24px;font-size:.75rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+      .about{display:grid;grid-template-columns:4fr 8fr;border-bottom:var(--rule)}
+      .about-aside,.about-copy{padding:clamp(24px,4vw,64px)}
+      .about-aside{border-right:var(--rule);background:var(--surface)}
+      .about-copy p{max-width:62ch;font-size:clamp(1.25rem,2vw,1.65rem);line-height:1.45}
+      .about-list{display:grid;grid-template-columns:repeat(2,1fr);margin:40px 0 0;padding:0;border-top:var(--rule);list-style:none}
+      .about-list li{padding:16px 0;border-bottom:var(--rule)}
+      .about-list li:nth-child(odd){padding-right:16px}.about-list li:nth-child(even){padding-left:16px}
+      .contact{display:grid;grid-template-columns:8fr 4fr;min-height:260px;background:var(--fg);color:var(--bg)}
+      .contact-copy,.contact-links{display:flex;padding:32px}
+      .contact-copy{flex-direction:column;justify-content:space-between}
+      .contact-copy h2{max-width:10ch;margin:0;font-family:var(--font-display);font-size:clamp(2.5rem,6vw,5.5rem);font-weight:400;line-height:.94;letter-spacing:-.025em;text-transform:uppercase}
+      .contact-links{flex-direction:column;justify-content:flex-end;border-left:1px solid var(--bg)}
+      .contact-links a{display:flex;min-height:48px;align-items:center;justify-content:space-between;border-top:1px solid var(--bg);font-size:.75rem;font-weight:600;letter-spacing:.08em;text-decoration:none;text-transform:uppercase}
+      .contact-links a:hover{background:var(--bg);color:var(--fg)}
+      @media(max-width:64rem){.hero-main{grid-column:1/span 7}.hero-rail{grid-column:8/-1}.project{grid-template-columns:64px minmax(0,1fr) 56px}.project-details{grid-template-columns:minmax(0,8fr) minmax(10rem,4fr)}}
+      @media(max-width:45rem){.shell{width:calc(100% - 2rem)}.site-header{grid-template-columns:1fr}.wordmark{min-height:64px;border-right:0;border-bottom:var(--rule)}.nav{grid-template-columns:repeat(2,1fr)}.nav a{min-height:52px;border-bottom:var(--rule)}.nav a:nth-child(2){border-right:0}.nav a:nth-child(n+3){border-bottom:0}.hero{grid-template-columns:1fr;min-height:0}.hero-main,.hero-rail{grid-column:auto}.hero-main{min-height:560px;padding:64px 24px 32px;border-right:0;border-bottom:var(--rule)}.hero h1{max-width:100%;font-size:clamp(2.4rem,11vw,4.5rem);line-height:.96;overflow-wrap:anywhere}.section-head,.about,.contact{grid-template-columns:1fr}.coordinate,.about-aside{border-right:0;border-bottom:var(--rule)}.coordinate,.section-title{padding:24px}.section-title h2{max-width:100%;font-size:clamp(2rem,9.5vw,3.25rem);line-height:1}.project{grid-template-columns:48px minmax(0,1fr) 48px}.project-index,.project-title{padding:16px}.project-title{min-height:112px}.project-title h3{font-size:clamp(1.8rem,9vw,3rem);line-height:.98;overflow-wrap:anywhere}.project-details{grid-template-columns:1fr}.description,.category,.project-notes{padding:16px}.description{border-right:0;border-bottom:var(--rule)}.project-media{height:clamp(9rem,42vw,224px)}.project-media figcaption{align-items:flex-start;flex-direction:column;padding:12px 16px}.ticker-source{grid-template-columns:1fr}.ticker-source>*{padding:16px 24px}.ticker-source a{border-top:var(--rule);border-left:0}.about-list{grid-template-columns:1fr}.about-list li:nth-child(odd),.about-list li:nth-child(even){padding-inline:0}.contact-links{border-top:1px solid var(--bg);border-left:0}}
+      @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition-duration:.01ms!important}}
+    </style>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <div class="shell" data-od-id="portfolio-shell">
+      <header class="site-header" data-od-id="portfolio-header">
+        <a class="wordmark" href="#top" data-od-id="portfolio-wordmark"><span aria-hidden="true">r/</span>rhonen</a>
+        <nav class="nav" aria-label="Portfolio sections" data-od-id="portfolio-navigation"><a href="#work">Work</a><a href="#contributions">Code</a><a href="#about">About</a><a href="#contact">Contact</a></nav>
+      </header>
+      <main id="main-content" data-od-id="portfolio-main">
+        <div id="portfolio-hero-root"></div>
+        <section id="work" data-od-id="selected-work">
+          <header class="section-head"><div class="coordinate"><p class="label">01 · Selected work</p></div><div class="section-title"><h2>Proof in full-width records.</h2><p>Three projects show how operational context becomes product structure, interaction, and maintainable implementation.</p></div></header>
+          <div class="project-list">
+            <article class="project creative" data-od-id="project-shader-studio"><span class="project-index micro">01</span><div class="project-content"><div class="project-title"><h3>Shader Studio</h3></div><div class="project-details"><div class="description"><span class="label">Description</span><p>A browser studio for turning images and video into animated visual treatments while keeping source media local.</p></div><div class="category"><span class="label">Category</span><strong>Creative tools</strong></div></div><figure class="project-media media-shader"><img src="../../assets/project-shader-studio.png" width="1672" height="941" loading="lazy" decoding="async" alt="Curved monitor showing blue, yellow, and coral shader patterns in a dark studio"><figcaption><span class="label">Media highlight</span><span class="micro">GENERATIVE FIELD / LOCAL-FIRST GRAPHICS</span></figcaption></figure><div class="project-notes" id="notes-shader" hidden><p>Designed around immediate visual feedback and local media handling, so experimentation stays fast without turning source assets into a network dependency.</p></div></div><button class="project-toggle" type="button" aria-expanded="false" aria-controls="notes-shader" aria-label="Show Shader Studio notes"><span aria-hidden="true">↓</span></button></article>
+            <article class="project engineering" data-od-id="project-measure-coffee"><span class="project-index micro">02</span><div class="project-content"><div class="project-title"><h3>measure.coffee</h3></div><div class="project-details"><div class="description"><span class="label">Description</span><p>A coffee-improvement product that connects equipment, brew details, recipes, and context-aware guidance.</p></div><div class="category"><span class="label">Category</span><strong>Product engineering</strong></div></div><figure class="project-media media-measure"><img src="../../assets/project-measure-coffee.png" width="1672" height="941" loading="lazy" decoding="async" alt="Top-down coffee station with brewer, scale, kettle, beans, and phone"><figcaption><span class="label">Media highlight</span><span class="micro">EQUIPMENT / RECIPE CONTEXT</span></figcaption></figure><div class="project-notes" id="notes-measure" hidden><p>Connects physical equipment and recipe context to guidance that reflects the brewer's actual setup, not a generic idealized workflow.</p></div></div><button class="project-toggle" type="button" aria-expanded="false" aria-controls="notes-measure" aria-label="Show measure.coffee notes"><span aria-hidden="true">↓</span></button></article>
+            <article class="project design" data-od-id="project-california-storm"><span class="project-index micro">03</span><div class="project-content"><div class="project-title"><h3>California Storm</h3></div><div class="project-details"><div class="description"><span class="label">Description</span><p>A WordPress rebuild that made schedules, tryouts, rosters, and stories easier to use on any screen.</p></div><div class="category"><span class="label">Category</span><strong>Product design</strong></div></div><figure class="project-media media-storm"><img src="../../assets/project-california-storm.png" width="1672" height="941" loading="lazy" decoding="async" alt="Basketball on a rain-lit indoor court beside a phone"><figcaption><span class="label">Media highlight</span><span class="micro">MOBILE ACCESS / COURT SYSTEM</span></figcaption></figure><div class="project-notes" id="notes-storm" hidden><p>Restructured a content-heavy club site around the tasks families and players need most: schedules, tryout information, teams, and current stories.</p></div></div><button class="project-toggle" type="button" aria-expanded="false" aria-controls="notes-storm" aria-label="Show California Storm notes"><span aria-hidden="true">↓</span></button></article>
+          </div>
+        </section>
+        <section id="contributions" data-od-id="contribution-section"><header class="section-head"><div class="coordinate"><p class="label">02 · Individual contributor</p></div><div class="section-title"><h2>Code leaves a trail.</h2><p>A dated public activity snapshot keeps the engineering proof direct and verifiable.</p></div></header><div class="ticker-source"><p><span class="label">Public GitHub snapshot</span><br><span class="micro">10 AUG 2025–16 AUG 2026 · UPDATED 16 AUG 2026</span></p><a href="https://github.com/rhon3n" target="_blank" rel="noreferrer" data-od-id="github-profile-link"><span>github.com/rhon3n</span><span aria-hidden="true">↗</span></a></div><div class="ticker" tabindex="0" aria-label="GitHub contribution statistics"><div class="ticker-track"><article class="stat"><strong>709</strong><span><b>Contributions</b><em>Last year</em></span></article><article class="stat"><strong>72%</strong><span><b>Commits</b><em>Activity mix</em></span></article><article class="stat"><strong>26%</strong><span><b>Pull requests</b><em>Activity mix</em></span></article><article class="stat"><strong>9</strong><span><b>Repositories</b><em>Contributed to</em></span></article><article class="stat"><strong>24</strong><span><b>Public repos</b><em>Profile total</em></span></article></div></div></section>
+        <section class="about" id="about" data-od-id="about-section"><aside class="about-aside"><p class="label">03 · Operating history</p><p class="micro">COFFEE / FIELD WORK / OPERATIONS / SOFTWARE</p></aside><div class="about-copy"><p>Before I wrote production software, I spent fourteen years working with coffee, equipment, people, and operational constraints. That history still shapes how I build: observe the real workflow, make the system legible, and leave the next person with something they can operate.</p><ul class="about-list"><li>Product architecture</li><li>Frontend systems</li><li>Integrations</li><li>Operational tooling</li></ul></div></section>
+      </main>
+      <footer class="contact" id="contact" data-od-id="contact-section"><div class="contact-copy"><p class="label">04 · Continue the conversation</p><h2>Start with the work.</h2></div><div class="contact-links"><a href="https://github.com/rhon3n" target="_blank" rel="noreferrer"><span>GitHub profile</span><span aria-hidden="true">↗</span></a><a href="#top"><span>Return to top</span><span aria-hidden="true">↑</span></a></div></footer>
+    </div>
+    <script src="https://unpkg.com/react@18.3.1/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js"></script>
+    <script type="text/babel" src="components/PortfolioHero.jsx"></script>
+    <script type="text/babel" src="components/ProjectRecord.jsx"></script>
+    <script type="text/babel" src="components/ContributionTicker.jsx"></script>
+    <script type="text/babel">
+      ReactDOM.createRoot(document.getElementById('portfolio-hero-root')).render(<PortfolioHero />);
+    </script>
+    <script>
+      document.querySelectorAll('.project-toggle').forEach((button) => {
+        button.addEventListener('click', () => {
+          const panel = document.getElementById(button.getAttribute('aria-controls'));
+          const expanded = button.getAttribute('aria-expanded') === 'true';
+          button.setAttribute('aria-expanded', String(!expanded));
+          button.setAttribute('aria-label', `${expanded ? 'Show' : 'Hide'} ${button.closest('.project').querySelector('h3').textContent} notes`);
+          panel.hidden = expanded;
+        });
+      });
+    </script>
+  </body>
+</html>

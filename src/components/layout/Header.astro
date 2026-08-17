@@ -6,11 +6,20 @@ const currentPath = Astro.url.pathname;
 ---
 
 <a class="skip-link" href="#main-content">Skip to content</a>
-<header class="site-header">
-  <a class="wordmark" href="/" aria-label="rhonen home">
+<header class="site-header" data-od-id="site-header">
+  <a
+    class="wordmark"
+    href="/"
+    aria-label="rhonen home"
+    data-od-id="site-wordmark"
+  >
     <span aria-hidden="true">r/</span>{site.wordmark}
   </a>
-  <nav aria-label="Primary navigation">
+  <nav
+    class="primary-nav"
+    aria-label="Primary navigation"
+    data-od-id="site-navigation"
+  >
     <ul>
       {
         navigation.map((item) => (
@@ -29,7 +38,11 @@ const currentPath = Astro.url.pathname;
           </li>
         ))
       }
+      <li class="resume-item">
+        <a class="header-resume" href="/files/resume.pdf"
+          >Resume <span aria-hidden="true">↓</span></a
+        >
+      </li>
     </ul>
   </nav>
-  <a class="header-resume" href="/files/resume.pdf">Resume</a>
 </header>

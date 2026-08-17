@@ -32,18 +32,22 @@ if (
 )
   throw new Error('Approved current resume artifact changed');
 
+const pagePaths = required.filter((path) => path.endsWith('.html'));
 const pages = await Promise.all(
-  required
-    .filter((path) => path.endsWith('.html'))
-    .map((path) => readFile(join('dist', path), 'utf8')),
+  pagePaths.map((path) => readFile(join('dist', path), 'utf8')),
 );
+
+const scriptedRoutes = new Set([
+  'work/index.html',
+  'work/measure-coffee/index.html',
+]);
 
 for (const [index, page] of pages.entries()) {
   if (!page.includes('id="main-content"'))
-    throw new Error(`Missing main landmark in ${required[index]}`);
-  if (/script[^>]+_astro/i.test(page))
+    throw new Error(`Missing main landmark in ${pagePaths[index]}`);
+  if (/script[^>]+_astro/i.test(page) && !scriptedRoutes.has(pagePaths[index]))
     throw new Error(
-      `Unexpected client JavaScript bundle in ${required[index]}`,
+      `Unexpected client JavaScript bundle in ${pagePaths[index]}`,
     );
 }
 
@@ -84,10 +88,22 @@ if (!experience.includes('<h2>Founding Engineer</h2>'))
   throw new Error('Experience timeline heading hierarchy is incorrect');
 
 const workIndex = await readFile('dist/work/index.html', 'utf8');
+const measureCoffee = await readFile(
+  'dist/work/measure-coffee/index.html',
+  'utf8',
+);
 const californiaStorm = await readFile(
   'dist/work/california-storm/index.html',
   'utf8',
 );
+if (!workIndex.includes('Public GitHub contribution statistics'))
+  throw new Error('Public GitHub ticker is missing from the work index');
+if (!workIndex.includes('UPDATED 16 AUG 2026'))
+  throw new Error('Public GitHub ticker snapshot date is missing');
+if (!measureCoffee.includes('Measure private repository statistics'))
+  throw new Error('Private Measure ticker is missing from its work page');
+if (!measureCoffee.includes('Owner-authored commits only'))
+  throw new Error('Private Measure ticker provenance is missing');
 for (const [pageName, page] of [
   ['homepage', home],
   ['work index', workIndex],
@@ -100,11 +116,11 @@ for (const [pageName, page] of [
     );
 }
 if (
-  !californiaStorm.includes(
+  californiaStorm.includes(
     'href="https://github.com/rhon3n/cal-storm-case-study"',
   )
 )
-  throw new Error('California Storm source link missing from project page');
+  throw new Error('California Storm source link should not be published');
 if (
   !californiaStorm.includes(
     '<title>California Storm WordPress Experience Rebuild',
