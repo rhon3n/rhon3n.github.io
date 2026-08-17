@@ -167,13 +167,14 @@ ol {
   border-right: var(--rule);
   font-family: var(--font-display);
   font-size: 1.25rem;
+  color: var(--accent);
   letter-spacing: -0.02em;
   text-decoration: none;
 }
 
 .wordmark span {
   margin-right: var(--space-1);
-  color: var(--accent);
+  color: var(--danger);
 }
 
 .primary-nav ul {
@@ -243,6 +244,10 @@ main {
   margin: var(--space-4) 0 var(--space-6);
   font-size: clamp(3.4rem, 7.5vw, 7.25rem);
   line-height: 0.9;
+}
+
+.hero-main > .eyebrow {
+  color: var(--accent);
 }
 
 .hero-copy {
@@ -394,6 +399,28 @@ main {
   border-top: 0;
 }
 
+.section-header-indigo > :first-child {
+  background: var(--accent);
+  color: var(--danger);
+}
+
+.section-header-indigo > :first-child .eyebrow {
+  color: var(--bg);
+}
+
+.section-header-canary > :first-child {
+  background: var(--signal);
+  color: var(--danger);
+}
+
+.section-header-canary > :first-child .eyebrow {
+  color: var(--fg);
+}
+
+.section-header-focus h2 {
+  color: var(--accent);
+}
+
 .section > .actions {
   margin: 0;
   padding: var(--space-6) clamp(24px, 3vw, 40px);
@@ -406,6 +433,7 @@ main {
   margin: 0;
   padding: 12px var(--space-6);
   border-bottom: var(--rule);
+  color: var(--accent);
 }
 
 .journey-visual {
@@ -527,9 +555,11 @@ main {
   font-family: var(--font-display);
   font-size: clamp(2.25rem, 5vw, 5.25rem);
   font-weight: 400;
+  color: var(--accent);
   letter-spacing: -0.025em;
   line-height: 0.94;
   text-transform: uppercase;
+  transition: color 140ms var(--ease-out);
 }
 
 .project-title-row a {
@@ -669,9 +699,8 @@ main {
     border-color: var(--bg);
   }
 
-  .project-record:hover .project-category,
-  .project-record:focus-within .project-category {
-    background: var(--fg);
+  .project-record:hover .project-title-row h3,
+  .project-record:focus-within .project-title-row h3 {
     color: var(--bg);
   }
 
@@ -737,6 +766,7 @@ main {
   font-family: var(--font-body);
   font-size: var(--type-title);
   font-weight: 600;
+  color: var(--accent);
   line-height: 1.15;
   text-transform: none;
 }
@@ -908,6 +938,7 @@ main {
   margin-top: clamp(64px, 9vw, 120px);
   margin-bottom: var(--space-6);
   font-size: var(--type-display);
+  color: var(--accent);
 }
 
 .page-intro > p:not(.eyebrow) {
@@ -940,6 +971,7 @@ main {
 
 .prose h2 {
   margin: var(--space-16) 0 var(--space-6);
+  color: var(--accent);
   font-size: clamp(1.8rem, 4vw, 3.2rem);
 }
 
@@ -996,6 +1028,7 @@ main {
   max-width: 11ch;
   margin-bottom: var(--space-6);
   font-size: var(--type-display);
+  color: var(--accent);
 }
 
 .case-meta {
@@ -1047,6 +1080,7 @@ main {
 
 .contact-direct h2 {
   align-self: center;
+  color: var(--accent);
   font-size: clamp(2rem, 5vw, 4rem);
   overflow-wrap: anywhere;
 }
