@@ -1,0 +1,189 @@
+---
+import type { ContributionStat } from '../../data/githubSnapshots';
+
+type Props = {
+  id: string;
+  eyebrow: string;
+  heading: string;
+  description: string;
+  sourceLabel: string;
+  windowLabel: string;
+  sourceText: string;
+  sourceUrl?: string;
+  ariaLabel: string;
+  stats: ContributionStat[];
+};
+
+const {
+  id,
+  eyebrow,
+  heading,
+  description,
+  sourceLabel,
+  windowLabel,
+  sourceText,
+  sourceUrl,
+  ariaLabel,
+  stats,
+} = Astro.props;
+const headingId = `${id}-heading`;
+---
+
+<section
+  id={id}
+  class="github-evidence"
+  aria-labelledby={headingId}
+  data-github-ticker
+  data-od-id={`${id}-section`}
+>
+  <header class="section-header">
+    <p class="eyebrow">{eyebrow}</p>
+    <div>
+      <h2 id={headingId}>{heading}</h2>
+      <p>{description}</p>
+    </div>
+  </header>
+  <div class="ticker-source">
+    <p>
+      <span class="eyebrow">{sourceLabel}</span>
+      <span class="micro">{windowLabel}</span>
+    </p>
+    {
+      sourceUrl ? (
+        <a href={sourceUrl} target="_blank" rel="noopener noreferrer">
+          <span>{sourceText}</span>
+          <span aria-hidden="true">↗</span>
+        </a>
+      ) : (
+        <p class="ticker-source-detail">
+          <span>{sourceText}</span>
+          <span aria-hidden="true">Verified 16 Aug 2026</span>
+        </p>
+      )
+    }
+  </div>
+  <div class="ticker-viewport" tabindex="0" aria-label={ariaLabel}>
+    <div class="ticker-track" data-ticker-track>
+      <div class="ticker-set" data-ticker-set>
+        {
+          stats.map((stat) => (
+            <article class="ticker-stat">
+              <strong>{stat.value}</strong>
+              <span>
+                <b>{stat.label}</b>
+                <em>{stat.context}</em>
+              </span>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  import { gsap } from 'gsap';
+
+  const SPEED = 48;
+
+  document
+    .querySelectorAll<HTMLElement>('[data-github-ticker]')
+    .forEach((root) => {
+      const viewport = root.querySelector<HTMLElement>('.ticker-viewport');
+      const track = root.querySelector<HTMLElement>('[data-ticker-track]');
+      const statSet = root.querySelector<HTMLElement>('[data-ticker-set]');
+
+      if (!viewport || !track || !statSet) return;
+
+      let tween: gsap.core.Tween | undefined;
+      let duplicate: HTMLElement | undefined;
+      let resizeFrame = 0;
+      let isIntersecting = true;
+      let isHovered = false;
+      let hasFocus = false;
+
+      const shouldPause = () =>
+        !isIntersecting || isHovered || hasFocus || document.hidden;
+
+      const syncPlayback = () => {
+        if (!tween) return;
+        if (shouldPause()) tween.pause();
+        else tween.resume();
+      };
+
+      const clearLoop = () => {
+        tween?.kill();
+        tween = undefined;
+        duplicate?.remove();
+        duplicate = undefined;
+        root.classList.remove('ticker-is-animated');
+        gsap.set(track, { clearProps: 'transform' });
+      };
+
+      const buildLoop = () => {
+        clearLoop();
+
+        const distance = statSet.getBoundingClientRect().width;
+        if (!distance) return;
+
+        duplicate = statSet.cloneNode(true) as HTMLElement;
+        duplicate.setAttribute('aria-hidden', 'true');
+        track.append(duplicate);
+        root.classList.add('ticker-is-animated');
+
+        tween = gsap.to(track, {
+          x: -distance,
+          duration: distance / SPEED,
+          ease: 'none',
+          repeat: -1,
+        });
+        syncPlayback();
+      };
+
+      const media = gsap.matchMedia();
+      media.add('(prefers-reduced-motion: no-preference)', () => {
+        buildLoop();
+
+        const resizeObserver = new ResizeObserver(() => {
+          cancelAnimationFrame(resizeFrame);
+          resizeFrame = requestAnimationFrame(buildLoop);
+        });
+        resizeObserver.observe(statSet);
+
+        return () => {
+          resizeObserver.disconnect();
+          cancelAnimationFrame(resizeFrame);
+          clearLoop();
+        };
+      });
+
+      const intersectionObserver = new IntersectionObserver(
+        ([entry]) => {
+          isIntersecting = entry.isIntersecting;
+          syncPlayback();
+        },
+        { threshold: 0.01 },
+      );
+      intersectionObserver.observe(root);
+
+      root.addEventListener('mouseenter', () => {
+        isHovered = true;
+        syncPlayback();
+      });
+      root.addEventListener('mouseleave', () => {
+        isHovered = false;
+        syncPlayback();
+      });
+      root.addEventListener('focusin', () => {
+        hasFocus = true;
+        syncPlayback();
+      });
+      root.addEventListener('focusout', () => {
+        requestAnimationFrame(() => {
+          hasFocus = root.contains(document.activeElement);
+          syncPlayback();
+        });
+      });
+      document.addEventListener('visibilitychange', syncPlayback);
+    });
+</script>

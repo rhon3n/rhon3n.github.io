@@ -1,0 +1,70 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { getProjectPresentation } from '../../data/projectPresentation';
+
+type Props = { project: CollectionEntry<'projects'> };
+const { project } = Astro.props;
+const { title, summary, role, tags, links } = project.data;
+
+const presentation = getProjectPresentation(project.id);
+const projectHref = `/work/${project.id}/`;
+---
+
+<article
+  class:list={['project-record', presentation?.categoryClass]}
+  data-od-id={`project-${project.id}`}
+>
+  <span class="project-index micro" aria-hidden="true">
+    {String(project.data.sortOrder ?? 0).padStart(2, '0')}
+  </span>
+  <div class="project-content">
+    <div class="project-title-row">
+      <h3><a href={projectHref}>{title}</a></h3>
+    </div>
+    <div class="project-details">
+      <div class="project-description">
+        <p class="eyebrow">{role}</p>
+        <p>{summary}</p>
+        <ul class="tag-list" aria-label={`${title} technologies`}>
+          {tags.map((tag) => <li>{tag}</li>)}
+        </ul>
+      </div>
+      <div class="project-category">
+        <p class="eyebrow">Category</p>
+        <strong>{presentation?.category ?? 'Selected work'}</strong>
+        {
+          links[0] && (
+            <a href={links[0].url} target="_blank" rel="noopener noreferrer">
+              {links[0].label} ↗
+            </a>
+          )
+        }
+      </div>
+    </div>
+    {
+      presentation && (
+        <figure class="project-media">
+          <img
+            src={presentation.image}
+            width="1600"
+            height="900"
+            alt={presentation.alt}
+            loading="lazy"
+            decoding="async"
+          />
+          <figcaption>
+            <span class="eyebrow">Media highlight</span>
+            <span class="micro">{presentation.caption}</span>
+          </figcaption>
+        </figure>
+      )
+    }
+  </div>
+  <a
+    class="project-arrow"
+    href={projectHref}
+    aria-label={`Read ${title} project details`}
+  >
+    <span aria-hidden="true">→</span>
+  </a>
+</article>

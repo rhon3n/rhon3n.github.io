@@ -1,0 +1,45 @@
+---
+import Footer from '../components/layout/Footer.astro';
+import Header from '../components/layout/Header.astro';
+import SeoHead from '../components/seo/SeoHead.astro';
+import { site } from '../data/site';
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  type?: 'website' | 'article';
+}
+
+const {
+  title = `Joel Rhine | Product-minded software engineer`,
+  description = site.description,
+  type,
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#fcfdea" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Source+Sans+3:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <SeoHead {title} {description} {type} />
+  </head>
+  <body>
+    <div class="site-shell" data-od-id="site-shell">
+      <Header />
+      <main id="main-content" data-od-id="site-main">
+        <slot />
+      </main>
+      <Footer />
+    </div>
+  </body>
+</html>

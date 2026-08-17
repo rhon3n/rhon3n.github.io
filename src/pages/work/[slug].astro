@@ -1,0 +1,91 @@
+---
+import { getCollection, render, type CollectionEntry } from 'astro:content';
+import ContributionTicker from '../../components/content/ContributionTicker.astro';
+import { measurePrivateSnapshot } from '../../data/githubSnapshots';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getProjectPresentation } from '../../data/projectPresentation';
+import { getPublicationYear } from '../../lib/content';
+
+export async function getStaticPaths() {
+  const projects = (await getCollection('projects')).filter(
+    (entry) => !entry.data.draft,
+  );
+  return projects.map((project) => ({
+    params: { slug: project.id },
+    props: { project },
+  }));
+}
+
+interface Props {
+  project: CollectionEntry<'projects'>;
+}
+const { project } = Astro.props;
+const { Content } = await render(project);
+const presentation = getProjectPresentation(project.id);
+---
+
+<BaseLayout
+  title={`${project.data.title} | Joel Rhine`}
+  description={project.data.summary}
+  type="article"
+>
+  <header class="case-header" data-od-id={`case-${project.id}-intro`}>
+    <div class="case-coordinate">
+      <p class="eyebrow">{project.data.role}</p>
+      <div class="case-meta">
+        <span>{getPublicationYear(project.data.publishedAt)}</span>
+        <span>{project.data.tags.join(' · ')}</span>
+      </div>
+    </div>
+    <div class="case-title">
+      <h1>{project.data.title}</h1>
+      <p class="hero-copy">{project.data.summary}</p>
+      <div class="actions">
+        {
+          project.data.links.map((link, index) => (
+            <a
+              class:list={['button', index === 0 && 'button-primary']}
+              href={link.url}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {link.label} ↗
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </header>
+  {
+    presentation && (
+      <figure class="case-media" data-od-id={`case-${project.id}-media`}>
+        <img
+          src={presentation.image}
+          width="1600"
+          height="900"
+          alt={presentation.alt}
+          decoding="async"
+        />
+        <figcaption>
+          <span class="eyebrow">{presentation.category}</span>
+          <span class="micro">{presentation.caption}</span>
+        </figcaption>
+      </figure>
+    )
+  }
+  <article class="prose case-prose" data-od-id={`case-${project.id}-content`}>
+    <Content />
+  </article>
+  {
+    project.id === 'measure-coffee' && (
+      <ContributionTicker {...measurePrivateSnapshot} />
+    )
+  }
+  <nav
+    class="section case-nav"
+    aria-label="Work navigation"
+    data-od-id="case-navigation"
+  >
+    <a class="text-action" href="/work/">← All work</a>
+  </nav>
+</BaseLayout>

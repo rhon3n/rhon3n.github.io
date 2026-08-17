@@ -1,0 +1,38 @@
+---
+import { getCollection } from 'astro:content';
+import ContributionTicker from '../../components/content/ContributionTicker.astro';
+import ProjectCard from '../../components/content/ProjectCard.astro';
+import { publicGitHubSnapshot } from '../../data/githubSnapshots';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { sortByDate } from '../../lib/content';
+
+const projects = sortByDate(
+  (await getCollection('projects')).filter((entry) => !entry.data.draft),
+);
+---
+
+<BaseLayout
+  title="Work | Joel Rhine"
+  description="Selected product, engineering, and creative work by Joel Rhine."
+>
+  <header class="page-intro work-intro" data-od-id="work-intro">
+    <p class="eyebrow">Selected work</p>
+    <h1>Products, systems, and experiments.</h1>
+    <p>
+      I like work that begins with an actual constraint: a team losing time, a
+      customer who cannot get to the answer, or a creative idea that needs the
+      right tool.
+    </p>
+  </header>
+  <section
+    class="section flush"
+    aria-labelledby="projects-heading"
+    data-od-id="work-projects"
+  >
+    <h2 id="projects-heading" class="eyebrow">Featured projects</h2>
+    <div class="project-list">
+      {projects.map((project) => <ProjectCard {project} />)}
+    </div>
+  </section>
+  <ContributionTicker {...publicGitHubSnapshot} />
+</BaseLayout>

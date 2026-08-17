@@ -1,0 +1,172 @@
+---
+import { getCollection } from 'astro:content';
+import ExperienceTimeline from '../components/content/ExperienceTimeline.astro';
+import ProjectCard from '../components/content/ProjectCard.astro';
+import { site } from '../data/site';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { sortByDate } from '../lib/content';
+
+const projects = sortByDate(
+  (await getCollection('projects')).filter((entry) => !entry.data.draft),
+);
+const experience = (await getCollection('experience'))
+  .filter((entry) => !entry.data.draft)
+  .sort((a, b) => b.data.startDate.getTime() - a.data.startDate.getTime());
+---
+
+<BaseLayout>
+  <section class="hero" data-od-id="home-hero">
+    <div class="hero-main">
+      <p class="eyebrow">Joel Rhine · Software engineer & product builder</p>
+      <h1>I build products people can actually operate.</h1>
+      <p class="hero-copy">
+        Practical software shaped by coffee, field operations, integrations, and
+        product engineering.
+      </p>
+      <div class="actions">
+        <a class="button button-primary" href="/work/">See selected work</a>
+        <a class="text-action" href="/about/">Read my story →</a>
+      </div>
+    </div>
+    <div class="hero-rail">
+      <div class="hero-note">
+        <p>
+          I am the Founding Engineer at measure.coffee. Before software, I spent
+          14 years in coffee, operations, and field work.
+        </p>
+        <p>
+          Start with the real work. Make the system clear. Leave people with
+          something they can use.
+        </p>
+      </div>
+      <div class="hero-rail-meta" aria-label="Operating context">
+        <div>
+          <span class="eyebrow">Operating history</span><strong>14 years</strong
+          >
+        </div>
+        <div>
+          <span class="eyebrow">Current role</span><strong
+            >Founding engineer</strong
+          >
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" data-od-id="home-operating-history">
+    <header class="section-header section-header-indigo">
+      <div>
+        <p class="eyebrow">How I got here</p><h2>
+          Operations taught me what software needs to do.
+        </h2>
+      </div>
+      <p>
+        Coffee service, wholesale, logistics, and field leadership taught me to
+        notice where work gets stuck. I carried that habit into engineering
+        roles focused on integrations, automation, and product systems.
+      </p>
+    </header>
+    <figure class="journey-visual">
+      <picture class="journey-visual-media">
+        <source
+          media="(max-width: 48rem)"
+          srcset="/images/operations-to-software-mobile.avif"
+          type="image/avif"
+        />
+        <source
+          media="(max-width: 48rem)"
+          srcset="/images/operations-to-software-mobile.webp"
+          type="image/webp"
+        />
+        <source
+          media="(max-width: 48rem)"
+          srcset="/images/operations-to-software-mobile.jpg"
+          type="image/jpeg"
+        />
+        <source
+          srcset="/images/operations-to-software-desktop.avif"
+          type="image/avif"
+        />
+        <source
+          srcset="/images/operations-to-software-desktop.webp"
+          type="image/webp"
+        />
+        <img
+          src="/images/operations-to-software-desktop.jpg"
+          width="1920"
+          height="1080"
+          alt=""
+          loading="lazy"
+          decoding="async"
+        />
+      </picture>
+      <figcaption>
+        Field service, operations, and software are parts of the same working
+        system.
+      </figcaption>
+    </figure>
+    <ol class="arc-grid">
+      <li><span>01</span>Coffee & service</li><li>
+        <span>02</span>Operations & field leadership
+      </li><li><span>03</span>Integrations & automation</li><li>
+        <span>04</span>Product building
+      </li>
+    </ol>
+  </section>
+
+  <section class="section" data-od-id="home-featured-work">
+    <header class="section-header section-header-canary">
+      <div>
+        <p class="eyebrow">Featured work</p><h2>
+          Work with a clear problem behind it.
+        </h2>
+      </div>
+      <p>
+        A mix of product work, engineering systems, and creative tools. Each
+        project starts with the same question: what would make this easier for
+        the people doing the work?
+      </p>
+    </header>
+    <div class="project-list">
+      {projects.map((project) => <ProjectCard {project} />)}
+    </div>
+  </section>
+
+  <section class="section" data-od-id="home-experience">
+    <header class="section-header section-header-focus">
+      <div>
+        <p class="eyebrow">Experience</p><h2>
+          A path through operations and engineering.
+        </h2>
+      </div>
+      <p>
+        The roles changed. The focus stayed close to practical systems, clearer
+        handoffs, and tools that support real work.
+      </p>
+    </header>
+    <ExperienceTimeline entries={experience.slice(0, 4)} />
+    <div class="actions">
+      <a class="text-action" href="/experience/">View full experience →</a>
+    </div>
+  </section>
+
+  <section class="section contact-band" data-od-id="home-contact">
+    <header class="section-header section-header-indigo">
+      <div>
+        <p class="eyebrow">Contact</p><h2>
+          Have a product problem worth talking through?
+        </h2>
+      </div>
+      <div>
+        <p>
+          I am open to thoughtful conversations about products, systems, coffee,
+          and the messy work between an idea and something useful.
+        </p><div class="actions">
+          <a class="button button-primary" href={`mailto:${site.email}`}
+            >Email Joel</a
+          ><a class="text-action" href="/files/resume.pdf">Download resume ↓</a>
+        </div>
+      </div>
+    </header>
+  </section>
+</BaseLayout>

@@ -1,0 +1,51 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+type Props = {
+  entries: CollectionEntry<'experience'>[];
+  headingLevel?: 2 | 3;
+};
+const { entries, headingLevel = 3 } = Astro.props;
+const Heading = `h${headingLevel}` as const;
+const formatYear = (date: Date) =>
+  new Intl.DateTimeFormat('en', { year: 'numeric' }).format(date);
+---
+
+<ol class="timeline" data-od-id="experience-timeline">
+  {
+    entries.map((entry, index) => (
+      <li
+        class={`timeline-entry ${entry.data.type}`}
+        data-od-id={`experience-${entry.id}`}
+      >
+        <span class="timeline-index micro" aria-hidden="true">
+          {String(index + 1).padStart(2, '0')}
+        </span>
+        <div class="timeline-dates">
+          <span>{formatYear(entry.data.startDate)}</span>
+          <span>
+            {entry.data.endDate ? formatYear(entry.data.endDate) : 'Now'}
+          </span>
+        </div>
+        <div class="timeline-copy">
+          <p class="eyebrow">
+            {entry.data.organizationUrl ? (
+              <a
+                href={entry.data.organizationUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {entry.data.organization} ↗
+              </a>
+            ) : (
+              entry.data.organization
+            )}
+          </p>
+          <Heading>{entry.data.title}</Heading>
+          <p>{entry.data.summary}</p>
+        </div>
+        <span class="timeline-type eyebrow">{entry.data.type}</span>
+      </li>
+    ))
+  }
+</ol>
