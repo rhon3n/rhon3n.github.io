@@ -1,7 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import ContributionTicker from '../../components/content/ContributionTicker.astro';
-import ProjectCard from '../../components/content/ProjectCard.astro';
+import ProjectRail from '../../components/content/ProjectRail.astro';
 import { publicGitHubSnapshot } from '../../data/githubSnapshots';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { sortByDate } from '../../lib/content';
@@ -9,30 +9,40 @@ import { sortByDate } from '../../lib/content';
 const projects = sortByDate(
   (await getCollection('projects')).filter((entry) => !entry.data.draft),
 );
+const pageSections = [
+  { id: 'work-intro', label: 'Introduction' },
+  { id: 'work-projects', label: 'Featured projects' },
+  { id: 'public-github-activity', label: 'GitHub activity' },
+] as const;
 ---
 
 <BaseLayout
   title="Work | Joel Rhine"
-  description="Selected product, engineering, and creative work by Joel Rhine."
+  description="Selected product, engineering, and creative work by Joel Rhine, built around real people and real needs."
+  pageSections={pageSections}
 >
-  <header class="page-intro work-intro" data-od-id="work-intro">
+  <header id="work-intro" class="page-intro work-intro" data-od-id="work-intro">
     <p class="eyebrow">Selected work</p>
-    <h1>Products, systems, and experiments.</h1>
+    <h1>Products, systems, and tools for people who need something to work.</h1>
     <p>
-      I like work that begins with an actual constraint: a team losing time, a
-      customer who cannot get to the answer, or a creative idea that needs the
-      right tool.
+      I like work with a clear human constraint: a team losing time, a customer
+      who cannot find an answer, or a person who needs the right tool to move
+      forward.
     </p>
   </header>
   <section
+    id="work-projects"
     class="section flush"
     aria-labelledby="projects-heading"
     data-od-id="work-projects"
   >
     <h2 id="projects-heading" class="eyebrow">Featured projects</h2>
-    <div class="project-list">
-      {projects.map((project) => <ProjectCard {project} />)}
-    </div>
+    <ProjectRail
+      projects={projects}
+      railId="work-featured-projects"
+      labelledBy="projects-heading"
+      regionLabel="Featured projects"
+    />
   </section>
   <ContributionTicker {...publicGitHubSnapshot} />
 </BaseLayout>

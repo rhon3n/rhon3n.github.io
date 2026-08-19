@@ -1,6 +1,7 @@
 ---
-import { getCollection, render, type CollectionEntry } from 'astro:content';
+import { getCollection, render } from 'astro:content';
 import ContributionTicker from '../../components/content/ContributionTicker.astro';
+import ExternalLinkIcon from '../../components/icons/ExternalLinkIcon.astro';
 import { measurePrivateSnapshot } from '../../data/githubSnapshots';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getProjectPresentation } from '../../data/projectPresentation';
@@ -16,20 +17,31 @@ export async function getStaticPaths() {
   }));
 }
 
-interface Props {
-  project: CollectionEntry<'projects'>;
-}
 const { project } = Astro.props;
 const { Content } = await render(project);
 const presentation = getProjectPresentation(project.id);
+const pageSections = [
+  { id: 'case-intro', label: 'Introduction' },
+  ...(presentation ? [{ id: 'case-media', label: 'Project preview' }] : []),
+  { id: 'case-content', label: 'Case study' },
+  ...(project.id === 'measure-coffee'
+    ? [{ id: 'measure-repository-activity', label: 'Engineering activity' }]
+    : []),
+  { id: 'case-navigation', label: 'More work' },
+] as const;
 ---
 
 <BaseLayout
   title={`${project.data.title} | Joel Rhine`}
   description={project.data.summary}
   type="article"
+  pageSections={pageSections}
 >
-  <header class="case-header" data-od-id={`case-${project.id}-intro`}>
+  <header
+    id="case-intro"
+    class="case-header"
+    data-od-id={`case-${project.id}-intro`}
+  >
     <div class="case-coordinate">
       <p class="eyebrow">{project.data.role}</p>
       <div class="case-meta">
@@ -38,7 +50,13 @@ const presentation = getProjectPresentation(project.id);
       </div>
     </div>
     <div class="case-title">
-      <h1>{project.data.title}</h1>
+      {
+        project.id === 'measure-coffee' ? (
+          <h1 set:html={'measure.<wbr>coffee'} />
+        ) : (
+          <h1>{project.data.title}</h1>
+        )
+      }
       <p class="hero-copy">{project.data.summary}</p>
       <div class="actions">
         {
@@ -49,7 +67,8 @@ const presentation = getProjectPresentation(project.id);
               target="_blank"
               rel="noopener noreferrer"
             >
-              {link.label} ↗
+              <span>{link.label}</span>
+              <ExternalLinkIcon class="external-link-icon" />
             </a>
           ))
         }
@@ -58,14 +77,25 @@ const presentation = getProjectPresentation(project.id);
   </header>
   {
     presentation && (
-      <figure class="case-media" data-od-id={`case-${project.id}-media`}>
-        <img
-          src={presentation.image}
-          width="1600"
-          height="900"
-          alt={presentation.alt}
-          decoding="async"
-        />
+      <figure
+        id="case-media"
+        class="case-media"
+        data-od-id={`case-${project.id}-media`}
+        style={`--mobile-media-width: ${presentation.mobileImageWidth}; --mobile-media-height: ${presentation.mobileImageHeight};`}
+      >
+        <picture class="case-media-frame">
+          <source
+            media="(max-width: 45rem)"
+            srcset={presentation.mobileImage}
+          />
+          <img
+            src={presentation.image}
+            width={presentation.imageWidth}
+            height={presentation.imageHeight}
+            alt={presentation.alt}
+            decoding="async"
+          />
+        </picture>
         <figcaption>
           <span class="eyebrow">{presentation.category}</span>
           <span class="micro">{presentation.caption}</span>
@@ -73,7 +103,11 @@ const presentation = getProjectPresentation(project.id);
       </figure>
     )
   }
-  <article class="prose case-prose" data-od-id={`case-${project.id}-content`}>
+  <article
+    id="case-content"
+    class="prose case-prose"
+    data-od-id={`case-${project.id}-content`}
+  >
     <Content />
   </article>
   {
@@ -82,6 +116,7 @@ const presentation = getProjectPresentation(project.id);
     )
   }
   <nav
+    id="case-navigation"
     class="section case-nav"
     aria-label="Work navigation"
     data-od-id="case-navigation"
