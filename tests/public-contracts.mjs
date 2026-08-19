@@ -14,12 +14,6 @@ const required = [
   '404.html',
   'favicon.svg',
   'files/resume.pdf',
-  'images/operations-to-software-desktop.avif',
-  'images/operations-to-software-desktop.webp',
-  'images/operations-to-software-desktop.jpg',
-  'images/operations-to-software-mobile.avif',
-  'images/operations-to-software-mobile.webp',
-  'images/operations-to-software-mobile.jpg',
   'images/projects/shader-studio-mobile-portrait.png',
   'images/projects/measure-coffee-mobile-portrait.png',
   'images/projects/california-storm-mobile-portrait.png',
@@ -113,26 +107,10 @@ if (!home.includes('Founding Engineer at measure.coffee'))
   throw new Error('Approved Measure Coffee title is missing');
 if (!home.includes('twitter:title') || !home.includes('twitter:description'))
   throw new Error('Twitter metadata is incomplete');
-if (!home.includes('<picture class="journey-visual-media">'))
+if (/operations-to-software|journey-visual/.test(home))
   throw new Error(
-    'Homepage journey visual is missing responsive picture markup',
+    'Homepage journey visual regression: operations-to-software assets or journey-visual markup remain in built HTML',
   );
-if (!home.includes('media="(max-width: 48rem)"'))
-  throw new Error(
-    'Homepage journey visual is missing its mobile art direction',
-  );
-if (!home.includes('width="1920" height="1080"'))
-  throw new Error('Homepage journey visual lacks intrinsic desktop dimensions');
-if (!home.includes('alt="" loading="lazy" decoding="async"'))
-  throw new Error(
-    'Homepage journey visual accessibility/loading contract failed',
-  );
-if (
-  !/helping people get what they need without things breaking down around\s+them\./.test(
-    home,
-  )
-)
-  throw new Error('Homepage journey visual caption is missing');
 if (home.includes('arc-grid') || home.includes('Coffee &amp; service'))
   throw new Error('Homepage operating-history arc grid should be removed');
 if (/start with the work/i.test(home))

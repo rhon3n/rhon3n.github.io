@@ -474,33 +474,6 @@ main > [id] {
   color: var(--accent);
 }
 
-.journey-visual {
-  margin: 0;
-  border-bottom: var(--rule);
-}
-
-.journey-visual-media {
-  display: block;
-  overflow: hidden;
-  aspect-ratio: 16 / 7;
-}
-
-.journey-visual img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.journey-visual figcaption {
-  margin: 0;
-  padding: 12px var(--space-6);
-  border-top: var(--rule);
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  text-transform: uppercase;
-}
-
 .principles {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -1524,10 +1497,6 @@ main > [id] {
   .section-header h2 {
     max-width: 100%;
     font-size: clamp(2rem, 9.5vw, 3.25rem);
-  }
-
-  .journey-visual-media {
-    aspect-ratio: 4 / 3;
   }
 
   .principles {
