@@ -6,19 +6,36 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 const entries = (await getCollection('experience'))
   .filter((entry) => !entry.data.draft)
   .sort((a, b) => b.data.startDate.getTime() - a.data.startDate.getTime());
+const pageSections = [
+  { id: 'experience-intro', label: 'Introduction' },
+  { id: 'experience-records', label: 'Experience' },
+] as const;
 ---
 
 <BaseLayout
   title="Experience | Joel Rhine"
-  description="Joel Rhine's experience across product engineering, integrations, coffee, and operations."
+  description="Joel Rhine's experience across service work, product engineering, integrations, coffee, and operations."
+  pageSections={pageSections}
 >
-  <header class="page-intro experience-intro" data-od-id="experience-intro">
-    <p class="eyebrow">Experience</p><h1>Built from the work outward.</h1><p>
-      Fourteen years in coffee and operations shaped an engineering practice
-      focused on integrations, automation, product systems, and useful handoffs.
+  <header
+    id="experience-intro"
+    class="page-intro experience-intro"
+    data-od-id="experience-intro"
+  >
+    <p class="eyebrow">Experience</p><h1>
+      <span class="page-intro-word-lock">Experience</span> built from people, service,
+      and the work around them.
+    </h1><p>
+      Fourteen years in coffee and operations shaped how I approach engineering:
+      start with what people need, then build integrations, automation, product
+      systems, and clear handoffs around that.
     </p>
   </header>
-  <section class="section flush" data-od-id="experience-records">
+  <section
+    id="experience-records"
+    class="section flush"
+    data-od-id="experience-records"
+  >
     <ExperienceTimeline entries={entries} headingLevel={2} />
   </section>
 </BaseLayout>

@@ -1,6 +1,9 @@
 ---
 import Footer from '../components/layout/Footer.astro';
 import Header from '../components/layout/Header.astro';
+import PageSectionIndicator, {
+  type PageSection,
+} from '../components/layout/PageSectionIndicator.astro';
 import SeoHead from '../components/seo/SeoHead.astro';
 import { site } from '../data/site';
 import '../styles/global.css';
@@ -9,12 +12,14 @@ interface Props {
   title?: string;
   description?: string;
   type?: 'website' | 'article';
+  pageSections?: readonly PageSection[];
 }
 
 const {
   title = `Joel Rhine | Product-minded software engineer`,
   description = site.description,
   type,
+  pageSections = [],
 } = Astro.props;
 ---
 
@@ -36,6 +41,11 @@ const {
   <body>
     <div class="site-shell" data-od-id="site-shell">
       <Header />
+      {
+        pageSections.length > 1 && (
+          <PageSectionIndicator sections={pageSections} />
+        )
+      }
       <main id="main-content" data-od-id="site-main">
         <slot />
       </main>

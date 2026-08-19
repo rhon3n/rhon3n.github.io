@@ -1,0 +1,103 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import ProjectCard from './ProjectCard.astro';
+import ProjectArrowIcon from '../icons/ProjectArrowIcon.astro';
+
+type Props = {
+  projects: CollectionEntry<'projects'>[];
+  helperLabel?: string;
+  regionLabel?: string;
+  labelledBy?: string;
+  railId?: string;
+};
+
+const {
+  projects,
+  helperLabel = 'Scroll for more',
+  regionLabel = 'Featured projects',
+  labelledBy,
+  railId = 'project-rail',
+} = Astro.props;
+
+const projectCount = projects.length;
+const totalLabel = String(projectCount).padStart(2, '0');
+const currentLabel = projectCount > 0 ? '01' : '00';
+const railHeadingId = `${railId}-helper`;
+const railRegionProps = labelledBy
+  ? { 'aria-labelledby': labelledBy }
+  : { 'aria-label': regionLabel };
+---
+
+<div
+  class="project-rail-shell"
+  data-project-rail
+  data-project-count={projectCount}
+  data-project-rail-cue-visible={projectCount > 1 ? 'true' : 'false'}
+  data-project-rail-cue-dismissed="false"
+  data-project-rail-at-end={projectCount <= 1 ? 'true' : 'false'}
+  data-project-rail-overflow={projectCount > 1 ? 'true' : 'false'}
+  data-project-rail-reduced-motion="false"
+  data-project-rail-id={railId}
+>
+  <div class="project-rail-status" data-project-rail-status>
+    <div class="project-rail-copy">
+      <p
+        class="project-rail-helper eyebrow"
+        id={railHeadingId}
+        data-project-rail-helper
+      >
+        {helperLabel}
+      </p>
+      <p class="project-rail-fraction micro" data-project-rail-fraction>
+        <span data-project-rail-current>{currentLabel}</span>
+        <span aria-hidden="true"> / </span>
+        <span data-project-rail-total>{totalLabel}</span>
+      </p>
+    </div>
+    <div class="project-rail-track-wrap">
+      <div
+        class="project-rail-progress"
+        data-project-rail-progress
+        role="progressbar"
+        aria-label="Project rail scroll progress"
+        aria-valuemin="0"
+        aria-valuemax="100"
+        aria-valuenow="0"
+      >
+        <span class="project-rail-progress-track" aria-hidden="true">
+          <span
+            class="project-rail-progress-fill"
+            data-project-rail-progress-fill></span>
+          <span
+            class="project-rail-progress-marker"
+            data-project-rail-progress-marker></span>
+        </span>
+      </div>
+      <span class="project-rail-cue" data-project-rail-cue aria-hidden="true">
+        <span class="project-rail-cue-line"></span>
+        <ProjectArrowIcon class="project-rail-cue-icon" />
+      </span>
+    </div>
+  </div>
+  <div
+    class="project-list"
+    tabindex="0"
+    role="region"
+    aria-describedby={railHeadingId}
+    data-project-rail-scroll
+    {...railRegionProps}
+  >
+    {projects.map((project) => <ProjectCard {project} />)}
+  </div>
+</div>
+
+<script>
+  import { mountProjectRail } from '../../lib/projectRail';
+
+  const cleanups = new WeakMap();
+
+  document.querySelectorAll('[data-project-rail]').forEach((root) => {
+    cleanups.get(root)?.();
+    cleanups.set(root, mountProjectRail(root));
+  });
+</script>

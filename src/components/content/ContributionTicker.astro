@@ -1,5 +1,6 @@
 ---
 import type { ContributionStat } from '../../data/githubSnapshots';
+import ExternalLinkIcon from '../icons/ExternalLinkIcon.astro';
 
 type Props = {
   id: string;
@@ -52,7 +53,7 @@ const headingId = `${id}-heading`;
       sourceUrl ? (
         <a href={sourceUrl} target="_blank" rel="noopener noreferrer">
           <span>{sourceText}</span>
-          <span aria-hidden="true">↗</span>
+          <ExternalLinkIcon class="external-link-icon" />
         </a>
       ) : (
         <p class="ticker-source-detail">

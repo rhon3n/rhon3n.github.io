@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
+import ExternalLinkIcon from '../icons/ExternalLinkIcon.astro';
 
 type Props = {
   entries: CollectionEntry<'experience'>[];
@@ -35,7 +36,8 @@ const formatYear = (date: Date) =>
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                {entry.data.organization} ↗
+                <span>{entry.data.organization}</span>
+                <ExternalLinkIcon class="external-link-icon" />
               </a>
             ) : (
               entry.data.organization

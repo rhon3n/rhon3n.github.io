@@ -1,18 +1,30 @@
 ---
+import ExternalLinkIcon from '../components/icons/ExternalLinkIcon.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { site } from '../data/site';
 
 const [emailLocal, emailDomain] = site.email.split('@');
+const pageSections = [
+  { id: 'contact-intro', label: 'Introduction' },
+  { id: 'contact-direct', label: 'Direct contact' },
+] as const;
 ---
 
 <BaseLayout
   title="Contact | Joel Rhine"
-  description="Contact Joel Rhine about products, systems, software, and coffee."
+  description="Contact Joel Rhine about products, systems, software, and coffee, especially when the goal is making something more useful for the people it serves."
+  pageSections={pageSections}
 >
-  <header class="page-intro contact-intro" data-od-id="contact-intro">
-    <p class="eyebrow">Contact</p><h1>Let’s talk about the work.</h1><p>
-      I am open to thoughtful conversations about products, systems, coffee, and
-      the messy work between an idea and something useful.
+  <header
+    id="contact-intro"
+    class="page-intro contact-intro"
+    data-od-id="contact-intro"
+  >
+    <p class="eyebrow">Contact</p><h1>
+      Let's talk about the people the work needs to serve.
+    </h1><p>
+      I am open to conversations about products, systems, coffee, and the work
+      of turning an idea into something useful for the people who need it.
     </p><div class="actions">
       <a class="button button-primary" href={`mailto:${site.email}`}
         >Email Joel</a
@@ -20,14 +32,24 @@ const [emailLocal, emailDomain] = site.email.split('@');
         class="text-action"
         href="https://www.linkedin.com/in/joel-t-rhine/"
         target="_blank"
-        rel="noopener noreferrer">Connect on LinkedIn ↗</a
+        rel="noopener noreferrer"
+        ><span>Connect on LinkedIn</span><ExternalLinkIcon
+          class="external-link-icon"
+        /></a
       >
     </div>
   </header>
-  <section class="section contact-direct" data-od-id="contact-direct">
-    <p class="eyebrow">Direct</p><h2>{emailLocal}@<wbr />{emailDomain}</h2><p>
-      No form, tracking, or chat widget. Your message goes through your email
-      client.
+  <section
+    id="contact-direct"
+    class="section contact-direct"
+    data-od-id="contact-direct"
+  >
+    <p class="eyebrow">Direct</p><h2>
+      <span class="contact-email-local">{emailLocal}@</span><wbr /><span
+        class="contact-email-domain">{emailDomain}</span
+      >
+    </h2><p>
+      No form or chat widget. Just a direct way to reach a real person.
     </p>
   </section>
 </BaseLayout>

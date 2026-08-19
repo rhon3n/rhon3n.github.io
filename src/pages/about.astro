@@ -1,35 +1,41 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+
+const pageSections = [
+  { id: 'about-intro', label: 'Introduction' },
+  { id: 'about-story', label: 'Story' },
+  { id: 'about-principles', label: 'How I work' },
+] as const;
 ---
 
 <BaseLayout
   title="About | Joel Rhine"
-  description="Joel Rhine is a software engineer and product builder with a background in coffee, operations, and field leadership."
+  description="Joel Rhine is a software engineer and product builder with a background in coffee, operations, and field leadership, focused on making tools that work for the people using them."
+  pageSections={pageSections}
 >
-  <header class="page-intro" data-od-id="about-intro">
+  <header id="about-intro" class="page-intro" data-od-id="about-intro">
     <p class="eyebrow">About Joel</p><h1>
-      I came to software through the work it is meant to support.
+      I came to software through the people the work depends on.
     </h1>
   </header>
-  <article class="prose" data-od-id="about-story">
+  <article id="about-story" class="prose" data-od-id="about-story">
     <p>
-      Before I wrote software professionally, I worked in coffee, wholesale,
-      logistics, and field leadership. Those jobs made the stakes of a bad
-      process obvious. When a tool is confusing, the cost shows up as lost time,
-      a missed handoff, an unhappy customer, or a person doing extra work to
-      cover for the system.
+      Before software, I worked in coffee, wholesale, logistics, and field
+      leadership. Those jobs made the cost of a bad process easy to see. A
+      confusing tool means lost time, missed handoffs, unhappy customers, or
+      extra work for the person stuck carrying it.
     </p>
     <p>
-      I moved into software in 2018 and joined Honey in 2020. From there, I
-      worked on merchant integrations, scraping configuration, operational
-      dashboards, and on-call systems. At ZeroClick.ai, I worked on automations,
-      retailer integrations, experiments, and internal engineering workflows.
+      I moved into software in 2018 and joined Honey in 2020. I worked on
+      merchant integrations, scraping configuration, operational dashboards, and
+      on-call systems. At ZeroClick.ai, I worked on automations, retailer
+      integrations, experiments, and internal engineering workflows.
     </p>
     <p>
-      Today, I am building measure.coffee as its Founding Engineer. It connects
-      my coffee background with the software questions I care about most: how
-      people learn, how they make decisions, and how a product can help without
-      getting in the way.
+      Today, I am building measure.coffee as its Founding Engineer. It brings
+      together my coffee background and the software questions I care about: how
+      people learn, make decisions, and get the help they need without extra
+      friction.
     </p>
     <h2>What I bring to a team</h2>
     <ul>
@@ -46,34 +52,36 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       >
     </div>
   </article>
-  <section class="section" data-od-id="about-principles">
+  <section id="about-principles" class="section" data-od-id="about-principles">
     <header class="section-header compact section-header-canary">
       <div>
-        <p class="eyebrow">How I work</p><h2>Three operating principles.</h2>
+        <p class="eyebrow">How I work</p><h2>How I work</h2>
       </div>
       <p>
-        Useful systems begin with observation, become legible through structure,
-        and stay useful through careful handoff.
+        I start with the people, study the work around them, make the system
+        easier to understand, and leave it in good shape for the next person.
       </p>
     </header>
     <div class="principles">
       <article>
         <span class="micro" aria-hidden="true">01</span>
-        <h3>Start with the work itself</h3><p>
-          Look for repeated steps, normalized workarounds, and recurring
-          questions.
+        <h3>Start with the people</h3><p>
+          Look for repeated steps, workarounds people accept as normal, and the
+          moments where someone needs help, clarity, or a faster path.
         </p>
       </article>
       <article>
         <span class="micro" aria-hidden="true">02</span>
-        <h3>Make complexity usable</h3><p>
-          A sophisticated system should not make its users need a manual.
+        <h3>Understand the work</h3><p>
+          A complex system should not make everyday tasks harder for the person
+          relying on it.
         </p>
       </article>
       <article>
         <span class="micro" aria-hidden="true">03</span>
-        <h3>Build for the next person</h3><p>
-          Good work is easier to maintain, explain, and extend.
+        <h3>Build something people want to use</h3><p>
+          Good work is easier to maintain, explain, and extend when another
+          person has to pick it up.
         </p>
       </article>
     </div>

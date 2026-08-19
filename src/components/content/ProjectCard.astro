@@ -1,5 +1,7 @@
 ---
 import type { CollectionEntry } from 'astro:content';
+import ExternalLinkIcon from '../icons/ExternalLinkIcon.astro';
+import ProjectArrowIcon from '../icons/ProjectArrowIcon.astro';
 import { getProjectPresentation } from '../../data/projectPresentation';
 
 type Props = { project: CollectionEntry<'projects'> };
@@ -12,30 +14,39 @@ const projectHref = `/work/${project.id}/`;
 
 <article
   class:list={['project-record', presentation?.categoryClass]}
+  data-project-card
   data-od-id={`project-${project.id}`}
 >
   <span class="project-index micro" aria-hidden="true">
     {String(project.data.sortOrder ?? 0).padStart(2, '0')}
   </span>
   <div class="project-content">
-    <div class="project-title-row">
+    <div class="project-title-row" data-project-zone="title">
       <h3><a href={projectHref}>{title}</a></h3>
     </div>
-    <div class="project-details">
-      <div class="project-description">
-        <p class="eyebrow">{role}</p>
-        <p>{summary}</p>
+    <div class="project-details" data-project-zone="details">
+      <div class="project-description" data-project-zone="description">
+        <p class="eyebrow" data-project-landmark="description-label">{role}</p>
+        <p data-project-landmark="description-body">{summary}</p>
         <ul class="tag-list" aria-label={`${title} technologies`}>
           {tags.map((tag) => <li>{tag}</li>)}
         </ul>
       </div>
-      <div class="project-category">
-        <p class="eyebrow">Category</p>
-        <strong>{presentation?.category ?? 'Selected work'}</strong>
+      <div class="project-category" data-project-zone="category">
+        <p class="eyebrow" data-project-landmark="category-label">Type</p>
+        <strong data-project-landmark="category-value">
+          {presentation?.category ?? 'Selected work'}
+        </strong>
         {
           links[0] && (
-            <a href={links[0].url} target="_blank" rel="noopener noreferrer">
-              {links[0].label} ↗
+            <a
+              href={links[0].url}
+              target="_blank"
+              rel="noopener noreferrer"
+              data-project-landmark="category-link"
+            >
+              <span>{links[0].label}</span>
+              <ExternalLinkIcon class="external-link-icon" />
             </a>
           )
         }
@@ -43,20 +54,30 @@ const projectHref = `/work/${project.id}/`;
     </div>
     {
       presentation && (
-        <figure class="project-media">
-          <img
-            src={presentation.image}
-            width="1600"
-            height="900"
-            alt={presentation.alt}
-            loading="lazy"
-            decoding="async"
-          />
-          <figcaption>
-            <span class="eyebrow">Media highlight</span>
+        <>
+          <picture
+            class="project-media-frame"
+            data-project-zone="media"
+            style={`--mobile-media-width: ${presentation.mobileImageWidth}; --mobile-media-height: ${presentation.mobileImageHeight};`}
+          >
+            <source
+              media="(max-width: 45rem)"
+              srcset={presentation.mobileImage}
+            />
+            <img
+              src={presentation.image}
+              width={presentation.imageWidth}
+              height={presentation.imageHeight}
+              alt={presentation.alt}
+              loading="lazy"
+              decoding="async"
+            />
+          </picture>
+          <div class="project-caption" data-project-zone="caption">
+            <span class="eyebrow">Preview</span>
             <span class="micro">{presentation.caption}</span>
-          </figcaption>
-        </figure>
+          </div>
+        </>
       )
     }
   </div>
@@ -64,7 +85,9 @@ const projectHref = `/work/${project.id}/`;
     class="project-arrow"
     href={projectHref}
     aria-label={`Read ${title} project details`}
+    data-project-zone="cta"
   >
-    <span aria-hidden="true">→</span>
+    <span class="project-arrow-label">View project</span>
+    <ProjectArrowIcon class="project-arrow-icon" />
   </a>
 </article>

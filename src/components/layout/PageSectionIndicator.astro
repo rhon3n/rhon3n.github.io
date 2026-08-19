@@ -1,0 +1,180 @@
+---
+export type PageSection = {
+  id: string;
+  label: string;
+};
+
+type Props = {
+  sections: readonly PageSection[];
+};
+
+const { sections } = Astro.props;
+---
+
+{
+  sections.length > 1 && (
+    <nav
+      class="page-section-indicator"
+      aria-label="Page sections"
+      data-section-indicator
+      data-od-id="page-section-indicator"
+    >
+      <ol>
+        {sections.map((section, index) => (
+          <li>
+            <a
+              class="page-section-link"
+              href={`#${section.id}`}
+              aria-label={`Go to ${section.label} section`}
+              aria-current={index === 0 ? 'location' : undefined}
+              data-section-id={section.id}
+            >
+              <span aria-hidden="true" />
+            </a>
+          </li>
+        ))}
+      </ol>
+    </nav>
+  )
+}
+
+<script>
+  import {
+    createIdleVisibilityController,
+    getSectionScrollBehavior,
+    selectActiveSection,
+  } from '../../lib/sectionIndicator';
+
+  const MOBILE_QUERY = '(max-width: 45rem)';
+  const REDUCED_MOTION_QUERY = '(prefers-reduced-motion: reduce)';
+
+  document
+    .querySelectorAll<HTMLElement>('[data-section-indicator]')
+    .forEach((indicator) => {
+      if (indicator.dataset.initialized === 'true') return;
+      indicator.dataset.initialized = 'true';
+
+      const links = Array.from(
+        indicator.querySelectorAll<HTMLAnchorElement>('[data-section-id]'),
+      );
+      const targets = links
+        .map((link) => {
+          const id = link.dataset.sectionId;
+          const target = id ? document.getElementById(id) : null;
+          return id && target ? { id, link, target } : null;
+        })
+        .filter((entry) => entry !== null);
+
+      if (targets.length < 2) {
+        indicator.hidden = true;
+        return;
+      }
+
+      const mobile = window.matchMedia(MOBILE_QUERY);
+      const reducedMotion = window.matchMedia(REDUCED_MOTION_QUERY);
+      const intersectingIds = new Set<string>();
+      let activeId = targets[0].id;
+      let frame = 0;
+
+      const applyVisibility = (visible: boolean) => {
+        indicator.classList.toggle('is-visible', visible);
+        indicator.setAttribute('aria-hidden', visible ? 'false' : 'true');
+        links.forEach((link) => {
+          if (visible) link.removeAttribute('tabindex');
+          else link.tabIndex = -1;
+        });
+      };
+
+      const visibility = createIdleVisibilityController({
+        onVisibilityChange: (visible) => {
+          if (mobile.matches) applyVisibility(visible);
+        },
+      });
+
+      const syncViewportMode = () => {
+        indicator.classList.toggle('is-managed', mobile.matches);
+        if (mobile.matches) visibility.show();
+        else applyVisibility(true);
+      };
+
+      const setActive = (id: string, reveal = false) => {
+        if (activeId === id && !reveal) return;
+        activeId = id;
+        targets.forEach(({ id: sectionId, link }) => {
+          if (sectionId === id) link.setAttribute('aria-current', 'location');
+          else link.removeAttribute('aria-current');
+        });
+        if (reveal && mobile.matches) visibility.show();
+      };
+
+      const updateActive = (reveal = false) => {
+        frame = 0;
+        const documentElement = document.documentElement;
+        const selectedId = selectActiveSection(
+          targets.map(({ id, target }) => ({
+            id,
+            top: target.getBoundingClientRect().top,
+            isIntersecting: intersectingIds.has(id),
+          })),
+          {
+            atTop: window.scrollY <= 2,
+            atBottom:
+              Math.ceil(window.scrollY + window.innerHeight) >=
+              documentElement.scrollHeight - 2,
+            readingLine: Math.max(96, window.innerHeight * 0.3),
+          },
+        );
+        if (selectedId)
+          setActive(selectedId, reveal || selectedId !== activeId);
+      };
+
+      const scheduleActiveUpdate = (reveal = false) => {
+        if (reveal && mobile.matches) visibility.show();
+        if (frame !== 0) return;
+        frame = window.requestAnimationFrame(() => updateActive(reveal));
+      };
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) intersectingIds.add(entry.target.id);
+            else intersectingIds.delete(entry.target.id);
+          });
+          scheduleActiveUpdate(true);
+        },
+        { rootMargin: '-20% 0px -55% 0px', threshold: [0, 0.01, 1] },
+      );
+
+      targets.forEach(({ link, target, id }) => {
+        observer.observe(target);
+        link.addEventListener('click', (event) => {
+          event.preventDefault();
+          target.scrollIntoView({
+            block: 'start',
+            behavior: getSectionScrollBehavior(reducedMotion.matches),
+          });
+          history.replaceState(null, '', `#${id}`);
+          setActive(id, true);
+        });
+      });
+
+      window.addEventListener('scroll', () => scheduleActiveUpdate(true), {
+        passive: true,
+      });
+      window.addEventListener('resize', () => scheduleActiveUpdate(true), {
+        passive: true,
+      });
+      indicator.addEventListener('pointerenter', () => visibility.hold());
+      indicator.addEventListener('pointerleave', () => visibility.release());
+      indicator.addEventListener('focusin', () => visibility.hold());
+      indicator.addEventListener('focusout', (event) => {
+        if (!indicator.contains(event.relatedTarget as Node | null)) {
+          visibility.release();
+        }
+      });
+      mobile.addEventListener('change', syncViewportMode);
+
+      syncViewportMode();
+      scheduleActiveUpdate(true);
+    });
+</script>
