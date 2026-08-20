@@ -3,13 +3,18 @@ interface Props {
   title: string;
   description: string;
   image?: string;
+  imageAlt?: string;
   type?: 'website' | 'article';
 }
+
+const defaultImageAlt =
+  'Joel Rhine portfolio social card with the headline I BUILD PRODUCTS and a people-first product statement.';
 
 const {
   title,
   description,
-  image = '/social-card.svg',
+  image = '/social-card.png',
+  imageAlt = defaultImageAlt,
   type = 'website',
 } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site);
@@ -24,7 +29,13 @@ const socialImage = new URL(image, Astro.site);
 <meta property="og:description" content={description} />
 <meta property="og:url" content={canonical} />
 <meta property="og:image" content={socialImage} />
+<meta property="og:image:secure_url" content={socialImage} />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content={imageAlt} />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
 <meta name="twitter:image" content={socialImage} />
+<meta name="twitter:image:alt" content={imageAlt} />

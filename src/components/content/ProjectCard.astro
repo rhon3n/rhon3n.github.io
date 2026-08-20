@@ -38,16 +38,23 @@ const projectHref = `/work/${project.id}/`;
           {presentation?.category ?? 'Selected work'}
         </strong>
         {
-          links[0] && (
-            <a
-              href={links[0].url}
-              target="_blank"
-              rel="noopener noreferrer"
-              data-project-landmark="category-link"
-            >
-              <span>{links[0].label}</span>
-              <ExternalLinkIcon class="external-link-icon" />
-            </a>
+          links.length > 0 && (
+            <ul class="project-category-links" aria-label={`${title} links`}>
+              {links.map((link) => (
+                <li>
+                  <a
+                    href={link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={link.label}
+                    data-project-landmark="category-link"
+                  >
+                    <span>{link.compactLabel ?? link.label}</span>
+                    <ExternalLinkIcon class="external-link-icon" />
+                  </a>
+                </li>
+              ))}
+            </ul>
           )
         }
       </div>
