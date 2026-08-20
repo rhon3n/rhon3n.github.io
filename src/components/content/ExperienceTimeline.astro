@@ -1,5 +1,9 @@
 ---
 import type { CollectionEntry } from 'astro:content';
+import {
+  formatExperienceMeta,
+  getExperienceRailLabel,
+} from '../../lib/experienceTimeline';
 import ExternalLinkIcon from '../icons/ExternalLinkIcon.astro';
 
 type Props = {
@@ -8,46 +12,75 @@ type Props = {
 };
 const { entries, headingLevel = 3 } = Astro.props;
 const Heading = `h${headingLevel}` as const;
-const formatYear = (date: Date) =>
-  new Intl.DateTimeFormat('en', { year: 'numeric' }).format(date);
 ---
 
-<ol class="timeline" data-od-id="experience-timeline">
-  {
-    entries.map((entry, index) => (
-      <li
-        class={`timeline-entry ${entry.data.type}`}
-        data-od-id={`experience-${entry.id}`}
-      >
-        <span class="timeline-index micro" aria-hidden="true">
-          {String(index + 1).padStart(2, '0')}
-        </span>
-        <div class="timeline-dates">
-          <span>{formatYear(entry.data.startDate)}</span>
-          <span>
-            {entry.data.endDate ? formatYear(entry.data.endDate) : 'Now'}
-          </span>
-        </div>
-        <div class="timeline-copy">
-          <p class="eyebrow">
-            {entry.data.organizationUrl ? (
-              <a
-                href={entry.data.organizationUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <span>{entry.data.organization}</span>
-                <ExternalLinkIcon class="external-link-icon" />
-              </a>
-            ) : (
-              entry.data.organization
-            )}
-          </p>
-          <Heading>{entry.data.title}</Heading>
-          <p>{entry.data.summary}</p>
-        </div>
-        <span class="timeline-type eyebrow">{entry.data.type}</span>
-      </li>
-    ))
-  }
-</ol>
+<div
+  class="timeline-shell"
+  data-od-id="experience-timeline"
+  data-experience-timeline
+  data-timeline-active-index="0"
+  data-timeline-reduced-motion="false"
+>
+  <span
+    class="timeline-marker"
+    aria-hidden="true"
+    data-experience-marker
+    data-timeline-active="true"></span>
+  <ol class="timeline">
+    {
+      entries.map((entry, index) => (
+        <li
+          class:list={['timeline-entry', entry.data.type]}
+          data-od-id={`experience-${entry.id}`}
+          data-experience-entry
+          data-timeline-active={index === 0 ? 'true' : 'false'}
+        >
+          <div class="timeline-rail" data-experience-rail>
+            <span
+              class="timeline-rail-label micro"
+              data-experience-rail-label
+              data-timeline-active={index === 0 ? 'true' : 'false'}
+            >
+              {getExperienceRailLabel(entry.data, index)}
+            </span>
+          </div>
+          <div class="timeline-copy">
+            <p class="timeline-meta eyebrow" data-experience-meta>
+              {formatExperienceMeta(entry.data)}
+            </p>
+            <Heading>{entry.data.title}</Heading>
+            <p class="timeline-organization eyebrow">
+              {entry.data.organizationUrl ? (
+                <a
+                  href={entry.data.organizationUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-experience-organization
+                >
+                  <span>{entry.data.organization}</span>
+                  <ExternalLinkIcon class="external-link-icon" />
+                </a>
+              ) : (
+                <span data-experience-organization>
+                  {entry.data.organization}
+                </span>
+              )}
+            </p>
+            <p>{entry.data.summary}</p>
+          </div>
+        </li>
+      ))
+    }
+  </ol>
+</div>
+
+<script>
+  import { mountExperienceTimeline } from '../../lib/experienceTimeline';
+
+  const cleanups = new WeakMap();
+
+  document.querySelectorAll('[data-experience-timeline]').forEach((root) => {
+    cleanups.get(root)?.();
+    cleanups.set(root, mountExperienceTimeline(root));
+  });
+</script>

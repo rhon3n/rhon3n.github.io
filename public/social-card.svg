@@ -1,1 +1,54 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630"><rect width="1200" height="630" fill="#0b0d0c"/><circle cx="1000" cy="100" r="360" fill="#c7ff4a" opacity=".13"/><text x="90" y="260" fill="#c7ff4a" font-size="34" font-family="system-ui" font-weight="700">JOEL RHINE · RHONEN</text><text x="90" y="390" fill="#f1f4ed" font-size="74" font-family="system-ui" font-weight="800">Products people can operate.</text></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="social-card-title social-card-desc">
+  <title id="social-card-title">Joel Rhine portfolio social card</title>
+  <desc id="social-card-desc">Ivory editorial social card for Joel Rhine with the headline I BUILD PRODUCTS and a people-first product statement.</desc>
+  <style>
+    .display {
+      font-family: "Archivo Black", "Arial Black", Impact, sans-serif;
+      font-size: 94px;
+      letter-spacing: -0.04em;
+    }
+
+    .meta,
+    .body,
+    .footer {
+      font-family: "Source Sans 3", "Helvetica Neue", Arial, sans-serif;
+      fill: #0c0326;
+    }
+
+    .meta {
+      font-size: 22px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+    }
+
+    .body {
+      font-size: 39px;
+      font-weight: 400;
+      letter-spacing: -0.01em;
+    }
+
+    .footer {
+      font-size: 21px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+    }
+  </style>
+
+  <rect width="1200" height="630" fill="#fcfdea" />
+  <rect x="24" y="24" width="1152" height="582" fill="none" stroke="#0c0326" stroke-width="2" />
+  <rect x="1080" y="24" width="96" height="582" fill="#2132f3" />
+  <rect x="72" y="58" width="12" height="12" fill="#f3f576" />
+  <line x1="72" y1="96" x2="1044" y2="96" stroke="#0c0326" stroke-width="2" />
+  <line x1="72" y1="534" x2="1044" y2="534" stroke="#0c0326" stroke-width="2" />
+  <line x1="1044" y1="24" x2="1044" y2="606" stroke="#0c0326" stroke-width="2" />
+
+  <text x="72" y="82" class="meta">r/rhonen</text>
+  <text x="262" y="82" class="meta">JOEL RHINE · SOFTWARE ENGINEER &amp; PRODUCT BUILDER</text>
+
+  <text x="72" y="286" class="display" fill="#0c0326">I BUILD PRODUCTS</text>
+  <text x="72" y="390" class="body">With the people using them in mind.</text>
+  <text x="72" y="444" class="body">Coffee, operations, integrations, and product engineering.</text>
+
+  <text x="72" y="571" class="footer">RHONEN.DESIGN</text>
+  <text x="589" y="571" class="footer" text-anchor="middle">SELECTED WORK · ABOUT · CONTACT</text>
+</svg>

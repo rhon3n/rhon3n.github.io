@@ -15,7 +15,11 @@ export const projectSchema = z
     heroImage: z.unknown().optional(),
     heroAlt: z.string().min(1).optional(),
     links: z.array(
-      z.object({ label: z.string().min(1), url: z.string().url() }),
+      z.object({
+        label: z.string().min(1),
+        compactLabel: z.string().min(1).optional(),
+        url: z.string().url(),
+      }),
     ),
   })
   .refine((data) => !data.heroImage || data.heroAlt, {

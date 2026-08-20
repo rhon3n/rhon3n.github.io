@@ -5,6 +5,14 @@ import {
   projectSchema,
   sortByDate,
 } from '../../src/lib/content';
+import {
+  clampTimelineMarkerCenter,
+  formatExperienceMeta,
+  formatExperienceYear,
+  getExperienceAnchor,
+  getTimelineMotionPreset,
+  selectActiveExperienceIndex,
+} from '../../src/lib/experienceTimeline';
 
 const validProject = {
   title: 'Shader Studio',
@@ -68,5 +76,83 @@ describe('content schemas', () => {
 
   it('renders date-only publication years in UTC', () => {
     expect(getPublicationYear(new Date('2026-01-01T00:00:00.000Z'))).toBe(2026);
+  });
+});
+
+describe('experience timeline helpers', () => {
+  it('formats date-only years and ranges in UTC', () => {
+    const startDate = new Date('2024-01-01T00:00:00.000Z');
+    const endDate = new Date('2026-03-01T00:00:00.000Z');
+
+    expect(formatExperienceYear(startDate)).toBe('2024');
+    expect(
+      formatExperienceMeta({ startDate, endDate, type: 'engineering' }),
+    ).toBe('2024 to 2026 · Engineering');
+  });
+
+  it('computes the requested desktop and mobile entry anchors', () => {
+    expect(
+      getExperienceAnchor({ entryTop: 100, entryHeight: 300, isMobile: false }),
+    ).toBe(196);
+    expect(
+      getExperienceAnchor({ entryTop: 100, entryHeight: 300, isMobile: true }),
+    ).toBe(172);
+  });
+
+  it('keeps midpoint ties on the earlier entry and advances after crossing', () => {
+    const context = {
+      anchors: [100, 300, 500],
+      viewportHeight: 600,
+      documentHeight: 2000,
+      timelineTop: 80,
+      timelineBottom: 700,
+    };
+
+    expect(
+      selectActiveExperienceIndex({
+        ...context,
+        scrollY: 100,
+        readingLine: 100,
+      }),
+    ).toBe(0);
+    expect(
+      selectActiveExperienceIndex({
+        ...context,
+        scrollY: 101,
+        readingLine: 100,
+      }),
+    ).toBe(1);
+  });
+
+  it('locks selection to the first and last entries at timeline boundaries', () => {
+    const context = {
+      anchors: [100, 300, 500],
+      readingLine: 200,
+      viewportHeight: 600,
+      documentHeight: 1200,
+      timelineTop: 400,
+      timelineBottom: 900,
+    };
+
+    expect(selectActiveExperienceIndex({ ...context, scrollY: 0 })).toBe(0);
+    expect(selectActiveExperienceIndex({ ...context, scrollY: 600 })).toBe(2);
+  });
+
+  it('clamps marker centers and removes transitions for reduced motion', () => {
+    expect(
+      clampTimelineMarkerCenter({
+        desiredCenter: 0,
+        railStart: 10,
+        railEnd: 110,
+        markerSize: 10,
+      }),
+    ).toBe(15);
+    expect(getTimelineMotionPreset(true)).toEqual({
+      markerTransition: 'none',
+      colorTransition: 'none',
+    });
+    expect(getTimelineMotionPreset(false).markerTransition).toContain(
+      'transform 220ms',
+    );
   });
 });
