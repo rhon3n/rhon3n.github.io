@@ -245,6 +245,9 @@ export function mountProjectRail(root: Element): () => void {
   let rowsFrame = 0;
   let refreshFrame = 0;
   let viewportWidth = window.innerWidth;
+  let viewportHeight = window.innerHeight;
+  let visualViewportWidth = window.visualViewport?.width;
+  let visualViewportHeight = window.visualViewport?.height;
   let active = true;
   let scrollTween: gsap.core.Tween | undefined;
   let trigger: ReturnType<typeof ScrollTrigger.create> | undefined;
@@ -387,7 +390,11 @@ export function mountProjectRail(root: Element): () => void {
       refreshFrame = 0;
       syncRows();
       ScrollTrigger.refresh();
-      requestNativeSync();
+      if (trigger && !reducedMotion) {
+        renderProgress(trigger.progress);
+      } else {
+        requestNativeSync();
+      }
     });
   };
   const onMotionChange = () => {
@@ -396,8 +403,21 @@ export function mountProjectRail(root: Element): () => void {
   };
   const onResize = () => {
     const nextViewportWidth = window.innerWidth;
-    if (nextViewportWidth !== viewportWidth) {
-      viewportWidth = nextViewportWidth;
+    const nextViewportHeight = window.innerHeight;
+    const nextVisualViewportWidth = window.visualViewport?.width;
+    const nextVisualViewportHeight = window.visualViewport?.height;
+    const viewportChanged =
+      nextViewportWidth !== viewportWidth ||
+      nextViewportHeight !== viewportHeight ||
+      nextVisualViewportWidth !== visualViewportWidth ||
+      nextVisualViewportHeight !== visualViewportHeight;
+
+    viewportWidth = nextViewportWidth;
+    viewportHeight = nextViewportHeight;
+    visualViewportWidth = nextVisualViewportWidth;
+    visualViewportHeight = nextVisualViewportHeight;
+
+    if (viewportChanged) {
       requestRefresh();
       return;
     }
@@ -415,6 +435,14 @@ export function mountProjectRail(root: Element): () => void {
     signal: abortController.signal,
   });
   window.addEventListener('orientationchange', requestRefresh, {
+    passive: true,
+    signal: abortController.signal,
+  });
+  window.addEventListener('pageshow', requestRefresh, {
+    passive: true,
+    signal: abortController.signal,
+  });
+  window.visualViewport?.addEventListener('resize', onResize, {
     passive: true,
     signal: abortController.signal,
   });
