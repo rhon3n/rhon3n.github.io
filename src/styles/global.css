@@ -513,7 +513,12 @@ main > [id] {
   --project-row-media: 264px;
   --project-row-caption: 53px;
   display: grid;
+  height: 100vh;
+  height: 100dvh;
+  min-height: 0;
+  grid-template-rows: auto minmax(0, 1fr);
   gap: var(--space-4);
+  overflow: hidden;
 }
 
 .project-rail-status {
@@ -529,6 +534,7 @@ main > [id] {
 }
 
 .project-rail-helper,
+.project-rail-percentage,
 .project-rail-fraction {
   margin: 0;
 }
@@ -632,6 +638,8 @@ main > [id] {
 
 .project-list {
   display: grid;
+  height: 100%;
+  min-height: 0;
   max-width: 100%;
   align-items: start;
   grid-auto-columns: min(100%, clamp(44rem, 78vw, 64rem));
@@ -643,6 +651,19 @@ main > [id] {
   -webkit-overflow-scrolling: touch;
 }
 
+.project-rail-shell[data-project-rail-enhanced='true'] .project-list {
+  grid-auto-columns: 100%;
+  overflow: hidden;
+  scroll-snap-type: none;
+}
+
+.project-rail-shell[data-project-rail-enhanced='true']
+  .project-rail-progress-fill,
+.project-rail-shell[data-project-rail-enhanced='true']
+  .project-rail-progress-marker {
+  transition: none;
+}
+
 .project-list:focus-visible {
   outline-offset: -3px;
 }
@@ -651,6 +672,8 @@ main > [id] {
   --category-bg: var(--surface);
   --category-fg: var(--fg);
   display: grid;
+  height: 100%;
+  min-height: 0;
   grid-template-columns: minmax(64px, 1fr) minmax(0, 10fr) minmax(56px, 1fr);
   grid-template-rows:
     minmax(var(--project-row-title), auto)
@@ -662,6 +685,15 @@ main > [id] {
   transition:
     background 140ms var(--ease-out),
     color 140ms var(--ease-out);
+}
+
+.project-rail-shell[data-project-rail-enhanced='true'] .project-record {
+  grid-template-rows:
+    minmax(var(--project-row-title), auto)
+    minmax(var(--project-row-details), auto)
+    minmax(0, 1fr)
+    minmax(var(--project-row-caption), auto);
+  overflow-y: auto;
 }
 
 .project-record:last-child {
@@ -1650,6 +1682,15 @@ main > [id] {
       minmax(var(--project-row-title), auto)
       minmax(var(--project-row-details), auto)
       minmax(var(--project-row-media), auto)
+      minmax(var(--project-row-caption), auto)
+      minmax(48px, auto);
+  }
+
+  .project-rail-shell[data-project-rail-enhanced='true'] .project-record {
+    grid-template-rows:
+      minmax(var(--project-row-title), auto)
+      minmax(var(--project-row-details), auto)
+      minmax(0, 1fr)
       minmax(var(--project-row-caption), auto)
       minmax(48px, auto);
   }
