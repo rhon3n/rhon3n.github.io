@@ -2,6 +2,7 @@ import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
+ScrollTrigger.config({ ignoreMobileResize: true });
 
 export const PROJECT_RAIL_DISMISS_SCROLL_PX = 24;
 
@@ -56,11 +57,8 @@ export function getProjectRailScrollBehavior(
   return reducedMotion ? 'auto' : 'smooth';
 }
 
-export function shouldEnhanceProjectRail(
-  reducedMotion: boolean,
-  coarsePointer: boolean,
-): boolean {
-  return !reducedMotion && !coarsePointer;
+export function shouldEnhanceProjectRail(reducedMotion: boolean): boolean {
+  return !reducedMotion;
 }
 
 export function getProjectRailTargetIndex(
@@ -241,11 +239,12 @@ export function mountProjectRail(root: Element): () => void {
     elements;
   const totalCards = cards.length;
   const motionMedia = window.matchMedia('(prefers-reduced-motion: reduce)');
-  const pointerMedia = window.matchMedia('(pointer: coarse)');
   const abortController = new AbortController();
   let reducedMotion = motionMedia.matches;
   let frame = 0;
   let rowsFrame = 0;
+  let refreshFrame = 0;
+  let viewportWidth = window.innerWidth;
   let active = true;
   let scrollTween: gsap.core.Tween | undefined;
   let trigger: ReturnType<typeof ScrollTrigger.create> | undefined;
@@ -309,10 +308,7 @@ export function mountProjectRail(root: Element): () => void {
   const setupScrollTrigger = () => {
     destroyScrollTrigger();
     reducedMotion = motionMedia.matches;
-    const enhanced = shouldEnhanceProjectRail(
-      reducedMotion,
-      pointerMedia.matches,
-    );
+    const enhanced = shouldEnhanceProjectRail(reducedMotion);
     root.dataset.projectRailReducedMotion = String(reducedMotion);
     root.dataset.projectRailEnhanced = String(enhanced);
 
@@ -386,13 +382,26 @@ export function mountProjectRail(root: Element): () => void {
   };
 
   const requestRefresh = () => {
-    requestRowSync();
-    ScrollTrigger.refresh();
-    requestNativeSync();
+    if (refreshFrame) cancelAnimationFrame(refreshFrame);
+    refreshFrame = requestAnimationFrame(() => {
+      refreshFrame = 0;
+      syncRows();
+      ScrollTrigger.refresh();
+      requestNativeSync();
+    });
   };
   const onMotionChange = () => {
     setupScrollTrigger();
     ScrollTrigger.refresh();
+  };
+  const onResize = () => {
+    const nextViewportWidth = window.innerWidth;
+    if (nextViewportWidth !== viewportWidth) {
+      viewportWidth = nextViewportWidth;
+      requestRefresh();
+      return;
+    }
+    requestRowSync();
   };
 
   syncRows();
@@ -401,7 +410,7 @@ export function mountProjectRail(root: Element): () => void {
     if (active) requestRefresh();
   });
 
-  window.addEventListener('resize', requestRefresh, {
+  window.addEventListener('resize', onResize, {
     passive: true,
     signal: abortController.signal,
   });
@@ -421,37 +430,24 @@ export function mountProjectRail(root: Element): () => void {
     addListener?: (listener: (event: MediaQueryListEvent) => void) => void;
     removeListener?: (listener: (event: MediaQueryListEvent) => void) => void;
   };
-  const legacyPointerMedia = pointerMedia as MediaQueryList & {
-    addListener?: (listener: (event: MediaQueryListEvent) => void) => void;
-    removeListener?: (listener: (event: MediaQueryListEvent) => void) => void;
-  };
+
   if ('addEventListener' in motionMedia) {
     motionMedia.addEventListener('change', onMotionChange);
   } else {
     legacyMotionMedia.addListener?.(onMotionChange);
   }
-  if ('addEventListener' in pointerMedia) {
-    pointerMedia.addEventListener('change', onMotionChange);
-  } else {
-    legacyPointerMedia.addListener?.(onMotionChange);
-  }
-
   return () => {
     active = false;
     abortController.abort();
     if (frame) cancelAnimationFrame(frame);
     if (rowsFrame) cancelAnimationFrame(rowsFrame);
+    if (refreshFrame) cancelAnimationFrame(refreshFrame);
     destroyScrollTrigger();
     root.dataset.projectRailEnhanced = 'false';
     if ('removeEventListener' in motionMedia) {
       motionMedia.removeEventListener('change', onMotionChange);
     } else {
       legacyMotionMedia.removeListener?.(onMotionChange);
-    }
-    if ('removeEventListener' in pointerMedia) {
-      pointerMedia.removeEventListener('change', onMotionChange);
-    } else {
-      legacyPointerMedia.removeListener?.(onMotionChange);
     }
   };
 }

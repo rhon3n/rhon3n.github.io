@@ -26,9 +26,8 @@ describe('project rail geometry', () => {
     expect(formatProjectRailPercentage(1)).toBe('100%');
   });
 
-  it('uses native touch scrolling for coarse pointers', () => {
-    expect(shouldEnhanceProjectRail(false, false)).toBe(true);
-    expect(shouldEnhanceProjectRail(false, true)).toBe(false);
-    expect(shouldEnhanceProjectRail(true, false)).toBe(false);
+  it('keeps vertical ScrollTrigger enhancement on coarse pointers', () => {
+    expect(shouldEnhanceProjectRail(false)).toBe(true);
+    expect(shouldEnhanceProjectRail(true)).toBe(false);
   });
 });
