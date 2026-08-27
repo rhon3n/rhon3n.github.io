@@ -1,4 +1,4 @@
-# rhonen.design
+# Rhonen portfolio
 
 Joel Rhine's portfolio, rebuilt as a static-first Astro site.
 
@@ -28,4 +28,4 @@ The production build is emitted to `dist/`. The site is fully static and require
 
 ## Deployment
 
-Connect the repository to Cloudflare Pages using `pnpm build` and `dist/`. Production deployment is Git-triggered; do not use a manual deployment command in the normal workflow.
+GitHub Actions publishes `dist/` to GitHub Pages at <https://rhon3n.github.io>. Production deployment is triggered by pushes to `master`; do not use a manual deployment command in the normal workflow.

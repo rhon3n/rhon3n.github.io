@@ -20,6 +20,16 @@ const required = [
   'images/projects/california-storm-mobile-portrait.png',
 ];
 
+const productionOrigin = 'https://rhon3n.github.io';
+const retiredOrigin = 'https://rhonen.design';
+const publicConfigurationPaths = [
+  'astro.config.mjs',
+  'src/data/site.ts',
+  'src/content/projects/shader-studio.mdx',
+  'src/content/projects/california-storm.mdx',
+  'public/robots.txt',
+];
+
 const assertPngDimensions = (buffer, expectedWidth, expectedHeight) => {
   const pngSignature = '89504e470d0a1a0a';
   if (buffer.subarray(0, 8).toString('hex') !== pngSignature)
@@ -35,6 +45,21 @@ const assertPngDimensions = (buffer, expectedWidth, expectedHeight) => {
 };
 
 await Promise.all(required.map((path) => access(join('dist', path))));
+
+for (const cnamePath of ['CNAME', 'public/CNAME', 'dist/CNAME']) {
+  try {
+    await access(cnamePath);
+    throw new Error(`Retired custom-domain file still exists: ${cnamePath}`);
+  } catch (error) {
+    if (error?.code !== 'ENOENT') throw error;
+  }
+}
+
+for (const path of publicConfigurationPaths) {
+  const source = await readFile(path, 'utf8');
+  if (source.includes(retiredOrigin))
+    throw new Error(`Retired production origin remains in ${path}`);
+}
 
 const socialCard = await readFile('dist/social-card.png');
 if (socialCard.length === 0) throw new Error('social-card.png is empty');
@@ -69,11 +94,19 @@ const scriptedRoutes = new Set([
 for (const [index, page] of pages.entries()) {
   if (!page.includes('id="main-content"'))
     throw new Error(`Missing main landmark in ${pagePaths[index]}`);
+  if (page.includes(retiredOrigin))
+    throw new Error(`Retired production origin remains in ${pagePaths[index]}`);
+  if (!page.includes(`<link rel="canonical" href="${productionOrigin}/`))
+    throw new Error(`Canonical origin is incorrect in ${pagePaths[index]}`);
   if (/script[^>]+_astro/i.test(page) && !scriptedRoutes.has(pagePaths[index]))
     throw new Error(
       `Unexpected client JavaScript bundle in ${pagePaths[index]}`,
     );
 }
+
+const sitemap = await readFile('dist/sitemap-0.xml', 'utf8');
+if (sitemap.includes(retiredOrigin) || !sitemap.includes(productionOrigin))
+  throw new Error('Generated sitemap uses the wrong production origin');
 
 const sourceHome = await readFile('src/pages/index.astro', 'utf8');
 const home = await readFile('dist/index.html', 'utf8');
@@ -140,7 +173,7 @@ if (!home.includes('Founding Engineer at measure.coffee'))
 if (!home.includes('twitter:title') || !home.includes('twitter:description'))
   throw new Error('Twitter metadata is incomplete');
 
-const defaultSocialImage = 'https://rhonen.design/social-card.png';
+const defaultSocialImage = `${productionOrigin}/social-card.png`;
 const defaultSocialAlt =
   'Joel Rhine portfolio social card with the headline I BUILD PRODUCTS and a people-first product statement.';
 
@@ -284,7 +317,7 @@ for (const [pageName, page] of [
 ]) {
   if (!page.includes('href="/work/california-storm/"'))
     throw new Error(`California Storm card missing from ${pageName}`);
-  if (!page.includes('href="https://rhonen.design/cal-storm-case-study/"'))
+  if (!page.includes('href="https://rhon3n.github.io/cal-storm-case-study/"'))
     throw new Error(
       `California Storm case study link missing from ${pageName}`,
     );
@@ -335,7 +368,7 @@ if (!californiaStorm.includes('four WordPress plugins'))
 if (!californiaStorm.includes('<span>2026</span>'))
   throw new Error('California Storm publication year is incorrect');
 for (const href of [
-  'https://rhonen.design/cal-storm-case-study/',
+  'https://rhon3n.github.io/cal-storm-case-study/',
   'https://calstormbasketball.com/',
 ]) {
   if (!californiaStorm.includes(`href="${href}"`))

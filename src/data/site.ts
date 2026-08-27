@@ -1,7 +1,7 @@
 export const site = {
   name: 'Joel Rhine',
   wordmark: 'rhonen',
-  origin: 'https://rhonen.design',
+  origin: 'https://rhon3n.github.io',
   email: 'joelrhine@protonmail.com',
   description:
     'Joel Rhine builds products and systems for real people, drawing on experience in coffee, operations, integrations, and product engineering.',
