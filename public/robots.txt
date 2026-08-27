@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://rhonen.design/sitemap-index.xml
+Sitemap: https://rhon3n.github.io/sitemap-index.xml

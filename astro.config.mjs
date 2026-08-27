@@ -4,7 +4,7 @@ import tailwindcss from '@tailwindcss/vite';
 import { defineConfig } from 'astro/config';
 
 export default defineConfig({
-  site: 'https://rhonen.design',
+  site: 'https://rhon3n.github.io',
   output: 'static',
   integrations: [mdx(), sitemap()],
   trailingSlash: 'always',
