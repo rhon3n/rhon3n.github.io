@@ -109,6 +109,7 @@ if (sitemap.includes(retiredOrigin) || !sitemap.includes(productionOrigin))
   throw new Error('Generated sitemap uses the wrong production origin');
 
 const sourceHome = await readFile('src/pages/index.astro', 'utf8');
+const projectRailSource = await readFile('src/lib/projectRail.ts', 'utf8');
 const home = await readFile('dist/index.html', 'utf8');
 if (!home.includes('aria-label="Page sections"'))
   throw new Error('Homepage section indicator is missing');
@@ -160,12 +161,22 @@ if (!home.includes('data-project-rail'))
   throw new Error('Homepage shared project rail wrapper missing');
 if (!home.includes('data-project-rail-progress'))
   throw new Error('Homepage project rail progress markup missing');
-if (!home.includes('data-project-rail-cue'))
-  throw new Error('Homepage project rail cue markup missing');
+if (!home.includes('data-project-rail-percentage'))
+  throw new Error('Homepage project rail percentage markup missing');
+if (/scroll for more/i.test(home))
+  throw new Error('Homepage contains stale project rail helper copy');
 if (!home.includes('data-project-zone="cta"'))
   throw new Error('Homepage project rail CTA zone markup missing');
 if (!home.includes('aria-label="Project rail scroll progress"'))
   throw new Error('Homepage project rail progress semantics missing');
+if (!projectRailSource.includes('gsap.to(cards'))
+  throw new Error(
+    'Project rail must animate cards inside the clipped viewport',
+  );
+if (projectRailSource.includes('gsap.to(rail'))
+  throw new Error(
+    'Project rail viewport must not be translated and clip its cards',
+  );
 if (pages.some((page) => page.includes('Founder &amp; Founding Engineer')))
   throw new Error('Superseded Measure Coffee title is present');
 if (!home.includes('Founding Engineer at measure.coffee'))
@@ -278,8 +289,10 @@ if (!workIndex.includes('data-project-rail'))
   throw new Error('Work index shared project rail wrapper missing');
 if (!workIndex.includes('data-project-rail-progress'))
   throw new Error('Work index project rail progress markup missing');
-if (!workIndex.includes('data-project-rail-cue'))
-  throw new Error('Work index project rail cue markup missing');
+if (!workIndex.includes('data-project-rail-percentage'))
+  throw new Error('Work index project rail percentage markup missing');
+if (/scroll for more/i.test(workIndex))
+  throw new Error('Work index contains stale project rail helper copy');
 if (!workIndex.includes('data-project-zone="media"'))
   throw new Error('Work index project rail media zone markup missing');
 if (!workIndex.includes('data-project-zone="caption"'))

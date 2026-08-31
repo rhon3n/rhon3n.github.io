@@ -1,11 +1,9 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 import ProjectCard from './ProjectCard.astro';
-import ProjectArrowIcon from '../icons/ProjectArrowIcon.astro';
 
 type Props = {
   projects: CollectionEntry<'projects'>[];
-  helperLabel?: string;
   regionLabel?: string;
   labelledBy?: string;
   railId?: string;
@@ -13,7 +11,6 @@ type Props = {
 
 const {
   projects,
-  helperLabel = 'Scroll for more',
   regionLabel = 'Featured projects',
   labelledBy,
   railId = 'project-rail',
@@ -46,7 +43,10 @@ const railRegionProps = labelledBy
         id={railHeadingId}
         data-project-rail-helper
       >
-        {helperLabel}
+        Gallery progress
+      </p>
+      <p class="project-rail-percentage micro" data-project-rail-percentage>
+        0%
       </p>
       <p class="project-rail-fraction micro" data-project-rail-fraction>
         <span data-project-rail-current>{currentLabel}</span>
@@ -73,10 +73,6 @@ const railRegionProps = labelledBy
             data-project-rail-progress-marker></span>
         </span>
       </div>
-      <span class="project-rail-cue" data-project-rail-cue aria-hidden="true">
-        <span class="project-rail-cue-line"></span>
-        <ProjectArrowIcon class="project-rail-cue-icon" />
-      </span>
     </div>
   </div>
   <div
@@ -94,10 +90,12 @@ const railRegionProps = labelledBy
 <script>
   import { mountProjectRail } from '../../lib/projectRail';
 
-  const cleanups = new WeakMap();
+  const cleanupKey = Symbol.for('rhonen.projectRailCleanup');
+  type RailRoot = HTMLElement & { [cleanupKey]?: () => void };
 
   document.querySelectorAll('[data-project-rail]').forEach((root) => {
-    cleanups.get(root)?.();
-    cleanups.set(root, mountProjectRail(root));
+    const railRoot = root as RailRoot;
+    railRoot[cleanupKey]?.();
+    railRoot[cleanupKey] = mountProjectRail(railRoot);
   });
 </script>
